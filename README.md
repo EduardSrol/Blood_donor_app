@@ -14,7 +14,7 @@ Užívateľ:
 - informácie o ňom
 - notifikácie
 - poďakovanie na stránke, pocet darovani
-
+- miesto v tabulke ludi ziadajucich o krv
 
 
 
