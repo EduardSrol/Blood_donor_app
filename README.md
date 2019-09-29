@@ -1,23 +1,23 @@
 Blood Donor App
 
-Vedení:
+**Vedení:**
 
 Bc. Štefan Bojnák, učo 433823 (vedoucí)  
 
 
-Oficiální zadání:
+**Oficiální zadání:**
 
 Typy používateľov systému:
-	Návštevník stránky
-	Registrovaný používateľ
-		Žiadateľ
-		Darca
-	Neregistrovaný darca
-	Stanica admin
-	(Event Admin)
-	Administrátor
+	-Návštevník stránky
+	-Registrovaný používateľ
+		--Žiadateľ
+		--Darca
+	-Neregistrovaný darca
+	-Stanica admin
+	-(Event Admin)
+	-Administrátor
 
-Systém bude umožňovať:
+**Systém bude umožňovať:**
 
     Spájať ľudí žiadajúcich o krv (ďalej ako žiadateľ - nutná registrácia) a ľudí s dobrým srdcom a úmyslom pomôcť iným v núdzi (ďalej ako darca - voliteľná registrácia)
 
