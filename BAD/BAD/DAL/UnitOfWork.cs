@@ -1,4 +1,5 @@
 ﻿using BAD.Data;
+using BAD.Model;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
