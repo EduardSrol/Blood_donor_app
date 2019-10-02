@@ -9,7 +9,7 @@ namespace BAD.Enums
     {
         Administrator = 1,
         StationAdmin = 2,
-        User = 3,
+        Donor = 3,
         Applicant = 4
     }
 }
