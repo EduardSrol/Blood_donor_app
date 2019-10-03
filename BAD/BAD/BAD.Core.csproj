@@ -267,7 +267,7 @@
     <Compile Include="AppContainer\MapperConfigurationFactory.cs" />
     <Compile Include="AppContainer\MapperInstaller.cs" />
     <Compile Include="DAL\BADDbContext.cs" />
-    <Compile Include="DAL\DataInitializer.cs" />
+    <Compile Include="DAL\DatabaseInitializer.cs" />
     <Compile Include="DAL\DbContextRepository.cs" />
     <Compile Include="DAL\IUnitOfWork.cs" />
     <Compile Include="DAL\UnitOfWork.cs" />
