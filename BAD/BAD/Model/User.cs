@@ -13,11 +13,7 @@ namespace BAD.Model
 
         public UserType UserType { get; set; }
 
-        public Hospital Hospital { get; set; }
-
-        public bool Approved { get; set; }
-
-        public bool Active { get; set; }
+        public string District { get; set; }
 
         public int UUN { get; set; }
 

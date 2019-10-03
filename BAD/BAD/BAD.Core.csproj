@@ -279,8 +279,6 @@
     <Compile Include="Management\UserManager.cs" />
     <Compile Include="Model\BaseModel\Record.cs" />
     <Compile Include="Model\BloodDonation.cs" />
-    <Compile Include="Model\Hospital.cs" />
-    <Compile Include="Model\Institution.cs" />
     <Compile Include="Model\Person.cs" />
     <Compile Include="Model\SampleStation.cs" />
     <Compile Include="Model\User.cs" />
