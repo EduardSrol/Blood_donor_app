@@ -9,6 +9,7 @@ namespace BAD.Model
 {
     public abstract class Person : Record
     {
+        // BN - birth number
         public string prefixBN { get; set; }
 
         public string sufixBN { get; set; }

@@ -35,6 +35,8 @@ namespace BAD.DAL
         public virtual DbSet<BloodDonation> BloodDonations { get; set; }
 
         public virtual DbSet<SampleStation> SampleStations { get; set; }
+
+        public virtual DbSet<Hospital> Hospitals { get; set; }
         #endregion
     }
 }
