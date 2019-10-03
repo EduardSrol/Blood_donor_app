@@ -2,7 +2,7 @@ Blood Donor App
 
 **Vedení:**
 
-Bc. Štefan Bojnák, učo 433823 (vedoucí)  
+Ivan Vanát, učo 456691 (vedoucí)  
 
 
 **Oficiální zadání:**
