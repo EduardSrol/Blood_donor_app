@@ -17,6 +17,11 @@ namespace BAD.DAL
             Configuration.ValidateOnSaveEnabled = true;
         }
 
+        public BADDbContext(DbConnection connection) : base(connection, true)
+        {
+            Database.CreateIfNotExists();
+        }
+
         protected override void Dispose(bool disposing)
         {
             Configuration.LazyLoadingEnabled = false;
@@ -25,6 +30,10 @@ namespace BAD.DAL
 
         #region DbSets
         public virtual DbSet<User> Users { get; set; }
+
+        public virtual DbSet<BloodDonation> BloodDonations { get; set; }
+
+        public virtual DbSet<SampleStation> SampleStations { get; set; }
         #endregion
     }
 }

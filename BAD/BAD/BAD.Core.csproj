@@ -273,12 +273,13 @@
     <Compile Include="DAL\IUnitOfWork.cs" />
     <Compile Include="DAL\UnitOfWork.cs" />
     <Compile Include="DTO\UserDetailModel.cs" />
+    <Compile Include="Enums\BloodType.cs" />
     <Compile Include="Enums\UserType.cs" />
     <Compile Include="Interface\IUserManager.cs" />
     <Compile Include="Management\BaseModel\ManagerBase.cs" />
     <Compile Include="Management\UserManager.cs" />
     <Compile Include="Model\BaseModel\Record.cs" />
-    <Compile Include="Model\BloodSample.cs" />
+    <Compile Include="Model\BloodDonation.cs" />
     <Compile Include="Model\Person.cs" />
     <Compile Include="Model\SampleStation.cs" />
     <Compile Include="Model\User.cs" />

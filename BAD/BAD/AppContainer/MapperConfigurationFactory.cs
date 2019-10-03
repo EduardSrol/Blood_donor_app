@@ -21,7 +21,7 @@ namespace BAD.AppContainer
 
             });
         }
-
+        
         #region Helpers
         public static string GetUserFullName(User user)
         {

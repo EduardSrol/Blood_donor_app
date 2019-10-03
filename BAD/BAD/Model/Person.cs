@@ -9,6 +9,10 @@ namespace BAD.Model
 {
     public abstract class Person : Record
     {
+        public string prefixBN { get; set; }
+
+        public string sufixBN { get; set; }
+
         [MaxLength(100)]
         public string FirstName { get; set; }
 

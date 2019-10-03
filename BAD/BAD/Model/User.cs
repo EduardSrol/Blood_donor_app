@@ -9,7 +9,11 @@ namespace BAD.Model
         [MaxLength(100)]
         public string UserName { get; set; }
 
+        public BloodType BloodType { get; set; }
+
         public UserType UserType { get; set; }
+
+        public string District { get; set; }
 
         public int UUN { get; set; }
 
