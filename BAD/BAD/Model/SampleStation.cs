@@ -6,12 +6,13 @@ using System.Web;
 
 namespace BAD.Model
 {
-    public class SampleStation : Record
+    public class SampleStation : Institution
     {
-        public string Location { get; set; }
 
         public string WebLink { get; set; }
 
         public string PhoneNumber { get; set; }
+
+        public string Email { get; set; }
     }
 }
