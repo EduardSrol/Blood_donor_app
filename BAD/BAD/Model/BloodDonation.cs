@@ -8,9 +8,9 @@ namespace BAD.Model
 {
     public class BloodDonation : Record
     {
-        public virtual User Donor { get; set; }
+        public virtual CommonUser Donor { get; set; }
 
-        public virtual User Applicant { get; set; }
+        public virtual CommonUser Applicant { get; set; }
 
         public virtual SampleStation SampleStation { get; set; }
 

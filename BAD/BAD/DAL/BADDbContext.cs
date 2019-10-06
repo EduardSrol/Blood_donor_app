@@ -30,7 +30,7 @@ namespace BAD.DAL
         }
 
         #region DbSets
-        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<CommonUser> Users { get; set; }
 
         public virtual DbSet<BloodDonation> BloodDonations { get; set; }
 

@@ -15,7 +15,7 @@ namespace BAD.AppContainer
         {
             return new MapperConfiguration(cfg => {
 
-                cfg.CreateMap<User, UserDetailModel>()
+                cfg.CreateMap<CommonUser, UserDetailModel>()
                     .ForMember(dest => dest.FullName, opt => opt.MapFrom(src => GetUserFullName(src)))
                     .ReverseMap();
 
@@ -23,7 +23,7 @@ namespace BAD.AppContainer
         }
         
         #region Helpers
-        public static string GetUserFullName(User user)
+        public static string GetUserFullName(CommonUser user)
         {
             string fullName = string.Empty;
             if (user == null)

@@ -1,25 +1,17 @@
 ﻿using BAD.Enums;
-using System.ComponentModel.DataAnnotations;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Web;
 
 namespace BAD.Model
 {
-    public class User : Person
+    public class Admin : Person
     {
-        [MaxLength(100)]
         public string UserName { get; set; }
 
-        public BloodType BloodType { get; set; }
-
         public UserType UserType { get; set; }
-
-        public Hospital Hospital { get; set; }
-
-        public bool Approved { get; set; }
-
-        public bool Active { get; set; }
-
-        public int UUN { get; set; }
 
         [NotMapped]
         public string Password

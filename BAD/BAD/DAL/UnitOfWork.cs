@@ -17,11 +17,11 @@ namespace BAD.DAL
         protected readonly DbContext context;
 
         public UnitOfWork(DbContext context,
-            IRepository<User> usersRepository)
+            IRepository<CommonUser> usersRepository)
         {
             this.context = context;
             repositoryByType = new Dictionary<Type, IRepository>();
-            repositoryByType[typeof(IRepository<User>)] = usersRepository;
+            repositoryByType[typeof(IRepository<CommonUser>)] = usersRepository;
         }
 
         public IRepository<T> GetRepository<T>()
