@@ -85,7 +85,11 @@ namespace BAD.DAL
                 SampleVolume = 450
             };
 
-            context.Users.AddOrUpdate(user => user.UUN, karlik, laco);
+            context.CommonUsers.AddOrUpdate(user => user.Id, karlik, laco, henrich);
+            context.Admins.AddOrUpdate(admin => admin.Id, jano);
+            context.SampleStations.AddOrUpdate(ss => ss.Id, ke, pp);
+            context.Hospitals.AddOrUpdate(hospital => hospital.Id, ba);
+            context.BloodDonations.AddOrUpdate(donation => donation.Id, numOne);
 
             context.SaveChanges();
 

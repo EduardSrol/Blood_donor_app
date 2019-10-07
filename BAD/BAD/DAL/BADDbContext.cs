@@ -10,12 +10,15 @@ namespace BAD.DAL
 {
     public class BADDbContext : DbContext
     {
-        public BADDbContext() : base("BADContextConnection")
+        private const string ConnectionString = " (localdb)\\MSSQLLocalDB";
+        public BADDbContext() : base(ConnectionString)
         {
+            /*
             Configuration.AutoDetectChangesEnabled = true;
             Configuration.LazyLoadingEnabled = false;
             Configuration.ProxyCreationEnabled = false;
             Configuration.ValidateOnSaveEnabled = true;
+            */
         }
 
         public BADDbContext(DbConnection connection) : base(connection, true)

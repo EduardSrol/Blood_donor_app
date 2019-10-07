@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BAD.Common", "BAD.Common\BA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BAD.Web", "BAD.Web\BAD.Web.csproj", "{AA961898-9347-4EF8-B83A-9D9F3589328E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MigrationDemo", "Test\MigrationDemo.csproj", "{D5EBB455-E51C-4271-8321-3177A9AAB773}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{AA961898-9347-4EF8-B83A-9D9F3589328E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA961898-9347-4EF8-B83A-9D9F3589328E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA961898-9347-4EF8-B83A-9D9F3589328E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5EBB455-E51C-4271-8321-3177A9AAB773}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5EBB455-E51C-4271-8321-3177A9AAB773}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5EBB455-E51C-4271-8321-3177A9AAB773}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5EBB455-E51C-4271-8321-3177A9AAB773}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
