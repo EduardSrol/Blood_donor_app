@@ -10,15 +10,20 @@ namespace BAD.DAL
 {
     public class BADDbContext : DbContext
     {
-        private const string ConnectionString = " (localdb)\\MSSQLLocalDB";
+        //private const string ConnectionString = " (localdb)\\MSSQLLocalDB";
+        private const string ConnectionString = "Data source=(localdb)\\mssqllocaldb;Database=BLOODDONORAPP-DB;Trusted_Connection=True;MultipleActiveResultSets=true";
+
+
         public BADDbContext() : base(ConnectionString)
         {
-            /*
-            Configuration.AutoDetectChangesEnabled = true;
-            Configuration.LazyLoadingEnabled = false;
-            Configuration.ProxyCreationEnabled = false;
-            Configuration.ValidateOnSaveEnabled = true;
-            */
+
+            //configuration.autodetectchangesenabled = true;
+            //configuration.lazyloadingenabled = false;
+            //configuration.proxycreationenabled = false;
+            //configuration.validateonsaveenabled = true;
+
+            var instance = System.Data.Entity.SqlServer.SqlProviderServices.Instance;
+
         }
 
         public BADDbContext(DbConnection connection) : base(connection, true)

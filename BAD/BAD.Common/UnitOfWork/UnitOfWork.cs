@@ -1,33 +1,24 @@
-﻿using BAD.Data;
-using BAD.Model;
+﻿using BAD.Infrastructure.Data;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace BAD.DAL
+namespace BAD.Infrastructure.UnitOfWork
 {
-    public class UnitOfWork : IDisposable, IUnitOfWork
+    public class UnitOfWork : IUnitOfWork
     {
         private Dictionary<Type, IRepository> repositoryByType;
         private bool disposed = false;
         protected readonly DbContext context;
 
-        public UnitOfWork(DbContext context,
-            IRepository<CommonUser> usersRepository)
-        {
-            this.context = context;
-            repositoryByType = new Dictionary<Type, IRepository>();
-            repositoryByType[typeof(IRepository<CommonUser>)] = usersRepository;
-        }
+        //public UnitOfWork(DbContext context)
+        //{
+        //    this.context = context;
+        //}
 
-        public IRepository<T> GetRepository<T>()
-        {
-            return repositoryByType[typeof(IRepository<T>)] as IRepository<T>;
-        }
 
         public void Commit()
         {
@@ -48,15 +39,6 @@ namespace BAD.DAL
         public void Refresh(object e)
         {
             context.Entry(e).Reload();
-        }
-
-        /// <summary>
-        /// Get entity entry from DB
-        /// </summary>
-        /// <param name="e">Entity</param>
-        public DbEntityEntry Entry(object e)
-        {
-            return context.Entry(e);
         }
 
         public bool AutoDetectChangesEnabled

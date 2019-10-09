@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BAD.Data
+namespace BAD.Infrastructure.Data
 {
     public interface IRepository
     {
@@ -18,6 +18,7 @@ namespace BAD.Data
         void Insert(IEnumerable<T> entities);
         void Delete(T entity);
         void Delete(IEnumerable<T> entities);
+        void Delete(Guid id);
         void Update(T entity);
         void Update(IEnumerable<T> entities);
         IQueryable<T> Where(Expression<Func<T, bool>> predicate);

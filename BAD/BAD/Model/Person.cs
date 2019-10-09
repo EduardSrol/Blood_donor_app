@@ -1,14 +1,18 @@
-﻿using BAD.Model.BaseModel;
+﻿using BAD.Infrastructure.Data;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BAD.Model
 {
-    public abstract class Person : Record
+    public abstract class Person : Record, IEntity
     {
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public Guid Id { get; set; }
+
         [MaxLength(100)]
         public string FirstName { get; set; }
 
@@ -23,7 +27,5 @@ namespace BAD.Model
 
         [MaxLength(20)]
         public string Phone { get; set; }
-
-
     }
 }

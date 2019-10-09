@@ -4,23 +4,11 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.ComponentModel.DataAnnotations;
 
 namespace BAD.Model
 {
-    public class Admin : Person
+    public class Admin : User
     {
-        public string UserName { get; set; }
-
-        public UserType UserType { get; set; }
-
-        [NotMapped]
-        public string Password
-        {
-            set
-            {
-                if (string.IsNullOrEmpty(value)) return;
-                //TODO: find way to hash password
-            }
-        }
     }
 }

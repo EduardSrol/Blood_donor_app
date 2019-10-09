@@ -18,10 +18,7 @@ namespace BAD.Management
 
         public async Task<UserDetailModel> GetByIdAsync(int id)
         {
-            var userModel = new UserDetailModel();
-            var user = await unitOfWork.GetRepository<CommonUser>().Where(u => u.Id == id).FirstOrDefaultAsync();
-            mapper.Map(user, userModel);
-            return userModel;
+            throw new NotImplementedException();
         }
     }
 }

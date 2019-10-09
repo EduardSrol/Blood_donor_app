@@ -1,56 +1,53 @@
-﻿using BAD.Data;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
-using System.Data.Entity.Migrations;
 using System.Linq;
+using System.Web;
+using System.Data.Entity;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using System.Web;
 
-namespace BAD.DAL
+
+namespace BAD.Infrastructure.EF
 {
-    public class DbContextRepository<T> : IRepository<T> where T : class
+    public class EFRepository<T> : Data.IRepository<T> where T : class, Data.IEntity, new()
     {
-        protected DbContext DbContext;
-        protected DbSet<T> DbSet;
+        private readonly EFUnitOfWorkFactory factory;
+        protected DbContext DbContext => ((EFUnitOfWork)factory.GetUnitOfWorkInstance()).Context;
 
-        public DbContextRepository(DbContext dataContext)
+        public EFRepository(EFUnitOfWorkFactory factory)
         {
-            DbContext = dataContext;
-            DbSet = DbContext.Set<T>();
-        }
-        public DbContextRepository(DbContext dataContext, DbSet<T> dbSet)
-        {
-            DbContext = dataContext;
-
-            this.DbSet = dbSet;
-        }
-        //For mock purpose
-        public DbContextRepository(DbSet<T> dbSet)
-        {
-            this.DbSet = dbSet;
+            this.factory = factory;
         }
 
         #region Sync methods
         public void Insert(T entity)
         {
-            DbSet.Add(entity);
+            entity.Id = Guid.NewGuid();
+            DbContext.Set<T>().Add(entity);
         }
 
         public void Insert(IEnumerable<T> entities)
         {
-            DbSet.AddRange(entities);
+            DbContext.Set<T>().AddRange(entities);
         }
 
         public void Delete(T entity)
         {
             if (IsDetachedState(entity))
             {
-                DbSet.Attach(entity);
+                DbContext.Set<T>().Attach(entity);
             }
 
-            DbSet.Remove(entity);
+            DbContext.Set<T>().Remove(entity);
+        }
+
+        public void Delete(Guid id)
+        {
+            var entity = DbContext.Set<T>().Find(id);
+            if (entity != null)
+            {
+                DbContext.Set<T>().Remove(entity);
+            }
         }
 
         public void Delete(IEnumerable<T> entities)
@@ -59,85 +56,79 @@ namespace BAD.DAL
             {
                 if (IsDetachedState(entity))
                 {
-                    DbSet.Attach(entity);
+                    DbContext.Set<T>().Attach(entity);
                 }
             }
 
-            DbSet.RemoveRange(entities);
+            DbContext.Set<T>().RemoveRange(entities);
         }
 
         public IQueryable<T> GetAll()
         {
-            return DbSet;
+            return DbContext.Set<T>();
         }
 
         public bool Any(Expression<Func<T, bool>> predicate)
         {
-            return DbSet.Any(predicate);
+            return DbContext.Set<T>().Any(predicate);
         }
 
         public T First(Expression<Func<T, bool>> predicate)
         {
-            return DbSet.First(predicate);
+            return DbContext.Set<T>().First(predicate);
         }
 
         public T FirstOrDefault(Expression<Func<T, bool>> predicate)
         {
-            return DbSet.FirstOrDefault(predicate);
+            return DbContext.Set<T>().FirstOrDefault(predicate);
         }
 
         public IQueryable<T> Where(Expression<Func<T, bool>> predicate)
         {
-            return DbSet.Where(predicate);
+            return DbContext.Set<T>().Where(predicate);
         }
 
         public IQueryable<T> Where(Expression<Func<T, bool>> predicate, bool asNoTracking)
         {
-            return asNoTracking ? DbSet.AsNoTracking().Where(predicate) : DbSet.Where(predicate);
+            return asNoTracking ? DbContext.Set<T>().AsNoTracking().Where(predicate) : DbContext.Set<T>().Where(predicate);
         }
 
         public void Update(T entity)
         {
-            SetModifiedState(entity);
+            var foundEntity = DbContext.Set<T>().Find(entity.Id);
+            DbContext.Entry(foundEntity).CurrentValues.SetValues(entity);
         }
 
         public void Update(IEnumerable<T> entities)
         {
-            SetModifiedState(entities);
+            foreach (var entity in entities)
+            {
+                Update(entity);
+            }
         }
         #endregion
 
         #region Async methods
         public async Task<bool> AnyAsync(Expression<Func<T, bool>> predicate)
         {
-            return await DbSet.AnyAsync(predicate);
+            return await DbContext.Set<T>().AnyAsync(predicate);
         }
 
         public async Task<int> CountAsync(Expression<Func<T, bool>> predicate)
         {
-            return await DbSet.CountAsync(predicate);
+            return await DbContext.Set<T>().CountAsync(predicate);
         }
 
         public async Task<T> FirstAsync(Expression<Func<T, bool>> predicate)
         {
-            return await DbSet.FirstAsync(predicate);
+            return await DbContext.Set<T>().FirstAsync(predicate);
         }
 
         public async Task<T> FirstOrDefaultAsync(Expression<Func<T, bool>> predicate)
         {
-            return await DbSet.FirstOrDefaultAsync(predicate);
+            return await DbContext.Set<T>().FirstOrDefaultAsync(predicate);
         }
         #endregion
-
-        protected virtual void SetModifiedState(IEnumerable<T> entities)
-        {
-            DbSet.AddOrUpdate(entities.ToArray());
-        }
-
-        protected virtual void SetModifiedState(T entity)
-        {
-            DbSet.AddOrUpdate(entity);
-        }
 
         protected virtual bool IsDetachedState(T entity)
         {

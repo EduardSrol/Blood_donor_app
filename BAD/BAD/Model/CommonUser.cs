@@ -4,19 +4,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BAD.Model
 {
-    public class CommonUser : Person
+    public class CommonUser : User
     {
-        public string prefixBN { get; set; }
+        public string PrefixBN { get; set; }
 
-        public string sufixBN { get; set; }
-
-        [MaxLength(100)]
-        public string UserName { get; set; }
-
+        public string SufixBN { get; set; }
+        
         public BloodType BloodType { get; set; }
-
-        public UserType UserType { get; set; }
-
+        
         public Hospital Hospital { get; set; }
 
         public bool Approved { get; set; }
@@ -24,15 +19,5 @@ namespace BAD.Model
         public bool Active { get; set; }
 
         public int UUN { get; set; }
-
-        [NotMapped]
-        public string Password
-        {
-            set
-            {
-                if (string.IsNullOrEmpty(value)) return;
-                //TODO: find way to hash password
-            }
-        }
     }
 }

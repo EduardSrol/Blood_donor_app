@@ -1,9 +1,9 @@
-﻿namespace BAD.Migrations
+namespace BAD.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class AddUserName : DbMigration
+    public partial class firstone : DbMigration
     {
         public override void Up()
         {
@@ -11,8 +11,8 @@
                 "dbo.Admins",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
-                        UserName = c.String(),
+                        Id = c.Guid(nullable: false),
+                        UserName = c.String(nullable: false),
                         UserType = c.Int(nullable: false),
                         FirstName = c.String(maxLength: 100),
                         MiddleName = c.String(maxLength: 100),
@@ -20,7 +20,7 @@
                         Email = c.String(maxLength: 250),
                         Phone = c.String(maxLength: 20),
                         Updated = c.DateTime(nullable: false),
-                        UpdatedById = c.Int(nullable: false),
+                        UpdatedById = c.Guid(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -28,14 +28,14 @@
                 "dbo.BloodDonations",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
+                        Id = c.Guid(nullable: false),
                         SampleVolume = c.Int(nullable: false),
                         Date = c.DateTime(nullable: false),
                         Updated = c.DateTime(nullable: false),
-                        UpdatedById = c.Int(nullable: false),
-                        Applicant_Id = c.Int(),
-                        Donor_Id = c.Int(),
-                        SampleStation_Id = c.Int(),
+                        UpdatedById = c.Guid(nullable: false),
+                        Applicant_Id = c.Guid(),
+                        Donor_Id = c.Guid(),
+                        SampleStation_Id = c.Guid(),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.CommonUsers", t => t.Applicant_Id)
@@ -49,23 +49,23 @@
                 "dbo.CommonUsers",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
-                        prefixBN = c.String(),
-                        sufixBN = c.String(),
-                        UserName = c.String(maxLength: 100),
+                        Id = c.Guid(nullable: false),
+                        PrefixBN = c.String(),
+                        SufixBN = c.String(),
                         BloodType = c.Int(nullable: false),
-                        UserType = c.Int(nullable: false),
                         Approved = c.Boolean(nullable: false),
                         Active = c.Boolean(nullable: false),
                         UUN = c.Int(nullable: false),
+                        UserName = c.String(nullable: false),
+                        UserType = c.Int(nullable: false),
                         FirstName = c.String(maxLength: 100),
                         MiddleName = c.String(maxLength: 100),
                         LastName = c.String(maxLength: 100),
                         Email = c.String(maxLength: 250),
                         Phone = c.String(maxLength: 20),
                         Updated = c.DateTime(nullable: false),
-                        UpdatedById = c.Int(nullable: false),
-                        Hospital_Id = c.Int(),
+                        UpdatedById = c.Guid(nullable: false),
+                        Hospital_Id = c.Guid(),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Hospitals", t => t.Hospital_Id)
@@ -75,12 +75,12 @@
                 "dbo.Hospitals",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
+                        Id = c.Guid(nullable: false),
                         City = c.String(),
                         Street = c.String(),
                         Name = c.String(),
                         Updated = c.DateTime(nullable: false),
-                        UpdatedById = c.Int(nullable: false),
+                        UpdatedById = c.Guid(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -88,7 +88,7 @@
                 "dbo.SampleStations",
                 c => new
                     {
-                        Id = c.Int(nullable: false, identity: true),
+                        Id = c.Guid(nullable: false),
                         WebLink = c.String(),
                         PhoneNumber = c.String(),
                         Email = c.String(),
@@ -96,7 +96,7 @@
                         Street = c.String(),
                         Name = c.String(),
                         Updated = c.DateTime(nullable: false),
-                        UpdatedById = c.Int(nullable: false),
+                        UpdatedById = c.Guid(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             

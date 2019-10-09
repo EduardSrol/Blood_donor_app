@@ -1,10 +1,6 @@
 ﻿using AutoMapper;
-using BAD.DAL;
-using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Web;
+using BAD.Infrastructure.UnitOfWork;
 
 namespace BAD.Management.BaseModel
 {

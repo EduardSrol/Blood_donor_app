@@ -15,7 +15,7 @@ namespace BAD.DAL
         {
             var pp = new SampleStation
             {
-                Id = 5,
+                Id = new Guid(),
                 Name = "NTS Poprad",
                 Street = "Bratislavská 8",
                 City = "Poprad"
@@ -23,7 +23,7 @@ namespace BAD.DAL
 
             var ke = new SampleStation
             {
-                Id = 6,
+                Id = new Guid(),
                 Name = "NTS Košice",
                 Street = "Hlavná 25",
                 City = "Košice"
@@ -31,7 +31,7 @@ namespace BAD.DAL
 
             var ba = new Hospital
             {
-                Id = 7,
+                Id = new Guid(),
                 Name = "Kramáre",
                 Street = "Limbová 2645/5",
                 City = "Bratislava",
@@ -39,7 +39,7 @@ namespace BAD.DAL
 
             var karlik = new CommonUser
             {
-                Id = 1,
+                Id = new Guid(),
                 FirstName = "Karol",
                 LastName = "Valko",
                 BloodType = BloodType.Ominus,
@@ -48,7 +48,7 @@ namespace BAD.DAL
 
             var laco = new CommonUser
             {
-                Id = 2,
+                Id = new Guid(),
                 FirstName = "Laco",
                 LastName = "Praporcik",
                 BloodType = BloodType.ABplus,
@@ -58,7 +58,7 @@ namespace BAD.DAL
 
             var henrich = new CommonUser
             {
-                Id = 3,
+                Id = new Guid(),
                 FirstName = "Henrich",
                 LastName = "Lako",
                 BloodType = BloodType.Bplus,
@@ -69,7 +69,7 @@ namespace BAD.DAL
 
             var jano = new Admin
             {
-                Id = 1000,
+                Id = new Guid(),
                 FirstName = "Jano",
                 LastName = "Dovjo",
                 Email = "j.bigD@gmail.com",
@@ -78,7 +78,7 @@ namespace BAD.DAL
 
             var numOne = new BloodDonation
             {
-                Id = 8,
+                Id = new Guid(),
                 Applicant = henrich,
                 Donor = karlik,
                 SampleStation = ke,

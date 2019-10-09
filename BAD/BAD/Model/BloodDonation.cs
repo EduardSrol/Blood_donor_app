@@ -1,13 +1,16 @@
-﻿using BAD.Model.BaseModel;
+﻿using BAD.Infrastructure.Data;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace BAD.Model
 {
-    public class BloodDonation : Record
+    public class BloodDonation : Record, IEntity
     {
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public Guid Id { get; set; }
+
         public virtual CommonUser Donor { get; set; }
 
         public virtual CommonUser Applicant { get; set; }
