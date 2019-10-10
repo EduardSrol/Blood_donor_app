@@ -1,4 +1,5 @@
 ﻿using BAD.Enums;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -11,7 +12,9 @@ namespace BAD.Model
         public string SufixBN { get; set; }
         
         public BloodType BloodType { get; set; }
-        
+
+        [ForeignKey(nameof(Hospital))]
+        public Guid? HospitalId { get; set; }
         public Hospital Hospital { get; set; }
 
         public bool Approved { get; set; }

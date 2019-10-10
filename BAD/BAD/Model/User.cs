@@ -9,7 +9,6 @@ namespace BAD.Model
 {
     public abstract class User : Person
     {
-        [Required]
         public string UserName { get; set; }
 
         public Enums.UserType UserType { get; set; }

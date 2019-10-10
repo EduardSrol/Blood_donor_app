@@ -9,10 +9,11 @@ using System.Data.Entity.Migrations;
 
 namespace BAD.DAL
 {
-    public class DatabaseInitializer : DropCreateDatabaseAlways<BADDbContext>
+    public class DatabaseInitializer : CreateDatabaseIfNotExists<BADDbContext>
     {
         protected override void Seed(BADDbContext context)
         {
+
             var pp = new SampleStation
             {
                 Id = new Guid(),
@@ -34,7 +35,7 @@ namespace BAD.DAL
                 Id = new Guid(),
                 Name = "Kramáre",
                 Street = "Limbová 2645/5",
-                City = "Bratislava",
+                City = "Bratislava"
             };
 
             var karlik = new CommonUser
@@ -43,7 +44,7 @@ namespace BAD.DAL
                 FirstName = "Karol",
                 LastName = "Valko",
                 BloodType = BloodType.Ominus,
-                UUN = 1,
+                UUN = 1
             };
 
             var laco = new CommonUser
@@ -85,11 +86,11 @@ namespace BAD.DAL
                 SampleVolume = 450
             };
 
-            context.CommonUsers.AddOrUpdate(user => user.Id, karlik, laco, henrich);
-            context.Admins.AddOrUpdate(admin => admin.Id, jano);
-            context.SampleStations.AddOrUpdate(ss => ss.Id, ke, pp);
-            context.Hospitals.AddOrUpdate(hospital => hospital.Id, ba);
-            context.BloodDonations.AddOrUpdate(donation => donation.Id, numOne);
+            context.CommonUsers.AddOrUpdate(user => user.Id, laco);
+            //context.Admins.AddOrUpdate(admin => admin.Id, jano);
+            //context.SampleStations.AddOrUpdate(ss => ss.Id, ke, pp);
+            //context.Hospitals.AddOrUpdate(hospital => hospital.Id, ba);
+            //context.BloodDonations.AddOrUpdate(donation => donation.Id, numOne);
 
             context.SaveChanges();
 

@@ -274,9 +274,9 @@
     <Compile Include="Interface\IUserManager.cs" />
     <Compile Include="Management\BaseModel\ManagerBase.cs" />
     <Compile Include="Management\UserManager.cs" />
-    <Compile Include="Migrations\201910092230224_firstone.cs" />
-    <Compile Include="Migrations\201910092230224_firstone.Designer.cs">
-      <DependentUpon>201910092230224_firstone.cs</DependentUpon>
+    <Compile Include="Migrations\201910101546102_Initial.cs" />
+    <Compile Include="Migrations\201910101546102_Initial.Designer.cs">
+      <DependentUpon>201910101546102_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Admin.cs" />
@@ -309,8 +309,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201910092230224_firstone.resx">
-      <DependentUpon>201910092230224_firstone.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201910101546102_Initial.resx">
+      <DependentUpon>201910101546102_Initial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Models.resx">
       <Generator>ResXFileCodeGenerator</Generator>

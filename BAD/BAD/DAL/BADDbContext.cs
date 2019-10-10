@@ -22,7 +22,9 @@ namespace BAD.DAL
             //configuration.proxycreationenabled = false;
             //configuration.validateonsaveenabled = true;
 
-            var instance = System.Data.Entity.SqlServer.SqlProviderServices.Instance;
+            //var instance = System.Data.Entity.SqlServer.SqlProviderServices.Instance;
+
+            Database.SetInitializer(new DatabaseInitializer());
 
         }
 
@@ -30,13 +32,13 @@ namespace BAD.DAL
         {
             Database.CreateIfNotExists();
         }
-
+        /*
         protected override void Dispose(bool disposing)
         {
             Configuration.LazyLoadingEnabled = false;
             base.Dispose(disposing);
         }
-
+        */
         #region DbSets
         public virtual DbSet<CommonUser> CommonUsers { get; set; }
 
