@@ -20,7 +20,7 @@ namespace BAD.Migrations
 
             var pp = new SampleStation
             {
-                Id = new Guid(),
+                Id = Guid.NewGuid(),
                 Name = "NTS Poprad",
                 Street = "Bratislavská 8",
                 City = "Poprad"
@@ -28,7 +28,7 @@ namespace BAD.Migrations
 
             var ke = new SampleStation
             {
-                Id = new Guid(),
+                Id = Guid.NewGuid(),
                 Name = "NTS Košice",
                 Street = "Hlavná 25",
                 City = "Košice"
@@ -36,7 +36,7 @@ namespace BAD.Migrations
 
             var ba = new Hospital
             {
-                Id = new Guid(),
+                Id = Guid.NewGuid(),
                 Name = "Kramáre",
                 Street = "Limbová 2645/5",
                 City = "Bratislava"
@@ -44,7 +44,7 @@ namespace BAD.Migrations
 
             var karlik = new CommonUser
             {
-                Id = new Guid(),
+                Id = Guid.NewGuid(),
                 FirstName = "Karol",
                 LastName = "Valko",
                 BloodType = BloodType.Ominus,
@@ -53,7 +53,7 @@ namespace BAD.Migrations
 
             var laco = new CommonUser
             {
-                Id = new Guid(),
+                Id = Guid.NewGuid(),
                 FirstName = "Laco",
                 LastName = "Praporcik",
                 BloodType = BloodType.ABplus,
@@ -63,7 +63,7 @@ namespace BAD.Migrations
 
             var henrich = new CommonUser
             {
-                Id = new Guid(),
+                Id = Guid.NewGuid(),
                 FirstName = "Henrich",
                 LastName = "Lako",
                 BloodType = BloodType.Bplus,
@@ -74,7 +74,7 @@ namespace BAD.Migrations
 
             var jano = new Admin
             {
-                Id = new Guid(),
+                Id = Guid.NewGuid(),
                 FirstName = "Jano",
                 LastName = "Dovjo",
                 Email = "j.bigD@gmail.com",
@@ -83,18 +83,18 @@ namespace BAD.Migrations
 
             var numOne = new BloodDonation
             {
-                Id = new Guid(),
+                Id = Guid.NewGuid(),
                 Applicant = henrich,
                 Donor = karlik,
                 SampleStation = ke,
                 SampleVolume = 450
             };
 
-            context.CommonUsers.AddOrUpdate(user => user.Id, laco);
-            //context.Admins.AddOrUpdate(admin => admin.Id, jano);
-            //context.SampleStations.AddOrUpdate(ss => ss.Id, ke, pp);
-            //context.Hospitals.AddOrUpdate(hospital => hospital.Id, ba);
-            //context.BloodDonations.AddOrUpdate(donation => donation.Id, numOne);
+            context.CommonUsers.AddOrUpdate(user => user.Id, laco, karlik);
+            context.Admins.AddOrUpdate(admin => admin.Id, jano);
+            context.SampleStations.AddOrUpdate(ss => ss.Id, ke, pp);
+            context.Hospitals.AddOrUpdate(hospital => hospital.Id, ba);
+            context.BloodDonations.AddOrUpdate(donation => donation.Id, numOne);
 
             context.SaveChanges();
 
