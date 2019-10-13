@@ -2,7 +2,12 @@ Blood Donor App
 
 **Vedení:**
 
-Ivan Vanát, učo 456691 (vedoucí)  
+Ivan Vanát, učo 456691 (vedoucí) 
+
+**Tím:**
+Ján Dovjak
+Eduard Šrol
+Denis Valko
 
 
 **Oficiální zadání:**
