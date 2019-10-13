@@ -1,5 +1,6 @@
 Blood Donor App
-**!!!DAL sa nachádza v test branchi!!!**
+
+**!!!DAL sa nachádza v branchi test!!!**
 
 **Vedení:**
 
