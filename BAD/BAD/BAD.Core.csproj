@@ -263,30 +263,11 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppContainer\AppContainer.cs" />
-    <Compile Include="AppContainer\MapperConfigurationFactory.cs" />
-    <Compile Include="AppContainer\MapperInstaller.cs" />
-    <Compile Include="DAL\BADDbContext.cs" />
-    <Compile Include="DAL\DatabaseInitializer.cs" />
-    <Compile Include="DTO\UserDetailModel.cs" />
-    <Compile Include="Enums\BloodType.cs" />
-    <Compile Include="Enums\UserType.cs" />
-    <Compile Include="Interface\IUserManager.cs" />
-    <Compile Include="Management\BaseModel\ManagerBase.cs" />
-    <Compile Include="Management\UserManager.cs" />
-    <Compile Include="Migrations\201910101546102_Initial.cs" />
-    <Compile Include="Migrations\201910101546102_Initial.Designer.cs">
-      <DependentUpon>201910101546102_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201910201546326_Initial.cs" />
+    <Compile Include="Migrations\201910201546326_Initial.Designer.cs">
+      <DependentUpon>201910201546326_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Model\Admin.cs" />
-    <Compile Include="Model\BloodDonation.cs" />
-    <Compile Include="Model\Hospital.cs" />
-    <Compile Include="Model\Institution.cs" />
-    <Compile Include="Model\Person.cs" />
-    <Compile Include="Model\SampleStation.cs" />
-    <Compile Include="Model\CommonUser.cs" />
-    <Compile Include="Model\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\Models.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -309,8 +290,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201910101546102_Initial.resx">
-      <DependentUpon>201910101546102_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201910201546326_Initial.resx">
+      <DependentUpon>201910201546326_Initial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Models.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -321,19 +302,12 @@
       <LastGenOutput>ModelsSK.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BAD.Common\BAD.Infrastructure.csproj">
-      <Project>{0863c37b-6781-427d-8509-acfb506d819a}</Project>
-      <Name>BAD.Infrastructure</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\BAD.Infrastructure.EF\BAD.Infrastructure.EF.csproj">
-      <Project>{7070c711-c8f3-44dd-919a-238c3d0f5b81}</Project>
-      <Name>BAD.Infrastructure.EF</Name>
-    </ProjectReference>
-  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
@@ -352,6 +326,9 @@
           <CustomServerUrl>
           </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+          <servers defaultServer="SelfHostServer">
+            <server name="SelfHostServer" exePath="" cmdArgs="" url="http://localhost:12409/" workingDir="" />
+          </servers>
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>
