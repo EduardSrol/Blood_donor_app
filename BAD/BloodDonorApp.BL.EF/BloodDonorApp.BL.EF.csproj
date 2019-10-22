@@ -64,12 +64,21 @@
     <Compile Include="AppContainer\AppContainer.cs" />
     <Compile Include="AppContainer\MapperConfigurationFactory.cs" />
     <Compile Include="AppContainer\MapperInstaller.cs" />
+    <Compile Include="DTO\BloodDonationDetailModel.cs" />
+    <Compile Include="DTO\Common\FilterDtoBase.cs" />
+    <Compile Include="DTO\Filters\BloodDonationFilterDto.cs" />
+    <Compile Include="DTO\Filters\HospitalFilterDto.cs" />
+    <Compile Include="DTO\Filters\SampleStationFilterDto.cs" />
+    <Compile Include="DTO\Filters\UserFilterDto.cs" />
+    <Compile Include="DTO\HospitalDetailModel.cs" />
     <Compile Include="DTO\RemoteAttribute.cs" />
+    <Compile Include="DTO\SampleStationDetailModel.cs" />
     <Compile Include="DTO\UserDetailModel.cs" />
     <Compile Include="Interface\IUserManager.cs" />
     <Compile Include="Management\BaseModel\ManagerBase.cs" />
     <Compile Include="Management\UserManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueryObjects\Common\QueryObjectBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -80,9 +89,9 @@
       <Project>{94E571EE-0D7F-42BB-BF9B-8042F6EA0D37}</Project>
       <Name>BloodDonorApp.DAL.EF</Name>
     </ProjectReference>
-    <ProjectReference Include="..\BloodDonorApp.Infrastructue\BloodDonorApp.Infrastructue.csproj">
+    <ProjectReference Include="..\BloodDonorApp.Infrastructue\BloodDonorApp.Infrastructure.csproj">
       <Project>{D045A1A9-88BD-474E-99FF-1145BDDAE615}</Project>
-      <Name>BloodDonorApp.Infrastructue</Name>
+      <Name>BloodDonorApp.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

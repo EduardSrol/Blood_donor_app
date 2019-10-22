@@ -4,11 +4,12 @@ using System.Linq;
 using System.Data.Entity;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-
+using BloodDonorApp.Infrastructure.EF.UnitOfWork;
+using BloodDonorApp.Infrastructure.Data;
 
 namespace BloodDonorApp.Infrastructure.EF
 {
-    public class EFRepository<T> : Data.IRepository<T> where T : class, Data.IEntity, new()
+    public class EFRepository<T> : IRepository<T> where T : class, IEntity, new()
     {
         private readonly EFUnitOfWorkFactory factory;
         protected DbContext DbContext => ((EFUnitOfWork)factory.GetUnitOfWorkInstance()).Context;

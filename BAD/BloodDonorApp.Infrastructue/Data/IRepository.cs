@@ -4,7 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace BloodDonorApp.Infrastructue.Data
+namespace BloodDonorApp.Infrastructure.Data
 {
     public interface IRepository
     {

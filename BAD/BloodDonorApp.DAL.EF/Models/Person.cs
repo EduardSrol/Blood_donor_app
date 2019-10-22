@@ -1,8 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using BloodDonorApp.Infrastructue.Data;
-using BloodDonorApp.Infrastructue.Query.Predicates.Operators;
+using BloodDonorApp.Infrastructure.Data;
 
 namespace BloodDonorApp.DAL.EF.Models
 {

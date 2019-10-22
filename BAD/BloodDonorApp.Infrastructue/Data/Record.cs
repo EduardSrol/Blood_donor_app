@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BloodDonorApp.Infrastructue.Query.Predicates.Operators
+namespace BloodDonorApp.Infrastructure.Data
 {
     public abstract class Record
     {

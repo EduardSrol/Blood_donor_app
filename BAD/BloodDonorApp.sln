@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BloodDonorApp.DAL.EF", "BloodDonorApp.DAL.EF\BloodDonorApp.DAL.EF.csproj", "{94E571EE-0D7F-42BB-BF9B-8042F6EA0D37}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BloodDonorApp.Infrastructue", "BloodDonorApp.Infrastructue\BloodDonorApp.Infrastructue.csproj", "{D045A1A9-88BD-474E-99FF-1145BDDAE615}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BloodDonorApp.Infrastructure", "BloodDonorApp.Infrastructue\BloodDonorApp.Infrastructure.csproj", "{D045A1A9-88BD-474E-99FF-1145BDDAE615}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BloodDonorApp.Infrastructure.EF", "BloodDonorApp.Infrastructure.EF\BloodDonorApp.Infrastructure.EF.csproj", "{B0B3D5C7-3EB4-4F2A-B4DE-5B2E30D947B9}"
 EndProject

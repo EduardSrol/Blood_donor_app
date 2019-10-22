@@ -63,9 +63,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BloodDonorApp.Infrastructue\BloodDonorApp.Infrastructue.csproj">
-      <Project>{D045A1A9-88BD-474E-99FF-1145BDDAE615}</Project>
-      <Name>BloodDonorApp.Infrastructue</Name>
+    <ProjectReference Include="..\BloodDonorApp.Infrastructue\BloodDonorApp.Infrastructure.csproj">
+      <Project>{d045a1a9-88bd-474e-99ff-1145bddae615}</Project>
+      <Name>BloodDonorApp.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

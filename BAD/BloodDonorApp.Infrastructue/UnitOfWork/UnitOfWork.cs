@@ -1,11 +1,8 @@
-﻿using BloodDonorApp.Infrastructue.Data;
-using BloodDonorApp.Infrastructure.UnitOfWork;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Data.Entity;
 using System.Threading.Tasks;
 
-namespace BloodDonorApp.Infrastructue.UnitOfWork
+namespace BloodDonorApp.Infrastructure.UnitOfWork
 {
     public class UnitOfWork : IUnitOfWork
     {

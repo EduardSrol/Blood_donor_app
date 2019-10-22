@@ -1,12 +1,11 @@
-﻿using BloodDonorApp.Infrastructue.Data;
-using BloodDonorApp.Infrastructue.Query.Predicates.Operators;
+﻿using BloodDonorApp.Infrastructure.Data;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BloodDonorApp.DAL.EF.Models
 {
-    public class Institution : Record, IEntity
+    public abstract class Institution : Record, IEntity
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
         public Guid Id { get; set; }

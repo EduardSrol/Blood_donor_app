@@ -1,7 +1,6 @@
-﻿using BloodDonorApp.Infrastructure.UnitOfWork;
-using System;
+﻿using System;
 
-namespace BloodDonorApp.Infrastructue.UnitOfWork
+namespace BloodDonorApp.Infrastructure.UnitOfWork
 
 {
     interface IUnitOfWorkFactory : IDisposable

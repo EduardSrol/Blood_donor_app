@@ -1,9 +1,9 @@
-﻿using BAD.Infrastructure.Query.Predicates.Operators;
-using BloodDonorApp.Infrastructue.UnitOfWork;
+﻿using BloodDonorApp.Infrastructure.Query.Predicates.Operators;
+using BloodDonorApp.Infrastructure.UnitOfWork;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BloodDonorApp.Infrastructue.Query.Predicates
+namespace BloodDonorApp.Infrastructure.Query.Predicates
 {
     public class CompositePredicate : IPredicate
     {

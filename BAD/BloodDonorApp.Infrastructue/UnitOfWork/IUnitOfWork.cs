@@ -7,6 +7,5 @@ namespace BloodDonorApp.Infrastructure.UnitOfWork
     {
         void Commit();
         Task CommitAsync();
-//        void Dispose();
     }
 }

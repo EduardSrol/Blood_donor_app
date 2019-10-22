@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BloodDonorApp.Infrastructue.Data
+namespace BloodDonorApp.Infrastructure.Data
 {
     public interface IEntity
     {

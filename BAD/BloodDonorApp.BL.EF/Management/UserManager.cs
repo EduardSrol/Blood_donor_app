@@ -9,8 +9,6 @@ namespace BloodDonorApp.BL.EF.Management
     public class UserManager : ManagerBase, IUserManager
     {
 
-
-
         public async Task<UserDetailModel> GetByIdAsync(int id)
         {
             throw new NotImplementedException();

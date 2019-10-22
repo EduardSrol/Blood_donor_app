@@ -1,8 +1,7 @@
-﻿using BloodDonorApp.Infrastructure.UnitOfWork;
-using System;
+﻿using System;
 using System.Threading;
 
-namespace BloodDonorApp.Infrastructue.UnitOfWork
+namespace BloodDonorApp.Infrastructure.UnitOfWork
 {
     public abstract class UnitOfWorkFactory : IUnitOfWorkFactory
     {

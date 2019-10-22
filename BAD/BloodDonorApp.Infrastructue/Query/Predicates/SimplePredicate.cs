@@ -1,8 +1,8 @@
-﻿using BloodDonorApp.Infrastructue.Query.Predicates;
-using BloodDonorApp.Infrastructue.Query.Predicates.Operators;
+﻿using BloodDonorApp.Infrastructure.Query.Predicates;
+using BloodDonorApp.Infrastructure.Query.Predicates.Operators;
 using System;
 
-namespace BloodDonorApp.Infrastructue.UnitOfWork
+namespace BloodDonorApp.Infrastructure.UnitOfWork
 {
     public class SimplePredicate : IPredicate
     {

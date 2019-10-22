@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Data.Entity;
-using BloodDonorApp.Infrastructure.UnitOfWork
 
 namespace BloodDonorApp.Infrastructure.EF.UnitOfWork
 {
-    public class EFUnitOfWork : UnitOfWork.UnitOfWork
+    public class EFUnitOfWork : Infrastructure.UnitOfWork.UnitOfWork
     {
         /// <summary>
         /// Gets the <see cref="DbContext"/>.

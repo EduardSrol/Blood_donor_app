@@ -1,4 +1,4 @@
-﻿namespace BloodDonorApp.Infrastructue.Query.Predicates.Operators
+﻿namespace BloodDonorApp.Infrastructure.Query.Predicates.Operators
 {
     public enum ValueComparingOperator
     {

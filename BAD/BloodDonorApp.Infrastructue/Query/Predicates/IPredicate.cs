@@ -1,4 +1,4 @@
-﻿namespace BloodDonorApp.Infrastructue.Query.Predicates
+﻿namespace BloodDonorApp.Infrastructure.Query.Predicates
 {
     public interface IPredicate { }
 }

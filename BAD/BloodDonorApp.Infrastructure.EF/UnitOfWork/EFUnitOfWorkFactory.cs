@@ -1,4 +1,4 @@
-﻿using BAD.Infrastructure.UnitOfWork;
+﻿using BloodDonorApp.Infrastructure.UnitOfWork;
 using System;
 using System.Data.Entity;
 

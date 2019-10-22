@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using BloodDonorApp.Infrastructure.EF.UnitOfWork;
+using BloodDonorApp.Infrastructure.UnitOfWork;
 using System.Globalization;
 
 namespace BloodDonorApp.BL.EF.Management.BaseModel
@@ -28,7 +28,8 @@ namespace BloodDonorApp.BL.EF.Management.BaseModel
         public string GetResouceValue(string resourceName)
         {
             //TODO premysli cultures
-            return Resources.Models.ResourceManager.GetString(resourceName, new CultureInfo("sk-SK"));
+            //return Resources.Models.ResourceManager.GetString(resourceName, new CultureInfo("sk-SK"));
+            return null;
         }
     }
 }
