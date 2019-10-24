@@ -53,7 +53,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EFQuery.cs" />
     <Compile Include="EFRepository.cs" />
+    <Compile Include="SimplePredicateExtension.cs" />
     <Compile Include="UnitOfWork\EFUnitOfWork.cs" />
     <Compile Include="UnitOfWork\EFUnitOfWorkFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -53,7 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BADDbContext.cs" />
+    <Compile Include="BDADbContext.cs" />
     <Compile Include="DatabaseInitializer.cs" />
     <Compile Include="Enums\BloodType.cs" />
     <Compile Include="Enums\UserType.cs" />

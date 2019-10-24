@@ -6,9 +6,9 @@ using BloodDonorApp.DAL.EF.Enums;
 
 namespace BloodDonorApp.DAL.EF
 {
-    public class DatabaseInitializer : CreateDatabaseIfNotExists<BADDbContext>
+    public class DatabaseInitializer : CreateDatabaseIfNotExists<BDADbContext>
     {
-        protected override void Seed(BADDbContext context)
+        protected override void Seed(BDADbContext context)
         {
 
             var pp = new SampleStation

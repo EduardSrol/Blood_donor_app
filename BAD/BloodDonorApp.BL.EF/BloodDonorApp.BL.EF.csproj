@@ -65,7 +65,9 @@
     <Compile Include="AppContainer\MapperConfigurationFactory.cs" />
     <Compile Include="AppContainer\MapperInstaller.cs" />
     <Compile Include="DTO\BloodDonationDetailModel.cs" />
+    <Compile Include="DTO\Common\DtoBase.cs" />
     <Compile Include="DTO\Common\FilterDtoBase.cs" />
+    <Compile Include="DTO\Common\QueryResultDto.cs" />
     <Compile Include="DTO\Filters\BloodDonationFilterDto.cs" />
     <Compile Include="DTO\Filters\HospitalFilterDto.cs" />
     <Compile Include="DTO\Filters\SampleStationFilterDto.cs" />

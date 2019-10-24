@@ -10,7 +10,7 @@ namespace MigrationDemo
         static void Main(string[] args)
         {
             IList<BloodDonorApp.DAL.EF.Models.CommonUser> commonUsers;
-            using (var context = new BADDbContext())
+            using (var context = new BDADbContext())
             {
                 commonUsers = context.CommonUsers.ToList();
             }

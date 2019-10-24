@@ -6,34 +6,31 @@ using System.Threading.Tasks;
 
 namespace BloodDonorApp.Infrastructure.Data
 {
-    public interface IRepository
-    {
-    }
 
-    public interface IRepository<T> : IRepository
+    public interface IRepository<TEntity> where TEntity : class, IEntity, new()
     {
         #region SyncMethods
-        void Insert(T entity);
-        void Insert(IEnumerable<T> entities);
-        void Delete(T entity);
-        void Delete(IEnumerable<T> entities);
+        void Insert(TEntity entity);
+        void Insert(IEnumerable<TEntity> entities);
+        void Delete(TEntity entity);
+        void Delete(IEnumerable<TEntity> entities);
         void Delete(Guid id);
-        void Update(T entity);
-        void Update(IEnumerable<T> entities);
-        IQueryable<T> Where(Expression<Func<T, bool>> predicate);
-        bool Any(Expression<Func<T, bool>> predicate);
-        T First(Expression<Func<T, bool>> predicate);
-        T FirstOrDefault(Expression<Func<T, bool>> predicate);
-        IQueryable<T> GetAll();
-        T GetById(int id);
+        void Update(TEntity entity);
+        void Update(IEnumerable<TEntity> entities);
+        IQueryable<TEntity> Where(Expression<Func<TEntity, bool>> predicate);
+        bool Any(Expression<Func<TEntity, bool>> predicate);
+        TEntity First(Expression<Func<TEntity, bool>> predicate);
+        TEntity FirstOrDefault(Expression<Func<TEntity, bool>> predicate);
+        IQueryable<TEntity> GetAll();
+        TEntity GetById(Guid id);
         #endregion
 
         #region AsyncMethods
-        Task<bool> AnyAsync(Expression<Func<T, bool>> predicate);
-        Task<int> CountAsync(Expression<Func<T, bool>> predicate);
-        Task<T> FirstAsync(Expression<Func<T, bool>> predicate);
-        Task<T> FirstOrDefaultAsync(Expression<Func<T, bool>> predicate);
-        Task<T> GetByIdAsync(int id);
+        Task<bool> AnyAsync(Expression<Func<TEntity, bool>> predicate);
+        Task<int> CountAsync(Expression<Func<TEntity, bool>> predicate);
+        Task<TEntity> FirstAsync(Expression<Func<TEntity, bool>> predicate);
+        Task<TEntity> FirstOrDefaultAsync(Expression<Func<TEntity, bool>> predicate);
+        Task<TEntity> GetByIdAsync(Guid id);
         #endregion
     }
 }
