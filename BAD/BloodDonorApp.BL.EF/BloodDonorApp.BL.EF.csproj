@@ -68,10 +68,11 @@
     <Compile Include="DTO\Common\DtoBase.cs" />
     <Compile Include="DTO\Common\FilterDtoBase.cs" />
     <Compile Include="DTO\Common\QueryResultDto.cs" />
+    <Compile Include="DTO\Filters\AdminFilterDto.cs" />
     <Compile Include="DTO\Filters\BloodDonationFilterDto.cs" />
+    <Compile Include="DTO\Filters\CommonUserFilterDto.cs" />
     <Compile Include="DTO\Filters\HospitalFilterDto.cs" />
     <Compile Include="DTO\Filters\SampleStationFilterDto.cs" />
-    <Compile Include="DTO\Filters\UserFilterDto.cs" />
     <Compile Include="DTO\HospitalDetailModel.cs" />
     <Compile Include="DTO\RemoteAttribute.cs" />
     <Compile Include="DTO\SampleStationDetailModel.cs" />

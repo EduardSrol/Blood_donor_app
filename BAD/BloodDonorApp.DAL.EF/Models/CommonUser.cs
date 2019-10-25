@@ -21,5 +21,6 @@ namespace BloodDonorApp.DAL.EF.Models
         public bool Approved { get; set; }
 
         public bool Active { get; set; }
+
     }
 }

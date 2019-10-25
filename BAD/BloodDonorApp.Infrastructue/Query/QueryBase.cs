@@ -9,6 +9,8 @@ namespace BloodDonorApp.Infrastructure.Query
 {
     public abstract class QueryBase<TEntity> : IQuery<TEntity> where TEntity : class, IEntity, new()
     {
+        private const int DefaultPageSize = 10;
+
         protected readonly IUnitOfWorkFactory Factory;
 
         protected QueryBase(IUnitOfWorkFactory uowFactory)
@@ -16,7 +18,6 @@ namespace BloodDonorApp.Infrastructure.Query
             Factory = uowFactory;
         }
 
-        private const int DefaultPageSize = 10;
 
         public int PageSize { get; private set; } = DefaultPageSize;
 

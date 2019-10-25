@@ -68,42 +68,11 @@ namespace BloodDonorApp.Infrastructure.EF
             return DbContext.Set<TEntity>().Find(id);
         }
 
-        public IQueryable<TEntity> GetAll()
-        {
-            return DbContext.Set<TEntity>();
-        }
-
-        public bool Any(Expression<Func<TEntity, bool>> predicate)
-        {
-            return DbContext.Set<TEntity>().Any(predicate);
-        }
-
-        public TEntity First(Expression<Func<TEntity, bool>> predicate)
-        {
-            return DbContext.Set<TEntity>().First(predicate);
-        }
-
-        public TEntity FirstOrDefault(Expression<Func<TEntity, bool>> predicate)
-        {
-            return DbContext.Set<TEntity>().FirstOrDefault(predicate);
-        }
-
-        public IQueryable<TEntity> Where(Expression<Func<TEntity, bool>> predicate)
-        {
-            return DbContext.Set<TEntity>().Where(predicate);
-        }
-
-        public IQueryable<TEntity> Where(Expression<Func<TEntity, bool>> predicate, bool asNoTracking)
-        {
-            return asNoTracking ? DbContext.Set<TEntity>().AsNoTracking().Where(predicate) : DbContext.Set<TEntity>().Where(predicate);
-        }
-
         public void Update(TEntity entity)
         {
             var foundEntity = DbContext.Set<TEntity>().Find(entity.Id);
             DbContext.Entry(foundEntity).CurrentValues.SetValues(entity);
         }
-
         public void Update(IEnumerable<TEntity> entities)
         {
             foreach (var entity in entities)
@@ -111,6 +80,38 @@ namespace BloodDonorApp.Infrastructure.EF
                 Update(entity);
             }
         }
+
+        /*        public IQueryable<TEntity> GetAll()
+                {
+                    return DbContext.Set<TEntity>();
+                }
+
+                public bool Any(Expression<Func<TEntity, bool>> predicate)
+                {
+                    return DbContext.Set<TEntity>().Any(predicate);
+                }
+
+                public TEntity First(Expression<Func<TEntity, bool>> predicate)
+                {
+                    return DbContext.Set<TEntity>().First(predicate);
+                }
+
+                public TEntity FirstOrDefault(Expression<Func<TEntity, bool>> predicate)
+                {
+                    return DbContext.Set<TEntity>().FirstOrDefault(predicate);
+                }
+
+                public IQueryable<TEntity> Where(Expression<Func<TEntity, bool>> predicate)
+                {
+                    return DbContext.Set<TEntity>().Where(predicate);
+                }
+
+                public IQueryable<TEntity> Where(Expression<Func<TEntity, bool>> predicate, bool asNoTracking)
+                {
+                    return asNoTracking ? DbContext.Set<TEntity>().AsNoTracking().Where(predicate) : DbContext.Set<TEntity>().Where(predicate);
+                }
+*/
+
         #endregion
 
         #region Async methods
@@ -118,7 +119,7 @@ namespace BloodDonorApp.Infrastructure.EF
         {
             return await DbContext.Set<TEntity>().FindAsync(id);
         }
-        public async Task<bool> AnyAsync(Expression<Func<TEntity, bool>> predicate)
+/*        public async Task<bool> AnyAsync(Expression<Func<TEntity, bool>> predicate)
         {
             return await DbContext.Set<TEntity>().AnyAsync(predicate);
         }
@@ -138,11 +139,13 @@ namespace BloodDonorApp.Infrastructure.EF
             return await DbContext.Set<TEntity>().FirstOrDefaultAsync(predicate);
 
         }
+*/
         #endregion
 
         protected virtual bool IsDetachedState(TEntity entity)
         {
             return DbContext.Entry(entity).State == EntityState.Detached;
         }
+
     }
 }

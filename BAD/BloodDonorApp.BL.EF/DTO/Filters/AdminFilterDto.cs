@@ -3,8 +3,10 @@ using BloodDonorApp.DAL.EF.Enums;
 
 namespace BloodDonorApp.BL.EF.DTO.Filters
 {
-    public class UserFilterDto : FilterDtoBase
+    public class AdminFilterDto : FilterDtoBase
     {
         public UserType UserType { get; set; }
+
+        public string UserName { get; set; }
     }
 }
