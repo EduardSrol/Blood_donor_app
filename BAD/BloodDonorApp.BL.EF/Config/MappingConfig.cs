@@ -18,17 +18,16 @@ namespace BloodDonorApp.BL.EF.Config
         {
             config.CreateMap<Admin, AdminDto>().ReverseMap();
 
-            //neviem preco nejde
             config.CreateMap<CommonUser, CommonUserDto>().ForMember(cuDto => cuDto.FullName, opts => opts.ResolveUsing(commonUser =>
-            {
-                var fullName = commonUser.FirstName;
-                if (commonUser.MiddleName != null)
                 {
-                    fullName += " " + commonUser.MiddleName;
-                }
+                    var fullName = commonUser.FirstName;
+                    if (commonUser.MiddleName != null)
+                    {
+                        fullName += " " + commonUser.MiddleName;
+                    }
 
-                return fullName + " " + commonUser.LastName;
-            })).ReverseMap();
+                    return fullName + " " + commonUser.LastName;
+                })).ReverseMap();
 
             config.CreateMap<BloodDonation, BloodDonationDto>().ReverseMap();
             config.CreateMap<Hospital, HospitalDto>().ReverseMap();
