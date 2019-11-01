@@ -1,5 +1,4 @@
-﻿using BloodDonorApp.Infrastructure.Data;
-using BloodDonorApp.Infrastructure.EF.UnitOfWork;
+﻿using BloodDonorApp.Infrastructure.EF.UnitOfWork;
 using BloodDonorApp.Infrastructure.Query;
 using BloodDonorApp.Infrastructure.Query.Helpers;
 using BloodDonorApp.Infrastructure.Query.Predicates;
@@ -54,30 +53,6 @@ namespace BloodDonorApp.Infrastructure.EF
                 result = new QueryResult<TEntity>(items, itemsCount);
             }
             return result;
-            /*
-            IQueryable<TEntity> queryable = Context.Set<TEntity>();
-
-            if (string.IsNullOrWhiteSpace(SortAccordingTo) && DesiredPage.HasValue)
-            {
-                // Sorting must always take place when paging is required
-                SortAccordingTo = nameof(IEntity.Id);
-                UseAscendingOrder = true;
-            }
-            if (SortAccordingTo != null)
-            {
-                queryable = UseSortCriteria(queryable);
-            }
-            if (Predicate != null)
-            {
-                queryable = UseFilterCriteria(queryable);
-            }
-            var itemsCount = queryable.Count();
-            if (DesiredPage.HasValue)
-            {
-                queryable = queryable.Skip(PageSize * (DesiredPage.Value - 1)).Take(PageSize);
-            }
-            var items = await queryable.ToListAsync();
-            return new QueryResult<TEntity>(items, itemsCount, PageSize, DesiredPage);*/
         }
     }
 }

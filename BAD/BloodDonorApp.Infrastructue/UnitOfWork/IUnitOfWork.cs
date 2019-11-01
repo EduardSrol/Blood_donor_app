@@ -7,5 +7,6 @@ namespace BloodDonorApp.Infrastructure.UnitOfWork
     {
         void Commit();
         Task CommitAsync();
+        void RegisterAction(Action action);
     }
 }

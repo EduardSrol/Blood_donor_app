@@ -1,14 +1,11 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using BloodDonorApp.Infrastructure.Data;
 
-namespace BloodDonorApp.DAL.EF.Models
+
+namespace BloodDonorApp.DAL.EF.Models.Common
 {
-    public abstract class Person : Record, IEntity
+    public abstract class Person : Record
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public Guid Id { get; set; }
 
         [MaxLength(100)]
         public string FirstName { get; set; }

@@ -1,5 +1,4 @@
-﻿using BloodDonorApp.Infrastructure.Data;
-using BloodDonorApp.Infrastructure.Query.Predicates;
+﻿using BloodDonorApp.Infrastructure.Query.Predicates;
 using BloodDonorApp.Infrastructure.UnitOfWork;
 using System;
 using System.Linq;

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BloodDonorApp.Infrastructure.Data
+namespace BloodDonorApp.DAL.EF.Models.Common
 {
     public abstract class Record
     {

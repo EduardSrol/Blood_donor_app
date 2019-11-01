@@ -3,7 +3,7 @@ using System.Threading;
 
 namespace BloodDonorApp.Infrastructure.UnitOfWork
 {
-    public abstract class UnitOfWorkFactory : IUnitOfWorkFactory
+    public abstract class UnitOfWorkFactoryBase : IUnitOfWorkFactory
     {
         protected readonly AsyncLocal<IUnitOfWork> UOWInstance
             = new AsyncLocal<IUnitOfWork>();

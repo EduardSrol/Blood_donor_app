@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using BloodDonorApp.BL.EF.DTO.Common;
-using BloodDonorApp.Infrastructure.Data;
 using BloodDonorApp.Infrastructure.Query;
 using System;
 using System.Threading.Tasks;
+using BloodDonorApp.Infrastructure;
 
 namespace BloodDonorApp.BL.EF.QueryObjects.Common
 {

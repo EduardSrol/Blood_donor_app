@@ -1,5 +1,4 @@
-﻿using BloodDonorApp.Infrastructure.Data;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace BloodDonorApp.Infrastructure.Query

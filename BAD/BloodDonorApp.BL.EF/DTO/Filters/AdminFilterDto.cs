@@ -5,7 +5,7 @@ namespace BloodDonorApp.BL.EF.DTO.Filters
 {
     public class AdminFilterDto : FilterDtoBase
     {
-        public UserType UserType { get; set; }
+        public CommonUserType UserType { get; set; }
 
         public string UserName { get; set; }
     }

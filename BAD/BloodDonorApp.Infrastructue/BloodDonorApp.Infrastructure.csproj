@@ -53,9 +53,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\IEntity.cs" />
-    <Compile Include="Data\IRepository.cs" />
-    <Compile Include="Data\Record.cs" />
+    <Compile Include="IEntity.cs" />
+    <Compile Include="IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Query\Helpers\PredicateExtensions.cs" />
     <Compile Include="Query\Helpers\SqlConstants.cs" />
@@ -69,12 +68,13 @@
     <Compile Include="Query\QueryResult.cs" />
     <Compile Include="UnitOfWork\IUnitOfWork.cs" />
     <Compile Include="UnitOfWork\IUnitOfWorkFactory.cs" />
-    <Compile Include="UnitOfWork\UnitOfWork.cs" />
-    <Compile Include="UnitOfWork\UnitOfWorkFactory.cs" />
+    <Compile Include="UnitOfWork\UnitOfWorkBase.cs" />
+    <Compile Include="UnitOfWork\UnitOfWorkFactoryBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

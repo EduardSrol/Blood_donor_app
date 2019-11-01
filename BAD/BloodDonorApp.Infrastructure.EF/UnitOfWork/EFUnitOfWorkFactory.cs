@@ -4,7 +4,7 @@ using System.Data.Entity;
 
 namespace BloodDonorApp.Infrastructure.EF.UnitOfWork
 {
-    public class EFUnitOfWorkFactory : UnitOfWorkFactory
+    public class EFUnitOfWorkFactory : UnitOfWorkFactoryBase
     {
         private readonly Func<DbContext> dbContextFactory;
 

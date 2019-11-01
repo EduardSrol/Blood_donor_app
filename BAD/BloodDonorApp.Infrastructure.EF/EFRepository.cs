@@ -5,7 +5,6 @@ using System.Data.Entity;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using BloodDonorApp.Infrastructure.EF.UnitOfWork;
-using BloodDonorApp.Infrastructure.Data;
 
 namespace BloodDonorApp.Infrastructure.EF
 {

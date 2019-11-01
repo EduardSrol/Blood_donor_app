@@ -55,8 +55,9 @@
   <ItemGroup>
     <Compile Include="BDADbContext.cs" />
     <Compile Include="DatabaseInitializer.cs" />
+    <Compile Include="Enums\AdminType.cs" />
     <Compile Include="Enums\BloodType.cs" />
-    <Compile Include="Enums\UserType.cs" />
+    <Compile Include="Enums\CommonUserType.cs" />
     <Compile Include="Migrations\201910211628131_Initial.cs" />
     <Compile Include="Migrations\201910211628131_Initial.Designer.cs">
       <DependentUpon>201910211628131_Initial.cs</DependentUpon>
@@ -65,11 +66,12 @@
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\BloodDonation.cs" />
     <Compile Include="Models\CommonUser.cs" />
+    <Compile Include="Models\Common\Record.cs" />
     <Compile Include="Models\Hospital.cs" />
-    <Compile Include="Models\Institution.cs" />
-    <Compile Include="Models\Person.cs" />
+    <Compile Include="Models\Common\Institution.cs" />
+    <Compile Include="Models\Common\Person.cs" />
     <Compile Include="Models\SampleStation.cs" />
-    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\Common\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -87,5 +89,6 @@
       <Name>BloodDonorApp.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

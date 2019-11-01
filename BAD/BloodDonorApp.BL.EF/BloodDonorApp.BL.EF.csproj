@@ -64,19 +64,36 @@
     <Compile Include="AppContainer\AppContainer.cs" />
     <Compile Include="AppContainer\MapperConfigurationFactory.cs" />
     <Compile Include="AppContainer\MapperInstaller.cs" />
-    <Compile Include="DTO\BloodDonationDetailModel.cs" />
+    <Compile Include="Config\MappingConfig.cs" />
+    <Compile Include="DTO\AdminDto.cs" />
+    <Compile Include="DTO\BloodDonationDto.cs" />
+    <Compile Include="DTO\CommonUserDto.cs" />
+    <Compile Include="DTO\Common\InstitutionDto.cs" />
+    <Compile Include="DTO\Common\PersonDto.cs" />
+    <Compile Include="DTO\Common\UserDto.cs" />
+    <Compile Include="DTO\DetailedDTOs\BloodDonationDetailModel.cs" />
     <Compile Include="DTO\Common\DtoBase.cs" />
     <Compile Include="DTO\Common\FilterDtoBase.cs" />
     <Compile Include="DTO\Common\QueryResultDto.cs" />
+    <Compile Include="DTO\CommonUserEditProfileDto.cs" />
+    <Compile Include="DTO\Enums\AdminType.cs" />
+    <Compile Include="DTO\Enums\BloodType.cs" />
+    <Compile Include="DTO\Enums\CommonUserType.cs" />
     <Compile Include="DTO\Filters\AdminFilterDto.cs" />
     <Compile Include="DTO\Filters\BloodDonationFilterDto.cs" />
     <Compile Include="DTO\Filters\CommonUserFilterDto.cs" />
     <Compile Include="DTO\Filters\HospitalFilterDto.cs" />
     <Compile Include="DTO\Filters\SampleStationFilterDto.cs" />
-    <Compile Include="DTO\HospitalDetailModel.cs" />
-    <Compile Include="DTO\RemoteAttribute.cs" />
-    <Compile Include="DTO\SampleStationDetailModel.cs" />
-    <Compile Include="DTO\UserDetailModel.cs" />
+    <Compile Include="DTO\DetailedDTOs\HospitalDetailModel.cs" />
+    <Compile Include="DTO\ApplicantShortInfoDto.cs" />
+    <Compile Include="DTO\HospitalDto.cs" />
+    <Compile Include="DTO\UserLogInDto.cs" />
+    <Compile Include="DTO\AdminRegisterDto.cs" />
+    <Compile Include="DTO\CommonUserRegisterDto.cs" />
+    <Compile Include="DTO\DetailedDTOs\RemoteAttribute.cs" />
+    <Compile Include="DTO\DetailedDTOs\SampleStationDetailModel.cs" />
+    <Compile Include="DTO\DetailedDTOs\UserDetailModel.cs" />
+    <Compile Include="DTO\SampleStationDto.cs" />
     <Compile Include="Interface\IUserManager.cs" />
     <Compile Include="Management\BaseModel\ManagerBase.cs" />
     <Compile Include="Management\UserManager.cs" />
@@ -97,5 +114,6 @@
       <Name>BloodDonorApp.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
