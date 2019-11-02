@@ -13,7 +13,7 @@ namespace BloodDonorApp.DAL.EF.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201910211628131_Initial"; }
+            get { return "201911021635301_Initial"; }
         }
         
         string IMigrationMetadata.Source

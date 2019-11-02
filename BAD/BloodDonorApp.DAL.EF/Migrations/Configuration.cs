@@ -1,7 +1,8 @@
+using BloodDonorApp.DAL.EF.Enums;
+using BloodDonorApp.DAL.EF.Models;
+
 namespace BloodDonorApp.DAL.EF.Migrations
 {
-    using BloodDonorApp.DAL.EF.Enums;
-    using BloodDonorApp.DAL.EF.Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -14,9 +15,8 @@ namespace BloodDonorApp.DAL.EF.Migrations
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(BDADbContext context)
+        protected override void Seed(BloodDonorApp.DAL.EF.BDADbContext context)
         {
-
             var pp = new SampleStation
             {
                 Id = Guid.NewGuid(),
@@ -97,8 +97,6 @@ namespace BloodDonorApp.DAL.EF.Migrations
             context.BloodDonations.AddOrUpdate(donation => donation.Id, numOne);
 
             context.SaveChanges();
-
-            base.Seed(context);
         }
     }
 }

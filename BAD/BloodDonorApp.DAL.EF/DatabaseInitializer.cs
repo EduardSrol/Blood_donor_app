@@ -6,7 +6,7 @@ using BloodDonorApp.DAL.EF.Enums;
 
 namespace BloodDonorApp.DAL.EF
 {
-    public class DatabaseInitializer : DropCreateDatabaseAlways<BDADbContext>
+    public class DatabaseInitializer : CreateDatabaseIfNotExists<BDADbContext>
     {
         protected override void Seed(BDADbContext context)
         {
@@ -93,6 +93,7 @@ namespace BloodDonorApp.DAL.EF
             context.SaveChanges();
 
             base.Seed(context);
+            context.Database.Initialize(true);
         }
     }
 }

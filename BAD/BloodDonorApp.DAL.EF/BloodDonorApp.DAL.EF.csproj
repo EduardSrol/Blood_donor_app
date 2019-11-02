@@ -58,13 +58,9 @@
     <Compile Include="Enums\AdminType.cs" />
     <Compile Include="Enums\BloodType.cs" />
     <Compile Include="Enums\CommonUserType.cs" />
-    <Compile Include="Migrations\201910211628131_Initial.cs" />
-    <Compile Include="Migrations\201910211628131_Initial.Designer.cs">
-      <DependentUpon>201910211628131_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201911021233458_DonationBloodTypeAdded.cs" />
-    <Compile Include="Migrations\201911021233458_DonationBloodTypeAdded.Designer.cs">
-      <DependentUpon>201911021233458_DonationBloodTypeAdded.cs</DependentUpon>
+    <Compile Include="Migrations\201911021635301_Initial.cs" />
+    <Compile Include="Migrations\201911021635301_Initial.Designer.cs">
+      <DependentUpon>201911021635301_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -83,19 +79,15 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201910211628131_Initial.resx">
-      <DependentUpon>201910211628131_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911021233458_DonationBloodTypeAdded.resx">
-      <DependentUpon>201911021233458_DonationBloodTypeAdded.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\BloodDonorApp.Infrastructue\BloodDonorApp.Infrastructure.csproj">
       <Project>{d045a1a9-88bd-474e-99ff-1145bddae615}</Project>
       <Name>BloodDonorApp.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201911021635301_Initial.resx">
+      <DependentUpon>201911021635301_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
