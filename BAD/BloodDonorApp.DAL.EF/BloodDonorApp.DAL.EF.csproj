@@ -62,6 +62,10 @@
     <Compile Include="Migrations\201910211628131_Initial.Designer.cs">
       <DependentUpon>201910211628131_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911021233458_DonationBloodTypeAdded.cs" />
+    <Compile Include="Migrations\201911021233458_DonationBloodTypeAdded.Designer.cs">
+      <DependentUpon>201911021233458_DonationBloodTypeAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\BloodDonation.cs" />
@@ -81,6 +85,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201910211628131_Initial.resx">
       <DependentUpon>201910211628131_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911021233458_DonationBloodTypeAdded.resx">
+      <DependentUpon>201911021233458_DonationBloodTypeAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

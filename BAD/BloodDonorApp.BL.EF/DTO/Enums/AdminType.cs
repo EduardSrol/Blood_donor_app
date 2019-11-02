@@ -8,7 +8,8 @@ namespace BloodDonorApp.BL.EF.DTO.Enums
 {
     public enum AdminType
     {
-        Administrator = 1,
-        StationAdmin = 2
+        RootAdmin = 1,
+        HospitalAdmin = 2,
+        StationAdmin = 3
     }
 }

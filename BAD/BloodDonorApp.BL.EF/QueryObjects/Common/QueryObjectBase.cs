@@ -26,9 +26,21 @@ namespace BloodDonorApp.BL.EF.QueryObjects.Common
 
         public virtual async Task<QueryResultDto<TDto, TFilter>> ExecuteQuery(TFilter filter)
         {
-            // TODO...
+            var query = ApplyWhereClause(Query, filter);
+            if (!string.IsNullOrWhiteSpace(filter.SortCriteria))
+            {
+                query = query.SortBy(filter.SortCriteria, filter.SortAscending);
+            }
 
-            throw new NotImplementedException();
+            if (filter.RequestedPageNumber.HasValue)
+            {
+                query = query.Page(filter.RequestedPageNumber.Value, filter.PageSize);
+            }
+
+            var queryResult = await query.ExecuteAsync();
+            var queryResultDto = mapper.Map<QueryResultDto<TDto, TFilter>>(queryResult);
+            queryResultDto.Filter = filter;
+            return queryResultDto;
         }
     }
 }

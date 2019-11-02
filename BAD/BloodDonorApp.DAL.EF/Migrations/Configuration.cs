@@ -86,7 +86,8 @@ namespace BloodDonorApp.DAL.EF.Migrations
                 Applicant = henrich,
                 Donor = karlik,
                 SampleStation = ke,
-                SampleVolume = 450
+                SampleVolume = 450,
+                BloodType = karlik.BloodType
             };
 
             context.CommonUsers.AddOrUpdate(user => user.Id, laco, karlik, henrich);

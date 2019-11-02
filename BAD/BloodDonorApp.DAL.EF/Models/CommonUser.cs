@@ -24,7 +24,7 @@ namespace BloodDonorApp.DAL.EF.Models
 
         public BloodType BloodType { get; set; }
 
-        public CommonUserType UserType { get; set; }
+        public CommonUserType Type { get; set; }
 
         public string Description { get; set; }
 

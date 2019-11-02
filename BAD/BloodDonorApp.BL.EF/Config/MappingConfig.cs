@@ -21,7 +21,7 @@ namespace BloodDonorApp.BL.EF.Config
             config.CreateMap<CommonUser, CommonUserDto>().ForMember(cuDto => cuDto.FullName, opts => opts.ResolveUsing(commonUser =>
                 {
                     var fullName = commonUser.FirstName;
-                    if (commonUser.MiddleName != null)
+                    if (!string.IsNullOrWhiteSpace(commonUser.MiddleName))
                     {
                         fullName += " " + commonUser.MiddleName;
                     }
@@ -29,6 +29,8 @@ namespace BloodDonorApp.BL.EF.Config
                     return fullName + " " + commonUser.LastName;
                 })).ReverseMap();
 
+            config.CreateMap<CommonUser, CommonUserDto>().ForMember(cuDto => cuDto.FullBN, opts => opts.MapFrom(
+                commonUser => commonUser.PrefixBN + "/" + commonUser.SufixBN)).ReverseMap();
             config.CreateMap<BloodDonation, BloodDonationDto>().ReverseMap();
             config.CreateMap<Hospital, HospitalDto>().ReverseMap();
             config.CreateMap<SampleStation, SampleStationDto>().ReverseMap();

@@ -11,5 +11,7 @@ namespace BloodDonorApp.BL.EF.DTO.Filters
         public Guid DonorId { get; set; }
 
         public Guid ApplicantId { get; set; }
+
+        public BloodType[] BloodTypes { get; set; }
     }
 }

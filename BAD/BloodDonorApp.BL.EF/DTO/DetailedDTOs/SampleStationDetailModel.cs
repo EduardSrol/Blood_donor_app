@@ -9,6 +9,7 @@ namespace BloodDonorApp.BL.EF.DTO
 {
     public class SampleStationDetailModel
     {
+        /*
         [Display(Name = "SampleStationCity", ResourceType = typeof(Resources.Models))]
         public string City { get; set; }
 
@@ -35,7 +36,7 @@ namespace BloodDonorApp.BL.EF.DTO
 
         [Display(Name = "SampleStationLink", ResourceType = typeof(Resources.Models))]
         public string WebLink { get; set; }
-
+        */
 
     }
 }

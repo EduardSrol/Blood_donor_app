@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace BloodDonorApp.BL.EF.DTO
 {
     class BloodDonationDetailModel
-    {
+    {/*
         [Display(Name = "BloodDonationDonorID", ResourceType = typeof(Resources.Models))]
         public Guid? DonorId { get; set; }
 
@@ -23,5 +23,6 @@ namespace BloodDonorApp.BL.EF.DTO
 
         [Display(Name = "BloodDonationDateTime", ResourceType = typeof(Resources.Models))]
         public DateTime? Date { get; set; }
+        */
     }
 }

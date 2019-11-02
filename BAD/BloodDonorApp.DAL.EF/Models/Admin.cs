@@ -14,10 +14,11 @@ namespace BloodDonorApp.DAL.EF.Models
 
         [NotMapped]
         public string TableName { get; } = nameof(BDADbContext.Admins);
-        public AdminType AdminType { get; set; }
+        public AdminType Type { get; set; }
 
         [ForeignKey(nameof(Hospital))]
-        public Guid HospitalId { get; set; }
+        public Guid? HospitalId { get; set; }
         public Hospital Hospital { get; set; }
+
     }
 }

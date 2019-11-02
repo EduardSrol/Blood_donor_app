@@ -22,8 +22,6 @@ namespace BloodDonorApp.BL.EF.DTO
 
         public CommonUserType UserType { get; set; }
 
-        public Guid? HospitalId { get; set; }
-
         public bool Active { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using BloodDonorApp.BL.EF.DTO.Common;
+﻿using System;
+using BloodDonorApp.BL.EF.DTO.Common;
 
 namespace BloodDonorApp.BL.EF.DTO.Filters
 {
@@ -7,5 +8,6 @@ namespace BloodDonorApp.BL.EF.DTO.Filters
         public string City { get; set; }
 
         public string Name { get; set; }
+
     }
 }

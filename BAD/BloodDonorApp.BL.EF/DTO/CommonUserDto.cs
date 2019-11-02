@@ -9,7 +9,7 @@ namespace BloodDonorApp.BL.EF.DTO
 
         public BloodType BloodType { get; set; }
 
-        public CommonUserType UserType { get; set; }
+        public CommonUserType Type { get; set; }
 
         public string Description { get; set; }
 
@@ -20,6 +20,8 @@ namespace BloodDonorApp.BL.EF.DTO
         public bool Active { get; set; }
 
         public string FullName { get; set; }
+
+        public string FullBN { get; set; }
 
     }
 }

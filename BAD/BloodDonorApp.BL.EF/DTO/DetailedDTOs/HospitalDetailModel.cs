@@ -9,6 +9,7 @@ namespace BloodDonorApp.BL.EF.DTO
 {
     class HospitalDetailModel
     {
+        /*
         [Display(Name = "HospitalCity", ResourceType = typeof(Resources.Models))]
         public string City { get; set; }
 
@@ -32,5 +33,6 @@ namespace BloodDonorApp.BL.EF.DTO
 
         [Display(Name = "HospitalEmail", ResourceType = typeof(Resources.Models))]
         public string Email { get; set; }
+        */
     }
 }
