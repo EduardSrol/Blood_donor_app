@@ -19,8 +19,6 @@ namespace BloodDonorApp.BL.EF.DTO
 
         public bool Active { get; set; }
 
-        public string FullName { get; set; }
-
         public string FullBN { get; set; }
 
     }

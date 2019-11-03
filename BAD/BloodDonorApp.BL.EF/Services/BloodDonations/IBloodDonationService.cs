@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BloodDonorApp.BL.EF.DTO;
+using BloodDonorApp.BL.EF.DTO.Common;
 using BloodDonorApp.BL.EF.DTO.Enums;
+using BloodDonorApp.BL.EF.DTO.Filters;
 
 namespace BloodDonorApp.BL.EF.Services.BloodDonations
 {
@@ -62,5 +64,11 @@ namespace BloodDonorApp.BL.EF.Services.BloodDonations
         /// </summary>
         /// <param name="entityId">Id of the entity to delete</param>
         void Delete(Guid entityId);
+
+        /// <summary>
+        /// Gets all DTOs (for given type)
+        /// </summary>
+        /// <returns>all available dtos (for given type)</returns>
+        Task<QueryResultDto<BloodDonationDto, BloodDonationFilterDto>> ListAllAsync();
     }
 }

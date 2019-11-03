@@ -61,9 +61,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppContainer\AppContainer.cs" />
-    <Compile Include="AppContainer\MapperConfigurationFactory.cs" />
-    <Compile Include="AppContainer\MapperInstaller.cs" />
     <Compile Include="Config\BusinessLayerInstaller.cs" />
     <Compile Include="Config\MappingConfig.cs" />
     <Compile Include="DTO\AdminDto.cs" />
@@ -105,10 +102,18 @@
     <Compile Include="QueryObjects\Common\QueryObjectUtils.cs" />
     <Compile Include="QueryObjects\HospitalQueryObject.cs" />
     <Compile Include="QueryObjects\SampleStationQueryObject.cs" />
+    <Compile Include="Services\Accounts\Registration\AdminRegistrationService.cs" />
+    <Compile Include="Services\Accounts\Registration\CheckoutAccountAvailabilityService.cs" />
+    <Compile Include="Services\Accounts\Registration\IAdminRegistrationService.cs" />
+    <Compile Include="Services\Accounts\Registration\ICheckoutAccountAvailabilityService.cs" />
     <Compile Include="Services\BloodDonations\BloodDonationService.cs" />
     <Compile Include="Services\BloodDonations\IBloodDonationService.cs" />
     <Compile Include="Services\Common\CrudQueryServiceBase.cs" />
     <Compile Include="Services\Common\ServiceBase.cs" />
+    <Compile Include="Services\Hospitals\HospitalService.cs" />
+    <Compile Include="Services\Hospitals\IHospitalService.cs" />
+    <Compile Include="Services\SampleStations\ISampleStationService.cs" />
+    <Compile Include="Services\SampleStations\SampleStationService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -124,6 +129,8 @@
       <Name>BloodDonorApp.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Services\Accounts\LogIn\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
