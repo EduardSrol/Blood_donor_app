@@ -17,7 +17,7 @@ namespace BloodDonorApp.DAL.EntityFramework.Tests
         internal static readonly IWindsorContainer Container = new WindsorContainer();
 
         [OneTimeSetUp]
-        public void InitializeTests()
+        public void InitializeBusinessLayerTests()
         {
             Database.SetInitializer(new DropCreateDatabaseAlways<BDADbContext>());
             Container.Install(new EntityFrameworkTestInstaller());

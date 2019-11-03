@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BDADbContext.cs" />
+    <Compile Include="Config\EntityFrameworkInstaller.cs" />
     <Compile Include="DatabaseInitializer.cs" />
     <Compile Include="Enums\AdminType.cs" />
     <Compile Include="Enums\BloodType.cs" />
@@ -89,5 +90,6 @@
       <DependentUpon>201911021635301_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

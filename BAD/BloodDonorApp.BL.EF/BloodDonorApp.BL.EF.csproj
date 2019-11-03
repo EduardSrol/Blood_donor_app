@@ -64,6 +64,7 @@
     <Compile Include="AppContainer\AppContainer.cs" />
     <Compile Include="AppContainer\MapperConfigurationFactory.cs" />
     <Compile Include="AppContainer\MapperInstaller.cs" />
+    <Compile Include="Config\BusinessLayerInstaller.cs" />
     <Compile Include="Config\MappingConfig.cs" />
     <Compile Include="DTO\AdminDto.cs" />
     <Compile Include="DTO\BloodDonationDto.cs" />
@@ -104,6 +105,10 @@
     <Compile Include="QueryObjects\Common\QueryObjectUtils.cs" />
     <Compile Include="QueryObjects\HospitalQueryObject.cs" />
     <Compile Include="QueryObjects\SampleStationQueryObject.cs" />
+    <Compile Include="Services\BloodDonations\BloodDonationService.cs" />
+    <Compile Include="Services\BloodDonations\IBloodDonationService.cs" />
+    <Compile Include="Services\Common\CrudQueryServiceBase.cs" />
+    <Compile Include="Services\Common\ServiceBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

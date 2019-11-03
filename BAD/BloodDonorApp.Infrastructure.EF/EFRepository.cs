@@ -5,16 +5,16 @@ using System.Data.Entity;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using BloodDonorApp.Infrastructure.EF.UnitOfWork;
+using BloodDonorApp.Infrastructure.UnitOfWork;
 
 namespace BloodDonorApp.Infrastructure.EF
 {
     public class EFRepository<TEntity> : IRepository<TEntity> where TEntity : class, IEntity, new()
     {
-        private readonly EFUnitOfWorkFactory factory;
+        private readonly IUnitOfWorkFactory factory;
         protected DbContext DbContext => ((EFUnitOfWork)factory.GetUnitOfWorkInstance()).Context;
 
-//        public EFRepository() { }
-        public EFRepository(EFUnitOfWorkFactory factory)
+        public EFRepository(IUnitOfWorkFactory factory)
         {
             this.factory = factory;
         }
@@ -86,6 +86,7 @@ namespace BloodDonorApp.Infrastructure.EF
         #region Async methods
         public async Task<TEntity> GetByIdAsync(Guid id)
         {
+            var count = DbContext.Set<TEntity>().Count();
             return await DbContext.Set<TEntity>().FindAsync(id);
         }
         #endregion

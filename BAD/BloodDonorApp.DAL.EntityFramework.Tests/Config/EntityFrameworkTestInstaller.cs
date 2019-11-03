@@ -18,6 +18,7 @@ namespace BloodDonorApp.DAL.EntityFramework.Tests.Config
 {
     public class EntityFrameworkTestInstaller : IWindsorInstaller
     {
+
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
             container.Register(
