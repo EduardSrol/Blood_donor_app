@@ -24,12 +24,12 @@ Typy používateľov systému:
 
 **Systém bude umožňovať:**
 
-    Spájať ľudí žiadajúcich o krv (ďalej ako žiadateľ - nutná registrácia) a ľudí s dobrým srdcom a úmyslom pomôcť iným v núdzi (ďalej ako darca - voliteľná registrácia)
+Spájať ľudí žiadajúcich o krv (ďalej ako žiadateľ - nutná registrácia) a ľudí s dobrým srdcom a úmyslom pomôcť iným v núdzi (ďalej ako darca - voliteľná registrácia)
 
-    Každému registrovanému používateľovi (ďalej ako user) priradiť Unique User Number - 16 miestne číslo, v rámci zachovania ochrany osobných údajov.
+Každému registrovanému používateľovi (ďalej ako user) priradiť Unique User Number - 16 miestne číslo, v rámci zachovania ochrany osobných údajov.
 
-    Umožniť administratorovi - nemocnici založiť účet pre žiadateľov (základné osobné údaje, kontakt, krvná skupina, typ Žiadateľ, stav Active, vygeneruje sa UUN)
-   //TODO - generujúca funkcia
+Umožniť administratorovi - nemocnici založiť účet pre žiadateľov (základné osobné údaje, kontakt, krvná skupina, typ Žiadateľ, stav Active, vygeneruje sa UUN)
+//TODO - generujúca funkcia
 
     Umožniť založiť darcovi účet (UUN, typ Darca, jednoduchá história odberov)
 
