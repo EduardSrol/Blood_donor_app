@@ -1,5 +1,5 @@
 ﻿using BloodDonorApp.BL.EF.DTO.Common;
-using BloodDonorApp.DAL.EF.Enums;
+using BloodDonorApp.BL.EF.DTO.Enums;
 
 namespace BloodDonorApp.BL.EF.DTO.Filters
 {

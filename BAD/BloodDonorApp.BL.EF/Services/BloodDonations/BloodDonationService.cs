@@ -17,10 +17,10 @@ namespace BloodDonorApp.BL.EF.Services.BloodDonations
 {
     public class BloodDonationService : CrudQueryServiceBase<BloodDonation, BloodDonationDto, BloodDonationFilterDto>, IBloodDonationService
     {
-        public BloodDonationService(IMapper mapper, IRepository<BloodDonation> categoryRepository, QueryObjectBase<BloodDonationDto, BloodDonation, BloodDonationFilterDto, IQuery<BloodDonation>> bloodDonationListQuery)
-            : base(mapper, categoryRepository, bloodDonationListQuery) { }
+        public BloodDonationService(IMapper mapper, IRepository<BloodDonation> bloodDonationRepository, QueryObjectBase<BloodDonationDto, BloodDonation, BloodDonationFilterDto, IQuery<BloodDonation>> bloodDonationListQuery)
+            : base(mapper, bloodDonationRepository, bloodDonationListQuery) { }
 
-        public async Task<BloodDonationDto[]> GetBloodDonationsByBloodTypeAsync(BloodType[] bloodTypes)
+        public async Task<BloodDonationDto[]> GetBloodDonationsByBloodTypesAsync(BloodType[] bloodTypes)
         {
             var queryResult = await Query.ExecuteQuery(new BloodDonationFilterDto {BloodTypes = bloodTypes});
             return queryResult.Items.ToArray();

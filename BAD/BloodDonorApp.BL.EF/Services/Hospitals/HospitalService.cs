@@ -17,8 +17,8 @@ namespace BloodDonorApp.BL.EF.Services.Hospitals
 {
     public class HospitalService : CrudQueryServiceBase<Hospital, HospitalDto, HospitalFilterDto>, IHospitalService
     {
-        public HospitalService(IMapper mapper, IRepository<Hospital> categoryRepository, QueryObjectBase<HospitalDto, Hospital, HospitalFilterDto, IQuery<Hospital>> hospitalListQuery)
-            : base(mapper, categoryRepository, hospitalListQuery) { }
+        public HospitalService(IMapper mapper, IRepository<Hospital> hospitalRepository, QueryObjectBase<HospitalDto, Hospital, HospitalFilterDto, IQuery<Hospital>> hospitalListQuery)
+            : base(mapper, hospitalRepository, hospitalListQuery) { }
 
         public async Task<HospitalDto[]> GetHospitalsByCity(string city)
         {

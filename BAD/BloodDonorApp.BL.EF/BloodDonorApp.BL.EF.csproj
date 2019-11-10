@@ -63,8 +63,10 @@
   <ItemGroup>
     <Compile Include="Config\BusinessLayerInstaller.cs" />
     <Compile Include="Config\MappingConfig.cs" />
+    <Compile Include="DTO\AdminAccountAvailabilityDto.cs" />
     <Compile Include="DTO\AdminDto.cs" />
     <Compile Include="DTO\BloodDonationDto.cs" />
+    <Compile Include="DTO\CommonUserAccountAvailabilityDto.cs" />
     <Compile Include="DTO\CommonUserDto.cs" />
     <Compile Include="DTO\CommonUserEditProfileExtendedDto.cs" />
     <Compile Include="DTO\Common\InstitutionDto.cs" />
@@ -102,12 +104,16 @@
     <Compile Include="QueryObjects\Common\QueryObjectUtils.cs" />
     <Compile Include="QueryObjects\HospitalQueryObject.cs" />
     <Compile Include="QueryObjects\SampleStationQueryObject.cs" />
-    <Compile Include="Services\Accounts\Registration\AdminRegistrationService.cs" />
-    <Compile Include="Services\Accounts\Registration\CheckoutAccountAvailabilityService.cs" />
-    <Compile Include="Services\Accounts\Registration\IAdminRegistrationService.cs" />
-    <Compile Include="Services\Accounts\Registration\ICheckoutAccountAvailabilityService.cs" />
+    <Compile Include="Services\Accounts\Registration\AdminCheckoutAccountAvailabilityService.cs" />
+    <Compile Include="Services\Accounts\Registration\CommonUserCheckoutAccountAvailabilityService.cs" />
+    <Compile Include="Services\Accounts\Registration\IAdminCheckoutAccountAvailabilityService.cs" />
+    <Compile Include="Services\Accounts\Registration\ICommonUserCheckoutAccountAvailabilityService.cs" />
+    <Compile Include="Services\Admins\AdminService.cs" />
+    <Compile Include="Services\Admins\IAdminService.cs" />
     <Compile Include="Services\BloodDonations\BloodDonationService.cs" />
     <Compile Include="Services\BloodDonations\IBloodDonationService.cs" />
+    <Compile Include="Services\CommonUsers\CommonUserService.cs" />
+    <Compile Include="Services\CommonUsers\ICommonUserService.cs" />
     <Compile Include="Services\Common\CrudQueryServiceBase.cs" />
     <Compile Include="Services\Common\ServiceBase.cs" />
     <Compile Include="Services\Hospitals\HospitalService.cs" />

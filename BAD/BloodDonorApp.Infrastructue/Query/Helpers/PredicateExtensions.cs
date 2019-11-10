@@ -3,16 +3,13 @@ using BloodDonorApp.Infrastructure.Query.Predicates.Operators;
 using BloodDonorApp.Infrastructure.UnitOfWork;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BloodDonorApp.Infrastructure.Query.Helpers
 {
     public static class PredicateExtensions
     {
-        private static readonly IDictionary<ValueComparingOperator, Func<object, string>> BinaryOperations =
-            new Dictionary<ValueComparingOperator, Func<object, string>>
+        private static readonly IDictionary<ValueComparingOperator, Func<string, string>> BinaryOperations =
+            new Dictionary<ValueComparingOperator, Func<string, string>>
             {
                 {ValueComparingOperator.Equal, rightOperand => CheckCommaUsage(rightOperand) ? $" = '{rightOperand}'" : $" = {rightOperand}" },
                 {ValueComparingOperator.NotEqual, rightOperand => CheckCommaUsage(rightOperand) ? $" != '{rightOperand}'" : $" != {rightOperand}" },
@@ -88,12 +85,23 @@ namespace BloodDonorApp.Infrastructure.Query.Helpers
             const string atChar = "@";
             if (simplePredicate.ComparedValue is string value && value.Contains(atChar))
             {
-                var escapedValue = (object)value.Insert(value.IndexOf(atChar, StringComparison.Ordinal), atChar);
+                string escapedValue = value.Insert(value.IndexOf(atChar, StringComparison.Ordinal), atChar);
                 return simplePredicate.TargetPropertyName + BinaryOperations[simplePredicate.ValueComparingOperator]
                            .Invoke(escapedValue);
             }
             return simplePredicate.TargetPropertyName + BinaryOperations[simplePredicate.ValueComparingOperator]
-                       .Invoke(simplePredicate.ComparedValue);
+                       .Invoke(ConvertOperandToString(simplePredicate.ComparedValue));
+        }
+
+        //this method is here because you cannot override ToString() method of enum 
+        // and we want to return number instead of name values of enum
+        private static string ConvertOperandToString(object operand)
+        {
+            if (operand is Enum enumOperand)
+            {
+                return enumOperand.ToString("D");
+            }
+            return operand.ToString();
         }
     }
 }

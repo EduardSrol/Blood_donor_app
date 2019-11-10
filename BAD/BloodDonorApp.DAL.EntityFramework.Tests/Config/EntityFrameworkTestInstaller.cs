@@ -1,6 +1,5 @@
 ﻿using Castle.Windsor;
 using System;
-using System.Collections.Generic;
 using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using System.Data.Entity;

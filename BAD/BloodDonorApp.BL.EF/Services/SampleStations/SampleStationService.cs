@@ -16,8 +16,8 @@ namespace BloodDonorApp.BL.EF.Services.SampleStations
 {
     public class SampleStationService : CrudQueryServiceBase<SampleStation, SampleStationDto, SampleStationFilterDto>, ISampleStationService
     {
-        public SampleStationService(IMapper mapper, IRepository<SampleStation> categoryRepository, QueryObjectBase<SampleStationDto, SampleStation, SampleStationFilterDto, IQuery<SampleStation>> sampleStationListQuery)
-            : base(mapper, categoryRepository, sampleStationListQuery) { }
+        public SampleStationService(IMapper mapper, IRepository<SampleStation> sampleStationRepository, QueryObjectBase<SampleStationDto, SampleStation, SampleStationFilterDto, IQuery<SampleStation>> sampleStationListQuery)
+            : base(mapper, sampleStationRepository, sampleStationListQuery) { }
 
         public async Task<SampleStationDto[]> GetSampleStationsByCity(string city)
         {

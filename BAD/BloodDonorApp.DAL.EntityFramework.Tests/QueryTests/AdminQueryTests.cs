@@ -11,6 +11,7 @@ using NUnit.Framework;
 
 namespace BloodDonorApp.DAL.EntityFramework.Tests.QueryTests
 {
+    [TestFixture]
     public class AdminQueryTests
     {
         private readonly IUnitOfWorkFactory unitOfWorkFactory = Initializer.Container.Resolve<IUnitOfWorkFactory>();

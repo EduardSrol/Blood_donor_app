@@ -19,7 +19,7 @@ namespace BloodDonorApp.BL.EF.QueryObjects
         protected override IQuery<Admin> ApplyWhereClause(IQuery<Admin> query, AdminFilterDto filter)
         {
             var definedPredicates = new List<IPredicate>();
-            QueryObjectUtils.AddIfDefined(FilterAdmins(filter), definedPredicates);
+            QueryObjectUtils.AddIfDefined(FilterAdminTypes(filter), definedPredicates);
             QueryObjectUtils.AddIfDefined(FilterUserName(filter), definedPredicates);
 
             switch (definedPredicates.Count)
@@ -36,7 +36,7 @@ namespace BloodDonorApp.BL.EF.QueryObjects
             }
         }
 
-        private static CompositePredicate FilterAdmins(AdminFilterDto filter)
+        private static CompositePredicate FilterAdminTypes(AdminFilterDto filter)
         {
             if (filter.AdminTypes == null || !filter.AdminTypes.Any())
             {
@@ -56,7 +56,7 @@ namespace BloodDonorApp.BL.EF.QueryObjects
             {
                 return null;
             }
-            return new SimplePredicate(nameof(Admin.UserName), ValueComparingOperator.StringContains, filter.UserName);
+            return new SimplePredicate(nameof(Admin.UserName), ValueComparingOperator.Equal, filter.UserName);
         }
     }
 }

@@ -59,7 +59,7 @@ namespace BloodDonorApp.BL.EF.QueryObjects
             {
                 return null;
             }
-            return new SimplePredicate(nameof(CommonUser.UserName), ValueComparingOperator.StringContains, filter.UserName);
+            return new SimplePredicate(nameof(CommonUser.UserName), ValueComparingOperator.Equal, filter.UserName);
         }
 
         private static SimplePredicate FilterFullName(CommonUserFilterDto filter)
@@ -85,7 +85,7 @@ namespace BloodDonorApp.BL.EF.QueryObjects
             {
                 return null;
             }
-            return new SimplePredicate(nameof(CommonUser.Email), ValueComparingOperator.StringContains, filter.Email);
+            return new SimplePredicate(nameof(CommonUser.Email), ValueComparingOperator.Equal, filter.Email);
         }
 
         private static SimplePredicate FilterPhone(CommonUserFilterDto filter)
@@ -94,7 +94,7 @@ namespace BloodDonorApp.BL.EF.QueryObjects
             {
                 return null;
             }
-            return new SimplePredicate(nameof(CommonUser.Phone), ValueComparingOperator.StringContains, filter.Phone);
+            return new SimplePredicate(nameof(CommonUser.Phone), ValueComparingOperator.Equal, filter.Phone);
         }
 
         private static CompositePredicate FilterBloodTypes(CommonUserFilterDto filter)

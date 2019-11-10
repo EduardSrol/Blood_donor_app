@@ -24,18 +24,16 @@ namespace BloodDonorApp.Infrastructure.EF
         {
 
             QueryResult<TEntity> result;
-            var sql = new StringBuilder().Append($"{SqlConstants.SelectFromClause}[{typeof(TEntity).Name}]");
+            var sql = new StringBuilder().Append($"{SqlConstants.SelectFromClause}[{new TEntity().TableName}] WITH (NOLOCK) ");
 
             if (Predicate != null)
             {
                 var predicateResult = Predicate is CompositePredicate composite ?
-                                            composite.BuildCompositePredicate() :
-                                            (Predicate as SimplePredicate).BuildSimplePredicate();
+                    composite.BuildCompositePredicate() :
+                    (Predicate as SimplePredicate).BuildSimplePredicate();
 
                 sql.Append($"{SqlConstants.WhereClause}{predicateResult}");
             }
-
-            var itemsCount = Context.Set<TEntity>().SqlQuery(sql.ToString()).Count();
 
             if (!string.IsNullOrWhiteSpace(SortAccordingTo))
             {
@@ -45,12 +43,12 @@ namespace BloodDonorApp.Infrastructure.EF
             if (DesiredPage > 0)
             {
                 var items = (await Context.Set<TEntity>().SqlQuery(sql.ToString()).ToListAsync()).Skip((DesiredPage.Value - 1) * PageSize).Take(PageSize).ToList();
-                result = new QueryResult<TEntity>(items, itemsCount, PageSize, DesiredPage);
+                result = new QueryResult<TEntity>(items, items.Count, PageSize, DesiredPage);
             }
             else
             {
-                List<TEntity> items = await Context.Set<TEntity>().SqlQuery(sql.ToString()).ToListAsync();
-                result = new QueryResult<TEntity>(items, itemsCount);
+                List<TEntity> items = await Context.Database.SqlQuery<TEntity>(sql.ToString()).ToListAsync();
+                result = new QueryResult<TEntity>(items, items.Count);
             }
             return result;
         }

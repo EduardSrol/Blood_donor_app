@@ -17,7 +17,7 @@ namespace BloodDonorApp.BL.EF.Services.BloodDonations
         /// </summary>
         /// <param name="bloodTypes">names of the categories</param>
         /// <returns>blood donations with specific blood type</returns>
-        Task<BloodDonationDto[]> GetBloodDonationsByBloodTypeAsync(BloodType[] bloodTypes);
+        Task<BloodDonationDto[]> GetBloodDonationsByBloodTypesAsync(BloodType[] bloodTypes);
 
         /// <summary>
         /// Gets all blood donations by donor id
