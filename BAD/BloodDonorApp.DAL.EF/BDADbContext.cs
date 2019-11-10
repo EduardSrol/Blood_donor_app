@@ -1,18 +1,19 @@
 ﻿using System.Data.Entity;
 using System.Data.Common;
+using BloodDonorApp.DAL.EF.Config;
 using BloodDonorApp.DAL.EF.Models;
 
 namespace BloodDonorApp.DAL.EF
 {
     public class BDADbContext : DbContext
     {
-        //private const string ConnectionString = " (localdb)\\MSSQLLocalDB";
-        private const string ConnectionString = "Data source=(localdb)\\mssqllocaldb;Database=BLOODDONORAPP-DB;Trusted_Connection=True;MultipleActiveResultSets=true";
+        //private const string ConnectionString = " (localdb)\\MSSQLLocalDB"
 
 
-        public BDADbContext() : base(ConnectionString)
+        public BDADbContext() : base(EFInstaller.ConnectionString)
         {
-            Database.SetInitializer(new DatabaseInitializer());
+            //Database.SetInitializer(new DatabaseInitializer());
+            var instance = System.Data.Entity.SqlServer.SqlProviderServices.Instance;
 
         }
 

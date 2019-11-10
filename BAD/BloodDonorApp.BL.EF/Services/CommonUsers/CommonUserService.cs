@@ -27,13 +27,13 @@ namespace BloodDonorApp.BL.EF.Services.CommonUsers
 
         public async Task<CommonUserDto> GetCommonUserByUserName(string userName)
         {
-            var queryResult = await Query.ExecuteQuery(new CommonUserFilterDto() { UserName = username });
+            var queryResult = await Query.ExecuteQuery(new CommonUserFilterDto() { UserName = userName });
             return queryResult.Items.SingleOrDefault();
         }
 
         public async Task<CommonUserDto[]> GetCommonUserByFullName(string fullName)
         {
-            var queryResult = await Query.ExecuteQuery(new CommonUserFilterDto() { FullName = fullname });
+            var queryResult = await Query.ExecuteQuery(new CommonUserFilterDto() { FullName = fullName });
             return queryResult.Items.ToArray();
         }
 

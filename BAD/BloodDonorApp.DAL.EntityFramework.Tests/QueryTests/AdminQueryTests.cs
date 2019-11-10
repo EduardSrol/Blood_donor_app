@@ -39,7 +39,7 @@ namespace BloodDonorApp.DAL.EntityFramework.Tests.QueryTests
             using (unitOfWorkFactory.Create())
             {
                 actualQueryResult = await adminQuery.Where(new SimplePredicate(nameof(Admin.UserName),
-                    ValueComparingOperator.StringContains, "JanBoss")).ExecuteAsync();
+                    ValueComparingOperator.Equal, "JanBoss")).ExecuteAsync();
             }
 
             Assert.AreEqual(actualQueryResult, expectedQuery);
