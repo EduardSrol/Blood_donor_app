@@ -12,6 +12,10 @@ namespace BloodDonorApp.BL.EF.Services.CommonUsers
 {
     public interface ICommonUserService
     {
+
+
+        Task<QueryResultDto<CommonUserDto, CommonUserFilterDto>> ListCommonUsersAsync(CommonUserFilterDto filter);
+
         /// <summary>
         /// TODO
         /// </summary>

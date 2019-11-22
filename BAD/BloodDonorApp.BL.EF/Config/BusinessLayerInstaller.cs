@@ -4,7 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
+using BloodDonorApp.BL.EF.Facades.Common;
 using BloodDonorApp.BL.EF.QueryObjects.Common;
+using BloodDonorApp.BL.EF.Services.Common;
+using BloodDonorApp.DAL.EF.Config;
 using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.Resolvers.SpecializedResolvers;
 using Castle.MicroKernel.SubSystems.Configuration;
@@ -13,11 +16,11 @@ using Castle.Windsor;
 namespace BloodDonorApp.BL.EF.Config
 {
     class BusinessLayerInstaller
-    {/*
+    {
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
             // Choose prefered DAL
-            new EntityFrameworkInstaller().Install(container, store);
+            new EFInstaller().Install(container, store);
             //new PetaPocoInstaller().Install(container, store);
 
             container.Register(
@@ -32,11 +35,6 @@ namespace BloodDonorApp.BL.EF.Config
                     .LifestyleTransient(),
 
                 Classes.FromThisAssembly()
-                    .BasedOn<IPriceCalculator>()
-                    .WithService.FromInterface()
-                    .LifestyleSingleton(),
-
-                Classes.FromThisAssembly()
                     .BasedOn<FacadeBase>()
                     .LifestyleTransient(),
 
@@ -47,6 +45,6 @@ namespace BloodDonorApp.BL.EF.Config
 
             // add collection subresolver in order to resolve IEnumerable in Price Calculator Resolver
             container.Kernel.Resolver.AddSubResolver(new CollectionResolver(container.Kernel));
-        }*/
+        }
     }
 }

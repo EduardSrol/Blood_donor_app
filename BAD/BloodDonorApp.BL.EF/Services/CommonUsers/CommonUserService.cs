@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using BloodDonorApp.BL.EF.DTO;
+using BloodDonorApp.BL.EF.DTO.Common;
 using BloodDonorApp.BL.EF.DTO.Enums;
 using BloodDonorApp.BL.EF.DTO.Filters;
 using BloodDonorApp.BL.EF.QueryObjects.Common;
@@ -59,6 +60,11 @@ namespace BloodDonorApp.BL.EF.Services.CommonUsers
         {
             var queryResult = await Query.ExecuteQuery(new CommonUserFilterDto() { CommonUserTypes = userTypes });
             return queryResult.Items.ToArray();
+        }
+
+        public async Task<QueryResultDto<CommonUserDto, CommonUserFilterDto>> ListCommonUsersAsync(CommonUserFilterDto filter)
+        {
+            return await Query.ExecuteQuery(filter);
         }
     }
 }
