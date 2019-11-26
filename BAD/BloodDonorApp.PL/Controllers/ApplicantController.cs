@@ -1,14 +1,11 @@
 ﻿using BloodDonorApp.BL.EF.DTO;
 using BloodDonorApp.BL.EF.DTO.Common;
-using BloodDonorApp.BL.EF.DTO.Enums;
 using BloodDonorApp.BL.EF.DTO.Filters;
 using BloodDonorApp.BL.EF.Facades;
+using BloodDonorApp.PL.App_Start.Windsor;
 using BloodDonorApp.PL.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using Castle.Windsor;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
 using X.PagedList;
 

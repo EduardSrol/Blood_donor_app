@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
+using BloodDonorApp.BL.EF.Facades;
 using BloodDonorApp.BL.EF.Facades.Common;
 using BloodDonorApp.BL.EF.QueryObjects.Common;
 using BloodDonorApp.BL.EF.Services.Common;
@@ -15,7 +16,7 @@ using Castle.Windsor;
 
 namespace BloodDonorApp.BL.EF.Config
 {
-    class BusinessLayerInstaller
+    public class BusinessLayerInstaller : IWindsorInstaller
     {
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
@@ -41,6 +42,8 @@ namespace BloodDonorApp.BL.EF.Config
                 Component.For<IMapper>()
                     .Instance(new Mapper(new MapperConfiguration(MappingConfig.ConfigureMapping)))
                     .LifestyleSingleton()
+
+                //Classes.FromThisAssembly().BasedOn<CommonUserFacade>().LifestyleSingleton()
             );
 
             // add collection subresolver in order to resolve IEnumerable in Price Calculator Resolver

@@ -1,4 +1,6 @@
-﻿using Castle.MicroKernel.Registration;
+﻿using BloodDonorApp.BL.EF.Facades;
+using BloodDonorApp.PL.Controllers;
+using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
 using System;
