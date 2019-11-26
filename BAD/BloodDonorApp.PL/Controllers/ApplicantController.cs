@@ -34,8 +34,7 @@ namespace BloodDonorApp.PL.Controllers
             var result = await CommonUserFacade.GetCommonUsers(filter);
 
             var model = await InitializeProductListViewModel(result, (int)allApplicants.TotalItemsCount);
-
-            return View("AppplicantsListView", model);
+            return View("ApplicantListView", model);
         }
 
         private async Task<ApplicantListViewModel> InitializeProductListViewModel(QueryResultDto<CommonUserDto, CommonUserFilterDto> result, int totalItemsCount)

@@ -15,8 +15,7 @@ namespace BloodDonorApp.PL.Controllers
 
         public async Task<ActionResult> Index()
         {
-            var user = await CommonUserFacade.GetCommonUserByUun(2);
-            return View(user.FullName);
+            return View();
         }
 
         public ActionResult About()

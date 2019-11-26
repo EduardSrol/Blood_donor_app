@@ -1,7 +1,8 @@
-﻿@model IEnumerable<BloodDonorApp.PL.Models.ApplicantListViewModel>
+﻿@model BloodDonorApp.PL.Models.ApplicantListViewModel
 
 @{
     ViewBag.Title = "ApplicantListView";
+    var rowNumber = 1;
 }
 
 <h2>ApplicantListView</h2>
@@ -10,18 +11,31 @@
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
-    <tr>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
-}
-
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">First name</th>
+            <th scope="col">Last name</th>
+            <th scope="col">Blood type</th>
+            <th scope="col">Email</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Applicants)
+        {
+            <tr>
+                <th scope="row">@(rowNumber++)</th>
+                <td>@item.FirstName</td>
+                <td>@item.LastName</td>
+                <td>@item.BloodType</td>
+                <td>@item.Email</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+        }
+        </tbody>
 </table>
