@@ -135,6 +135,10 @@
       <Project>{D045A1A9-88BD-474E-99FF-1145BDDAE615}</Project>
       <Name>BloodDonorApp.Infrastructure</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BloodDonorApp.Infrastructure.EF\BloodDonorApp.Infrastructure.EF.csproj">
+      <Project>{b0b3d5c7-3eb4-4f2a-b4de-5b2e30d947b9}</Project>
+      <Name>BloodDonorApp.Infrastructure.EF</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Interface\" />

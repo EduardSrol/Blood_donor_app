@@ -86,6 +86,25 @@ namespace BloodDonorApp.BL.EF.Facades
             }
         }
 
+        public async Task DeleteUserSoftAsync(Guid id)
+        {
+            using (var uow = UnitOfWorkFactory.Create())
+            {
+                var user = await commonUserService.GetCommonUserByIdAsync(id);
+                user.IsDeleted = true;
+                await commonUserService.UpdateCommonUserAsync(user);
+            }
+        }
+
+        public async Task<CommonUserDto> GetCommonUserByIdAsync(Guid id)
+        {
+            using (var uow = UnitOfWorkFactory.Create())
+            {
+                var user = await commonUserService.GetCommonUserDtoByIdAsync(id);
+                return user;
+            }
+        }
+
         public async Task DeleteUserAsync(Guid id)
         {
             using (var uow = UnitOfWorkFactory.Create())
@@ -95,7 +114,6 @@ namespace BloodDonorApp.BL.EF.Facades
                 // ako napriklad vsetky donations kde figuruje ako applicantID apod. resp. spravit namiesto toho
                 // tzv. soft-delete kde ho len oznacime za deleted a vo Views budes rendrovat len nonDeleted users
                 commonUserService.Delete(id);
-                await uow.CommitAsync();
             }
         }
     }

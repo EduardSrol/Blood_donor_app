@@ -72,6 +72,10 @@
     <Compile Include="Migrations\201911021635301_Initial.Designer.cs">
       <DependentUpon>201911021635301_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911271404453_isDeletedCommonUser.cs" />
+    <Compile Include="Migrations\201911271404453_isDeletedCommonUser.Designer.cs">
+      <DependentUpon>201911271404453_isDeletedCommonUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\BloodDonation.cs" />
@@ -101,6 +105,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201911021635301_Initial.resx">
       <DependentUpon>201911021635301_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911271404453_isDeletedCommonUser.resx">
+      <DependentUpon>201911271404453_isDeletedCommonUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

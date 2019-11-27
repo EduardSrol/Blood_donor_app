@@ -7,6 +7,7 @@ using BloodDonorApp.BL.EF.DTO;
 using BloodDonorApp.BL.EF.DTO.Common;
 using BloodDonorApp.BL.EF.DTO.Enums;
 using BloodDonorApp.BL.EF.DTO.Filters;
+using BloodDonorApp.DAL.EF.Models;
 
 namespace BloodDonorApp.BL.EF.Services.CommonUsers
 {
@@ -34,6 +35,12 @@ namespace BloodDonorApp.BL.EF.Services.CommonUsers
         Task<CommonUserDto[]> GetCommonUsersByBloodTypes(BloodType[] bloodTypes);
 
         Task<CommonUserDto[]> GetCommonUsersByUserTypes(CommonUserType[] userTypes);
+
+        Task<CommonUser> GetCommonUserByIdAsync(Guid id);
+        Task<CommonUserDto> GetCommonUserDtoByIdAsync(Guid id);
+
+        Task UpdateCommonUserAsync(CommonUser user);
+
 
         /// <summary>
         /// Creates new entity

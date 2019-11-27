@@ -36,5 +36,7 @@ namespace BloodDonorApp.DAL.EF.Models
 
         public bool Active { get; set; }
 
+        public bool IsDeleted { get; set; }
+
     }
 }

@@ -10,6 +10,7 @@ namespace BloodDonorApp.BL.EF.Facades.Common
     public abstract class FacadeBase
     {
         protected readonly IUnitOfWorkFactory UnitOfWorkFactory;
+        protected readonly AutoMapper.Mapper Mapper;
 
         protected FacadeBase(IUnitOfWorkFactory unitOfWorkFactory)
         {

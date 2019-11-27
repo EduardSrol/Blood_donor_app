@@ -45,6 +45,19 @@ namespace BloodDonorApp.PL.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpPost]
+        public async Task <ActionResult> DeleteUserSoft(Guid id)
+        {
+            await CommonUserFacade.DeleteUserSoftAsync(id);
+            return RedirectToAction("Index");
+        }
+
+        public async Task<ActionResult> Edit(Guid id)
+        {
+            var user = await CommonUserFacade.GetCommonUserByIdAsync(id);
+            return View("Edit", user);
+        }
+
         private async Task<ApplicantListViewModel> InitializeProductListViewModel(QueryResultDto<CommonUserDto, CommonUserFilterDto> result, int totalItemsCount)
         {
             return new ApplicantListViewModel

@@ -29,6 +29,8 @@ namespace BloodDonorApp.Infrastructure
 //        Task<TEntity> FirstAsync(Expression<Func<TEntity, bool>> predicate);
 //        Task<TEntity> FirstOrDefaultAsync(Expression<Func<TEntity, bool>> predicate);
         Task<TEntity> GetByIdAsync(Guid id);
+        Task UpdateAsync(TEntity entity);
+
         #endregion
     }
 }

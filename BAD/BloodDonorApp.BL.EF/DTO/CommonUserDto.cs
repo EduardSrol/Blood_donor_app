@@ -21,5 +21,6 @@ namespace BloodDonorApp.BL.EF.DTO
 
         public string FullBN { get; set; }
 
+        public bool IsDeleted { get; set; }
     }
 }

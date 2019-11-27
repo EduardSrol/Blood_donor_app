@@ -24,11 +24,15 @@ namespace BloodDonorApp.Infrastructure.EF
         {
             entity.Id = Guid.NewGuid();
             DbContext.Set<TEntity>().Add(entity);
+            DbContext.SaveChanges();
+
         }
 
         public void Insert(IEnumerable<TEntity> entities)
         {
             DbContext.Set<TEntity>().AddRange(entities);
+            DbContext.SaveChanges();
+
         }
 
         public void Delete(TEntity entity)
@@ -39,6 +43,8 @@ namespace BloodDonorApp.Infrastructure.EF
             }
 
             DbContext.Set<TEntity>().Remove(entity);
+            DbContext.SaveChanges();
+
         }
 
         public void Delete(Guid id)
@@ -48,6 +54,7 @@ namespace BloodDonorApp.Infrastructure.EF
             {
                 DbContext.Set<TEntity>().Remove(entity);
             }
+            DbContext.SaveChanges();
         }
 
         public void Delete(IEnumerable<TEntity> entities)
@@ -61,6 +68,8 @@ namespace BloodDonorApp.Infrastructure.EF
             }
 
             DbContext.Set<TEntity>().RemoveRange(entities);
+            DbContext.SaveChanges();
+
         }
 
         public TEntity GetById(Guid id)
@@ -72,21 +81,31 @@ namespace BloodDonorApp.Infrastructure.EF
         {
             var foundEntity = DbContext.Set<TEntity>().Find(entity.Id);
             DbContext.Entry(foundEntity).CurrentValues.SetValues(entity);
+            DbContext.SaveChanges();
         }
+
         public void Update(IEnumerable<TEntity> entities)
         {
             foreach (var entity in entities)
             {
                 Update(entity);
             }
+            DbContext.SaveChanges();
+
         }
 
         #endregion
 
         #region Async methods
+        public async Task UpdateAsync(TEntity entity)
+        {
+            var foundEntity = DbContext.Set<TEntity>().Find(entity.Id);
+            DbContext.Entry(foundEntity).CurrentValues.SetValues(entity);
+            await DbContext.SaveChangesAsync();
+        }
+
         public async Task<TEntity> GetByIdAsync(Guid id)
         {
-            var count = DbContext.Set<TEntity>().Count();
             return await DbContext.Set<TEntity>().FindAsync(id);
         }
         #endregion

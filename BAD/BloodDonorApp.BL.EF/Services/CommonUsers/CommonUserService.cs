@@ -66,5 +66,22 @@ namespace BloodDonorApp.BL.EF.Services.CommonUsers
         {
             return await Query.ExecuteQuery(filter);
         }
+
+        public async Task<CommonUserDto> GetCommonUserDtoByIdAsync(Guid id)
+        {
+            var user = await Repository.GetByIdAsync(id);
+            var model = Mapper.Map<CommonUserDto>(user);
+            return model;
+        }
+        public async Task<CommonUser> GetCommonUserByIdAsync(Guid id)
+        {
+            return await Repository.GetByIdAsync(id);
+        }
+
+
+        public async Task UpdateCommonUserAsync(CommonUser user)
+        {
+            await Repository.UpdateAsync(user);
+        }
     }
 }
