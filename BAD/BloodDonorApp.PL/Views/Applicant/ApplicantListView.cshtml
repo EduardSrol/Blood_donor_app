@@ -1,7 +1,7 @@
 ﻿@model BloodDonorApp.PL.Models.ApplicantListViewModel
 
 @{
-    ViewBag.Title = "ApplicantListView";
+    ViewBag.Title = "BDA Applicants";
     var rowNumber = 1;
 }
 
@@ -18,7 +18,7 @@
             <th scope="col">Last name</th>
             <th scope="col">Blood type</th>
             <th scope="col">Email</th>
-            <th scope="col">Actions</th>
+            <th scope="col" class="">Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -30,12 +30,57 @@
                 <td>@item.LastName</td>
                 <td>@item.BloodType</td>
                 <td>@item.Email</td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                <td class="">
+                    <button type="button" class="btn btn-info btn-xs" >Open Modal</button>
+                    <button type="button" class="btn btn-info btn-xs" title="Show details for @item.FirstName">Details</button>
+                    <button id="deleteBtn_@rowNumber" type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#myModal" title="Delete user" onclick="FillNameToModal('@item.FirstName', '@item.LastName', '@item.Id');">Delete</button>
                 </td>
             </tr>
         }
-        </tbody>
+    </tbody>
 </table>
+
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <input type="hidden" id="userId-hdn" value="" />
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" onclick="() => (document.getElementById('modalP').innerHTML = '')">&times;</button>
+                <h4 class="modal-title">Are you sure? - This action is irreversible!</h4>
+            </div>
+            <div id="modalContent" class="modal-body">
+                <p id="modalP"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="DeleteUser()">Yes</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="jquery-3.4.1.min.js"></script>
+<script>
+    function FillNameToModal(name, lastname, id) {
+        document.getElementById("modalP").innerHTML = 'Do you really want to delete user <b>' + name + ' ' + lastname + '? </b>';
+        $("#userId-hdn").val(id);
+    }
+
+    function DeleteUser() {
+        var id = $("#userId-hdn").val();
+        $.ajax({
+            type: "POST",
+            url: "@Url.Action("DeleteUser", "Applicant")",
+            data: { id: id },
+            success: function () {
+                alert("User has been succesfully removed.");
+                $("#userId-hdn").val("");
+                $("#modalContent").innerHTML = '';
+                //location.reload();
+            }           
+        });
+    }
+</script>

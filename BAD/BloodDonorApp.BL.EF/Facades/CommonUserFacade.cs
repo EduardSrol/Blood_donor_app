@@ -85,5 +85,18 @@ namespace BloodDonorApp.BL.EF.Facades
                 return await commonUserService.ListCommonUsersAsync(filter);
             }
         }
+
+        public async Task DeleteUserAsync(Guid id)
+        {
+            using (var uow = UnitOfWorkFactory.Create())
+            {
+                //TODO toto sluzilo skor ako skuska na to ako zistit ci to vieme spravit, VIEME
+                // jasne ze musime najskor deletnut vsetky veci ktore sa tykaju tohto usera az potom usera
+                // ako napriklad vsetky donations kde figuruje ako applicantID apod. resp. spravit namiesto toho
+                // tzv. soft-delete kde ho len oznacime za deleted a vo Views budes rendrovat len nonDeleted users
+                commonUserService.Delete(id);
+                await uow.CommitAsync();
+            }
+        }
     }
 }

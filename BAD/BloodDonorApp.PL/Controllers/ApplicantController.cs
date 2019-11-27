@@ -5,6 +5,7 @@ using BloodDonorApp.BL.EF.Facades;
 using BloodDonorApp.PL.App_Start.Windsor;
 using BloodDonorApp.PL.Models;
 using Castle.Windsor;
+using System;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using X.PagedList;
@@ -35,6 +36,13 @@ namespace BloodDonorApp.PL.Controllers
 
             var model = await InitializeProductListViewModel(result, (int)allApplicants.TotalItemsCount);
             return View("ApplicantListView", model);
+        }
+
+        [HttpPost]
+        public async Task <ActionResult> DeleteUser(Guid id)
+        {
+            await CommonUserFacade.DeleteUserAsync(id);
+            return RedirectToAction("Index");
         }
 
         private async Task<ApplicantListViewModel> InitializeProductListViewModel(QueryResultDto<CommonUserDto, CommonUserFilterDto> result, int totalItemsCount)
