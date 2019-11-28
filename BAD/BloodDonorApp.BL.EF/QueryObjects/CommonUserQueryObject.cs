@@ -55,11 +55,11 @@ namespace BloodDonorApp.BL.EF.QueryObjects
 
         private static SimplePredicate FilterUserName(CommonUserFilterDto filter)
         {
-            if (string.IsNullOrWhiteSpace(filter.UserName))
+            if (string.IsNullOrWhiteSpace(filter.Username))
             {
                 return null;
             }
-            return new SimplePredicate(nameof(CommonUser.UserName), ValueComparingOperator.Equal, filter.UserName);
+            return new SimplePredicate(nameof(CommonUser.UserName), ValueComparingOperator.Equal, filter.Username);
         }
 
         private static SimplePredicate FilterFullName(CommonUserFilterDto filter)

@@ -69,6 +69,7 @@
     <Compile Include="DTO\CommonUserAccountAvailabilityDto.cs" />
     <Compile Include="DTO\CommonUserDto.cs" />
     <Compile Include="DTO\CommonUserEditProfileExtendedDto.cs" />
+    <Compile Include="DTO\CommonUserRegistrationDTO.cs" />
     <Compile Include="DTO\Common\InstitutionDto.cs" />
     <Compile Include="DTO\Common\PersonDto.cs" />
     <Compile Include="DTO\Common\UserDto.cs" />
@@ -90,7 +91,6 @@
     <Compile Include="DTO\HospitalDto.cs" />
     <Compile Include="DTO\UserLogInDto.cs" />
     <Compile Include="DTO\AdminRegisterDto.cs" />
-    <Compile Include="DTO\CommonUserRegisterDto.cs" />
     <Compile Include="DTO\DetailedDTOs\RemoteAttribute.cs" />
     <Compile Include="DTO\DetailedDTOs\SampleStationDetailModel.cs" />
     <Compile Include="DTO\DetailedDTOs\UserDetailModel.cs" />
@@ -121,6 +121,7 @@
     <Compile Include="Services\Hospitals\IHospitalService.cs" />
     <Compile Include="Services\SampleStations\ISampleStationService.cs" />
     <Compile Include="Services\SampleStations\SampleStationService.cs" />
+    <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

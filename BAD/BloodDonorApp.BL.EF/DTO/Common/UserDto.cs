@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,5 +19,11 @@ namespace BloodDonorApp.BL.EF.DTO.Common
                 //TODO: find way to hash password
             }
         }
+
+        [Required, StringLength(100)]
+        public string PasswordSalt { get; set; }
+
+        [Required, StringLength(100)]
+        public string PasswordHash { get; set; }
     }
 }

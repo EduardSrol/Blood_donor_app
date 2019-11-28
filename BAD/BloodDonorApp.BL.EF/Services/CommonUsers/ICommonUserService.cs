@@ -13,8 +13,6 @@ namespace BloodDonorApp.BL.EF.Services.CommonUsers
 {
     public interface ICommonUserService
     {
-
-
         Task<QueryResultDto<CommonUserDto, CommonUserFilterDto>> ListCommonUsersAsync(CommonUserFilterDto filter);
 
         /// <summary>
@@ -37,10 +35,15 @@ namespace BloodDonorApp.BL.EF.Services.CommonUsers
         Task<CommonUserDto[]> GetCommonUsersByUserTypes(CommonUserType[] userTypes);
 
         Task<CommonUser> GetCommonUserByIdAsync(Guid id);
+
         Task<CommonUserDto> GetCommonUserDtoByIdAsync(Guid id);
 
         Task UpdateCommonUserAsync(CommonUser user);
 
+        Guid RegisterUserAsync(CommonUserRegistrationDTO model);
+
+        Task<bool> AuthorizeUserAsync(string username, string password);
+               
 
         /// <summary>
         /// Creates new entity

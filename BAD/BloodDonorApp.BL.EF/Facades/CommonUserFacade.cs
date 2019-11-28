@@ -93,6 +93,7 @@ namespace BloodDonorApp.BL.EF.Facades
                 var user = await commonUserService.GetCommonUserByIdAsync(id);
                 user.IsDeleted = true;
                 await commonUserService.UpdateCommonUserAsync(user);
+                await uow.CommitAsync();
             }
         }
 
@@ -114,6 +115,35 @@ namespace BloodDonorApp.BL.EF.Facades
                 // ako napriklad vsetky donations kde figuruje ako applicantID apod. resp. spravit namiesto toho
                 // tzv. soft-delete kde ho len oznacime za deleted a vo Views budes rendrovat len nonDeleted users
                 commonUserService.Delete(id);
+                await uow.CommitAsync();
+            }
+        }
+
+        public async Task<bool> IsCommonUserDataForRegistrationUnique(CommonUserRegistrationDTO model)
+        {
+            using (var uow = UnitOfWorkFactory.Create())
+            {
+                var uniqueEmail = await commonUserService.GetCommonUserByEmail(model.Email) == null;
+                var uniqueUsername = await commonUserService.GetCommonUserByUserName(model.Username) == null;
+                return uniqueEmail && uniqueUsername;
+            }
+        }
+
+        public async Task<Guid> RegisterCustomer(CommonUserRegistrationDTO model)
+        {
+            using (var uow = UnitOfWorkFactory.Create())
+            {
+                var id = commonUserService.RegisterUserAsync(model);
+                await uow.CommitAsync();
+                return id;
+            }
+        }
+
+        public async Task<bool> Login(string username, string password)
+        {
+            using (UnitOfWorkFactory.Create())
+            {
+                return await commonUserService.AuthorizeUserAsync(username, password);
             }
         }
     }

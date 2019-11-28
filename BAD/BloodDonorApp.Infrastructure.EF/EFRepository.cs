@@ -24,14 +24,14 @@ namespace BloodDonorApp.Infrastructure.EF
         {
             entity.Id = Guid.NewGuid();
             DbContext.Set<TEntity>().Add(entity);
-            DbContext.SaveChanges();
+            //DbContext.SaveChanges();
 
         }
 
         public void Insert(IEnumerable<TEntity> entities)
         {
             DbContext.Set<TEntity>().AddRange(entities);
-            DbContext.SaveChanges();
+            //DbContext.SaveChanges();
 
         }
 
@@ -43,7 +43,7 @@ namespace BloodDonorApp.Infrastructure.EF
             }
 
             DbContext.Set<TEntity>().Remove(entity);
-            DbContext.SaveChanges();
+            //DbContext.SaveChanges();
 
         }
 
@@ -54,7 +54,7 @@ namespace BloodDonorApp.Infrastructure.EF
             {
                 DbContext.Set<TEntity>().Remove(entity);
             }
-            DbContext.SaveChanges();
+            //DbContext.SaveChanges();
         }
 
         public void Delete(IEnumerable<TEntity> entities)
@@ -68,7 +68,7 @@ namespace BloodDonorApp.Infrastructure.EF
             }
 
             DbContext.Set<TEntity>().RemoveRange(entities);
-            DbContext.SaveChanges();
+            //DbContext.SaveChanges();
 
         }
 
@@ -81,7 +81,7 @@ namespace BloodDonorApp.Infrastructure.EF
         {
             var foundEntity = DbContext.Set<TEntity>().Find(entity.Id);
             DbContext.Entry(foundEntity).CurrentValues.SetValues(entity);
-            DbContext.SaveChanges();
+            //DbContext.SaveChanges();
         }
 
         public void Update(IEnumerable<TEntity> entities)
@@ -90,7 +90,7 @@ namespace BloodDonorApp.Infrastructure.EF
             {
                 Update(entity);
             }
-            DbContext.SaveChanges();
+            //DbContext.SaveChanges();
 
         }
 

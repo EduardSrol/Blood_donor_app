@@ -23,7 +23,7 @@ namespace BloodDonorApp.BL.EF.Services.Accounts.Registration
 
         public async Task<bool> IsUsernameAvailable(string userName)
         {
-            var queryResult = await Query.ExecuteQuery(new CommonUserFilterDto() { UserName = userName });
+            var queryResult = await Query.ExecuteQuery(new CommonUserFilterDto() { Username = userName });
             return queryResult.Items.SingleOrDefault() == null;
         }
 
