@@ -67,6 +67,13 @@ namespace BloodDonorApp.BL.EF.Services.CommonUsers
             return await Query.ExecuteQuery(filter);
         }
 
+        public async Task<CommonUserEditProfileExtendedDto> GetCommonUserEditExtendedDto(Guid id)
+        {
+            var user = await Repository.GetByIdAsync(id);
+            var model = Mapper.Map<CommonUserEditProfileExtendedDto>(user);
+            return model;
+        }
+
         public async Task<CommonUserDto> GetCommonUserDtoByIdAsync(Guid id)
         {
             var user = await Repository.GetByIdAsync(id);
@@ -101,6 +108,25 @@ namespace BloodDonorApp.BL.EF.Services.CommonUsers
             var user = await GetCommonUserByUserName(username);
             var isValid = user != null && Utils.VerifyHashedPassword(user.PasswordHash, user.PasswordSalt, password);
             return isValid;
+        }
+
+        public async Task<bool> IsUsernameAvailable(string userName)
+        {
+            var queryResult = await Query.ExecuteQuery(new CommonUserFilterDto() { Username = userName });
+            return queryResult.Items.SingleOrDefault() == null;
+        }
+
+        public async Task<bool> IsEmailAvailable(string email)
+        {
+            var queryResult = await Query.ExecuteQuery(new CommonUserFilterDto() { Email = email });
+            return queryResult.Items.SingleOrDefault() == null;
+        }
+
+        public void Update (CommonUserEditProfileExtendedDto extendedProfileDto)
+        {
+            var user = Mapper.Map<CommonUser>(extendedProfileDto);
+            Repository.Update(user);
+
         }
     }
 }

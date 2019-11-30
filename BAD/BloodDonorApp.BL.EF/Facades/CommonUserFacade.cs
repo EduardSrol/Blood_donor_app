@@ -6,9 +6,6 @@ using BloodDonorApp.BL.EF.Facades.Common;
 using BloodDonorApp.BL.EF.Services.CommonUsers;
 using BloodDonorApp.Infrastructure.UnitOfWork;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace BloodDonorApp.BL.EF.Facades
@@ -106,6 +103,15 @@ namespace BloodDonorApp.BL.EF.Facades
             }
         }
 
+        public async Task<CommonUserEditProfileExtendedDto> GetCommonUserEditExtendedDto(Guid id)
+        {
+            using (var uow = UnitOfWorkFactory.Create())
+            {
+                var user = await commonUserService.GetCommonUserEditExtendedDto(id);
+                return user;
+            }
+        }
+
         public async Task DeleteUserAsync(Guid id)
         {
             using (var uow = UnitOfWorkFactory.Create())
@@ -123,9 +129,9 @@ namespace BloodDonorApp.BL.EF.Facades
         {
             using (var uow = UnitOfWorkFactory.Create())
             {
-                var uniqueEmail = await commonUserService.GetCommonUserByEmail(model.Email) == null;
-                var uniqueUsername = await commonUserService.GetCommonUserByUserName(model.Username) == null;
-                return uniqueEmail && uniqueUsername;
+                var availableEmail = await commonUserService.IsEmailAvailable(model.Email);
+                var availableUserName = await commonUserService.IsUsernameAvailable(model.Username);
+                return availableEmail && availableUserName;
             }
         }
 
@@ -146,5 +152,14 @@ namespace BloodDonorApp.BL.EF.Facades
                 return await commonUserService.AuthorizeUserAsync(username, password);
             }
         }
+
+        public void Update (CommonUserEditProfileExtendedDto extendedProfileDto)
+        {
+            using (var uow = UnitOfWorkFactory.Create())
+            {
+                commonUserService.Update(extendedProfileDto);
+            }
+        }
+
     }
 }

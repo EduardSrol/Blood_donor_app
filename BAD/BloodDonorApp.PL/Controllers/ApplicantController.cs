@@ -3,6 +3,7 @@ using BloodDonorApp.BL.EF.DTO.Common;
 using BloodDonorApp.BL.EF.DTO.Filters;
 using BloodDonorApp.BL.EF.Facades;
 using BloodDonorApp.PL.App_Start.Windsor;
+using BloodDonorApp.BL.EF.DTO.Enums;
 using BloodDonorApp.PL.Models;
 using Castle.Windsor;
 using System;
@@ -31,34 +32,14 @@ namespace BloodDonorApp.PL.Controllers
             var filter = Session[FilterSessionKey] as CommonUserFilterDto ?? new CommonUserFilterDto { PageSize = PageSize };
             filter.RequestedPageNumber = page;
 
-            var allApplicants = await CommonUserFacade.GetCommonUsers(new CommonUserFilterDto());
+            var allApplicants = await CommonUserFacade.GetCommonUsers(new CommonUserFilterDto { CommonUserTypes = new[] { CommonUserType.Applicant } });
             var result = await CommonUserFacade.GetCommonUsers(filter);
 
-            var model = await InitializeProductListViewModel(result, (int)allApplicants.TotalItemsCount);
+            var model = await InitializeApplicantListViewModel(result, (int)allApplicants.TotalItemsCount);
             return View("ApplicantListView", model);
         }
 
-        [HttpPost]
-        public async Task <ActionResult> DeleteUser(Guid id)
-        {
-            await CommonUserFacade.DeleteUserAsync(id);
-            return RedirectToAction("Index");
-        }
-
-        [HttpPost]
-        public async Task <ActionResult> DeleteUserSoft(Guid id)
-        {
-            await CommonUserFacade.DeleteUserSoftAsync(id);
-            return RedirectToAction("Index");
-        }
-
-        public async Task<ActionResult> Edit(Guid id)
-        {
-            var user = await CommonUserFacade.GetCommonUserByIdAsync(id);
-            return View("Edit", user);
-        }
-
-        private async Task<ApplicantListViewModel> InitializeProductListViewModel(QueryResultDto<CommonUserDto, CommonUserFilterDto> result, int totalItemsCount)
+        private async Task<ApplicantListViewModel> InitializeApplicantListViewModel(QueryResultDto<CommonUserDto, CommonUserFilterDto> result, int totalItemsCount)
         {
             return new ApplicantListViewModel
             {

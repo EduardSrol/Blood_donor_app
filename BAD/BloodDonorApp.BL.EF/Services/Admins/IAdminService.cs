@@ -16,6 +16,13 @@ namespace BloodDonorApp.BL.EF.Services.Admins
         Task<AdminDto> GetAdminByUserName(string userName);
 
         /// <summary>
+        /// Checks if username already exists
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <returns>true if username doesn't already exist</returns>
+        Task<bool> IsUsernameAvailable(string userName);
+
+        /// <summary>
         /// Creates new entity
         /// </summary>
         /// <param name="entityDto">entity details</param>

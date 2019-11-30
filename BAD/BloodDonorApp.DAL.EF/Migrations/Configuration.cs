@@ -47,6 +47,7 @@ namespace BloodDonorApp.DAL.EF.Migrations
                 FirstName = "Karol",
                 LastName = "Valko",
                 BloodType = BloodType.Ominus,
+                Type = CommonUserType.Donor,
                 UUN = 1
             };
 
@@ -56,6 +57,7 @@ namespace BloodDonorApp.DAL.EF.Migrations
                 FirstName = "Laco",
                 LastName = "Praporcik",
                 BloodType = BloodType.ABplus,
+                Type = CommonUserType.Applicant,
                 UUN = 2,
                 Hospital = ba
             };
@@ -66,6 +68,7 @@ namespace BloodDonorApp.DAL.EF.Migrations
                 FirstName = "Henrich",
                 LastName = "Lako",
                 BloodType = BloodType.Bplus,
+                Type = CommonUserType.Applicant,
                 UUN = 3,
                 Hospital = ba,
                 Email = "heno.lako@gmail.com"

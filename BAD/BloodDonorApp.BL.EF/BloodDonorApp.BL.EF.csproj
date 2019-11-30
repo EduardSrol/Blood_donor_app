@@ -105,10 +105,6 @@
     <Compile Include="QueryObjects\Common\QueryObjectUtils.cs" />
     <Compile Include="QueryObjects\HospitalQueryObject.cs" />
     <Compile Include="QueryObjects\SampleStationQueryObject.cs" />
-    <Compile Include="Services\Accounts\Registration\AdminCheckoutAccountAvailabilityService.cs" />
-    <Compile Include="Services\Accounts\Registration\CommonUserCheckoutAccountAvailabilityService.cs" />
-    <Compile Include="Services\Accounts\Registration\IAdminCheckoutAccountAvailabilityService.cs" />
-    <Compile Include="Services\Accounts\Registration\ICommonUserCheckoutAccountAvailabilityService.cs" />
     <Compile Include="Services\Admins\AdminService.cs" />
     <Compile Include="Services\Admins\IAdminService.cs" />
     <Compile Include="Services\BloodDonations\BloodDonationService.cs" />
@@ -143,7 +139,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Interface\" />
-    <Folder Include="Services\Accounts\LogIn\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

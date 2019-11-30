@@ -34,6 +34,7 @@ namespace BloodDonorApp.BL.EF.Services.CommonUsers
 
         Task<CommonUserDto[]> GetCommonUsersByUserTypes(CommonUserType[] userTypes);
 
+        Task<CommonUserEditProfileExtendedDto> GetCommonUserEditExtendedDto(Guid id);
         Task<CommonUser> GetCommonUserByIdAsync(Guid id);
 
         Task<CommonUserDto> GetCommonUserDtoByIdAsync(Guid id);
@@ -43,7 +44,21 @@ namespace BloodDonorApp.BL.EF.Services.CommonUsers
         Guid RegisterUserAsync(CommonUserRegistrationDTO model);
 
         Task<bool> AuthorizeUserAsync(string username, string password);
-               
+
+        /// <summary>
+        /// Checks if username already exists
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <returns>true if username doesn't already exist</returns>
+        Task<bool> IsUsernameAvailable(string userName);
+
+        /// <summary>
+        /// Checks if email already exists
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns>true if email doesn't already exist</returns>
+        Task<bool> IsEmailAvailable(string email);
+
 
         /// <summary>
         /// Creates new entity
@@ -56,6 +71,8 @@ namespace BloodDonorApp.BL.EF.Services.CommonUsers
         /// </summary>
         /// <param name="entityDto">entity details</param>
         Task Update(CommonUserDto entityDto);
+
+        void Update(CommonUserEditProfileExtendedDto extendedProfileDto);
 
         /// <summary>
         /// Deletes entity with given Id

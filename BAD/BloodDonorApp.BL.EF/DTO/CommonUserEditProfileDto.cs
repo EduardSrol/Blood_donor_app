@@ -10,7 +10,7 @@ namespace BloodDonorApp.BL.EF.DTO
 {
     public class CommonUserEditProfileDto : DtoBase
     {
-        public string Description { get; set; }
+//        public string Description { get; set; }
 
         public string UserName { get; set; }
 
@@ -18,7 +18,7 @@ namespace BloodDonorApp.BL.EF.DTO
 
         public string Phone { get; set; }
 
-        public CommonUserType UserType { get; set; }
+        public CommonUserType Type { get; set; }
 
         public bool Active { get; set; }
     }

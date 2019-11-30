@@ -32,6 +32,12 @@ namespace BloodDonorApp.BL.EF.Services.Admins
             var queryResult = await Query.ExecuteQuery(new AdminFilterDto() { UserName = userName });
             return queryResult.Items.SingleOrDefault();
         }
+
+        public async Task<bool> IsUsernameAvailable(string userName)
+        {
+            var queryResult = await Query.ExecuteQuery(new AdminFilterDto() { UserName = userName });
+            return queryResult.Items.SingleOrDefault() == null;
+        }
     }
     
 }

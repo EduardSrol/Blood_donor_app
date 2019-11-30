@@ -1,0 +1,119 @@
+﻿@model BloodDonorApp.PL.Models.CommonUserListViewModel
+
+@{
+    ViewBag.Title = "BDA Users";
+    var rowNumber = 1;
+}
+
+<h2>All users</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">First name</th>
+            <th scope="col">Last name</th>
+            <th scope="col">Blood type</th>
+            <th scope="col">Email</th>
+            <th scope="col">IsDeleted</th>
+            <th scope="col" class="">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Users)
+        {
+            <tr>
+                <th scope="row">@(rowNumber++)</th>
+                <td>@item.FirstName</td>
+                <td>@item.LastName</td>
+                <td>@item.BloodType</td>
+                <td>@item.Email</td>
+                <td>@item.IsDeleted</td>
+                <td class="">
+                    <button type="button" class="btn btn-info btn-xs" title="Edit user" onclick="location.href='@Url.Action("EditExtended", "CommonUser", new { id = item.Id })'">Edit</button>
+                    <button type="button" class="btn btn-info btn-xs" title="Show details for @item.FirstName">Details</button>
+                    <button id="deleteSoftBtn_@rowNumber" type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#myModal" title="Delete user (soft)" onclick="FillNameToModalForSoftDelete('@item.FirstName', '@item.LastName', '@item.Id');">Soft delete</button>
+                    <button id="deleteBtn_@rowNumber" type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#myModal" title="Delete user" onclick="FillNameToModalForDelete('@item.FirstName', '@item.LastName', '@item.Id');">Delete</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <input type="hidden" id="userId-hdn" value="" />
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" onclick="() => (document.getElementById('modalP').innerHTML = '')">&times;</button>
+                <h4 class="modal-title">Are you sure? - This action is irreversible!</h4>
+            </div>
+            <div id="modalContent" class="modal-body">
+                <p id="modalP"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="Delete()">Yes</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    var deletingSoft = false;
+    function FillNameToModalForDelete(name, lastname, id) {
+        document.getElementById("modalP").innerHTML = 'Do you really want to delete user <b>' + name + ' ' + lastname + '? </b><br/><i>This operation delete user and all related data (Blood donations etc.).</i>';
+        $("#userId-hdn").val(id);
+        deletingSoft = false;
+    }
+
+    function FillNameToModalForSoftDelete(name, lastname, id) {
+        document.getElementById("modalP").innerHTML = 'Do you really want to (soft) delete user <b>' + name + ' ' + lastname + '? </b><br/><i>This operation marks user as deleted and he is no longer available.</i>';
+        $("#userId-hdn").val(id);
+        deletingSoft = true;
+    }
+
+    function Delete() {
+        if (deletingSoft) {
+            DeleteUserSoft();
+        } else {
+            DeleteUser();
+        }
+    }
+
+    function DeleteUser() {
+        var id = $("#userId-hdn").val();
+        $.ajax({
+            type: "POST",
+            url: "@Url.Action("DeleteUser", "CommonUser")",
+            data: { id: id },
+            success: function () {
+                alert("User has been succesfully deleted.");
+                $("#userId-hdn").val("");
+                $("#modalContent").innerHTML = '';
+                location.reload();
+            }
+        });
+    }
+
+    function DeleteUserSoft() {
+        var id = $("#userId-hdn").val();
+        $.ajax({
+            type: "POST",
+            url: "@Url.Action("DeleteUserSoft", "CommonUser")",
+            data: { id: id },
+            success: function () {
+                alert("User has been succesfully (soft) deleted.");
+                $("#userId-hdn").val("");
+                $("#modalContent").innerHTML = '';
+                location.reload();
+            }
+        });
+    }
+</script>

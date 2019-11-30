@@ -20,10 +20,10 @@ namespace BloodDonorApp.DAL.EF.Models.Common
             }
         }
 
-        [Required, StringLength(100)]
+        [StringLength(100)]
         public string PasswordSalt { get; set; }
 
-        [Required, StringLength(100)]
+        [StringLength(100)]
         public string PasswordHash { get; set; }
 
     }
