@@ -12,6 +12,8 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -58,9 +60,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BAD\BAD.Core.csproj">
-      <Project>{E31CB326-4F69-4616-8A60-140222032252}</Project>
-      <Name>BAD.Core</Name>
+    <ProjectReference Include="..\BloodDonorApp.DAL.EF\BloodDonorApp.DAL.EF.csproj">
+      <Project>{94E571EE-0D7F-42BB-BF9B-8042F6EA0D37}</Project>
+      <Name>BloodDonorApp.DAL.EF</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

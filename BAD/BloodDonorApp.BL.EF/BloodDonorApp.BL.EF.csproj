@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F3A4C32C-3288-4B41-96EA-2441AA31F07F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>BloodDonorApp.BL.EF</RootNamespace>
+    <AssemblyName>BloodDonorApp.BL.EF</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.1.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.4.4.0\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor, Version=5.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Windsor.5.0.1\lib\net45\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Services" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Config\BusinessLayerInstaller.cs" />
+    <Compile Include="Config\MappingConfig.cs" />
+    <Compile Include="DTO\AdminAccountAvailabilityDto.cs" />
+    <Compile Include="DTO\AdminDto.cs" />
+    <Compile Include="DTO\BloodDonationDto.cs" />
+    <Compile Include="DTO\CommonUserAccountAvailabilityDto.cs" />
+    <Compile Include="DTO\CommonUserDto.cs" />
+    <Compile Include="DTO\CommonUserEditProfileExtendedDto.cs" />
+    <Compile Include="DTO\CommonUserRegistrationDTO.cs" />
+    <Compile Include="DTO\Common\InstitutionDto.cs" />
+    <Compile Include="DTO\Common\PersonDto.cs" />
+    <Compile Include="DTO\Common\UserDto.cs" />
+    <Compile Include="DTO\DetailedDTOs\BloodDonationDetailModel.cs" />
+    <Compile Include="DTO\Common\DtoBase.cs" />
+    <Compile Include="DTO\Common\FilterDtoBase.cs" />
+    <Compile Include="DTO\Common\QueryResultDto.cs" />
+    <Compile Include="DTO\CommonUserEditProfileDto.cs" />
+    <Compile Include="DTO\Enums\AdminType.cs" />
+    <Compile Include="DTO\Enums\BloodType.cs" />
+    <Compile Include="DTO\Enums\CommonUserType.cs" />
+    <Compile Include="DTO\Filters\AdminFilterDto.cs" />
+    <Compile Include="DTO\Filters\BloodDonationFilterDto.cs" />
+    <Compile Include="DTO\Filters\CommonUserFilterDto.cs" />
+    <Compile Include="DTO\Filters\HospitalFilterDto.cs" />
+    <Compile Include="DTO\Filters\SampleStationFilterDto.cs" />
+    <Compile Include="DTO\DetailedDTOs\HospitalDetailModel.cs" />
+    <Compile Include="DTO\ApplicantShortInfoDto.cs" />
+    <Compile Include="DTO\HospitalDto.cs" />
+    <Compile Include="DTO\UserLogInDto.cs" />
+    <Compile Include="DTO\AdminRegisterDto.cs" />
+    <Compile Include="DTO\DetailedDTOs\RemoteAttribute.cs" />
+    <Compile Include="DTO\DetailedDTOs\SampleStationDetailModel.cs" />
+    <Compile Include="DTO\DetailedDTOs\UserDetailModel.cs" />
+    <Compile Include="DTO\SampleStationDto.cs" />
+    <Compile Include="Facades\CommonUserFacade.cs" />
+    <Compile Include="Facades\Common\FacadeBase.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueryObjects\AdminQueryObject.cs" />
+    <Compile Include="QueryObjects\BloodDonationQueryObject.cs" />
+    <Compile Include="QueryObjects\CommonUserQueryObject.cs" />
+    <Compile Include="QueryObjects\Common\QueryObjectBase.cs" />
+    <Compile Include="QueryObjects\Common\QueryObjectUtils.cs" />
+    <Compile Include="QueryObjects\HospitalQueryObject.cs" />
+    <Compile Include="QueryObjects\SampleStationQueryObject.cs" />
+    <Compile Include="Services\Admins\AdminService.cs" />
+    <Compile Include="Services\Admins\IAdminService.cs" />
+    <Compile Include="Services\BloodDonations\BloodDonationService.cs" />
+    <Compile Include="Services\BloodDonations\IBloodDonationService.cs" />
+    <Compile Include="Services\CommonUsers\CommonUserService.cs" />
+    <Compile Include="Services\CommonUsers\ICommonUserService.cs" />
+    <Compile Include="Services\Common\CrudQueryServiceBase.cs" />
+    <Compile Include="Services\Common\ServiceBase.cs" />
+    <Compile Include="Services\Hospitals\HospitalService.cs" />
+    <Compile Include="Services\Hospitals\IHospitalService.cs" />
+    <Compile Include="Services\SampleStations\ISampleStationService.cs" />
+    <Compile Include="Services\SampleStations\SampleStationService.cs" />
+    <Compile Include="Utils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BloodDonorApp.DAL.EF\BloodDonorApp.DAL.EF.csproj">
+      <Project>{94E571EE-0D7F-42BB-BF9B-8042F6EA0D37}</Project>
+      <Name>BloodDonorApp.DAL.EF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BloodDonorApp.Infrastructue\BloodDonorApp.Infrastructure.csproj">
+      <Project>{D045A1A9-88BD-474E-99FF-1145BDDAE615}</Project>
+      <Name>BloodDonorApp.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BloodDonorApp.Infrastructure.EF\BloodDonorApp.Infrastructure.EF.csproj">
+      <Project>{b0b3d5c7-3eb4-4f2a-b4de-5b2e30d947b9}</Project>
+      <Name>BloodDonorApp.Infrastructure.EF</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Interface\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

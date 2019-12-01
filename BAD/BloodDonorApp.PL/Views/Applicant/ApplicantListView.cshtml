@@ -1,0 +1,30 @@
+﻿@model BloodDonorApp.PL.Models.ApplicantListViewModel
+
+@{
+    ViewBag.Title = "ApplicantListView";
+    var rowNumber = 1;
+}
+
+<h2>Applicants</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">First name</th>
+            <th scope="col">Blood type</th>
+            <th scope="col">UUN</th>
+        </tr>
+    </thead>
+
+    @foreach (var item in Model.Applicants)
+    {
+<tr>
+    <td scope="row">@(rowNumber++)</td>
+    <td>@item.FirstName</td>
+    <td>@item.BloodType</td>
+    <td>@item.UUN</td>
+</tr>
+    }
+
+</table>
