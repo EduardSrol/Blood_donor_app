@@ -13,7 +13,7 @@ namespace BloodDonorApp.DAL.EF.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201911301442587_PasswordHashAndSalt"; }
+            get { return "201912011702120_PasswordHashAndSalt"; }
         }
         
         string IMigrationMetadata.Source

@@ -103,15 +103,6 @@ namespace BloodDonorApp.BL.EF.Facades
             }
         }
 
-        public async Task<CommonUserEditProfileExtendedDto> GetCommonUserEditExtendedDto(Guid id)
-        {
-            using (var uow = UnitOfWorkFactory.Create())
-            {
-                var user = await commonUserService.GetCommonUserEditExtendedDto(id);
-                return user;
-            }
-        }
-
         public async Task DeleteUserAsync(Guid id)
         {
             using (var uow = UnitOfWorkFactory.Create())
@@ -122,6 +113,14 @@ namespace BloodDonorApp.BL.EF.Facades
                 // tzv. soft-delete kde ho len oznacime za deleted a vo Views budes rendrovat len nonDeleted users
                 commonUserService.Delete(id);
                 await uow.CommitAsync();
+            }
+        }
+
+        public async Task Update(CommonUserDto user)
+        {
+            using (var uow = UnitOfWorkFactory.Create())
+            {
+                await commonUserService.Update(user);
             }
         }
 
@@ -150,14 +149,6 @@ namespace BloodDonorApp.BL.EF.Facades
             using (UnitOfWorkFactory.Create())
             {
                 return await commonUserService.AuthorizeUserAsync(username, password);
-            }
-        }
-
-        public void Update (CommonUserEditProfileExtendedDto extendedProfileDto)
-        {
-            using (var uow = UnitOfWorkFactory.Create())
-            {
-                commonUserService.Update(extendedProfileDto);
             }
         }
 

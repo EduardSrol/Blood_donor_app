@@ -26,7 +26,8 @@ namespace BloodDonorApp.PL.Controllers
         public CommonUserFacade CommonUserFacade { get; set; }
 
 
-        // GET: Applicant
+        // GET: CommonUser
+
         public async Task<ActionResult> Index(int page = 1)
         {
             var filter = Session[FilterSessionKey] as CommonUserFilterDto ?? new CommonUserFilterDto { PageSize = PageSize };
@@ -54,15 +55,15 @@ namespace BloodDonorApp.PL.Controllers
         }
 
         [HttpPost]
-        public ActionResult EditExtended(CommonUserEditProfileExtendedDto user)
+        public async Task<ActionResult> EditExtended(CommonUserDto user)
         {
-            CommonUserFacade.Update(user);
+            await CommonUserFacade.Update(user);
             return View("EditExtended", user);
         }
         public async Task<ActionResult> EditExtended(Guid id)
         {
-            var editUserDto = await CommonUserFacade.GetCommonUserEditExtendedDto(id);
-            return View("EditExtended", editUserDto);
+            var user = await CommonUserFacade.GetCommonUserByIdAsync(id);
+            return View("EditExtended", user);
         }
         
         private async Task<CommonUserListViewModel> InitializeCommonUserListViewModel(QueryResultDto<CommonUserDto, CommonUserFilterDto> result, int totalItemsCount)

@@ -76,9 +76,9 @@
     <Compile Include="Migrations\201911271404453_isDeletedCommonUser.Designer.cs">
       <DependentUpon>201911271404453_isDeletedCommonUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201911301442587_PasswordHashAndSalt.cs" />
-    <Compile Include="Migrations\201911301442587_PasswordHashAndSalt.Designer.cs">
-      <DependentUpon>201911301442587_PasswordHashAndSalt.cs</DependentUpon>
+    <Compile Include="Migrations\201912011702120_PasswordHashAndSalt.cs" />
+    <Compile Include="Migrations\201912011702120_PasswordHashAndSalt.Designer.cs">
+      <DependentUpon>201912011702120_PasswordHashAndSalt.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -113,8 +113,8 @@
     <EmbeddedResource Include="Migrations\201911271404453_isDeletedCommonUser.resx">
       <DependentUpon>201911271404453_isDeletedCommonUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201911301442587_PasswordHashAndSalt.resx">
-      <DependentUpon>201911301442587_PasswordHashAndSalt.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201912011702120_PasswordHashAndSalt.resx">
+      <DependentUpon>201912011702120_PasswordHashAndSalt.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

@@ -67,13 +67,6 @@ namespace BloodDonorApp.BL.EF.Services.CommonUsers
             return await Query.ExecuteQuery(filter);
         }
 
-        public async Task<CommonUserEditProfileExtendedDto> GetCommonUserEditExtendedDto(Guid id)
-        {
-            var user = await Repository.GetByIdAsync(id);
-            var model = Mapper.Map<CommonUserEditProfileExtendedDto>(user);
-            return model;
-        }
-
         public async Task<CommonUserDto> GetCommonUserDtoByIdAsync(Guid id)
         {
             var user = await Repository.GetByIdAsync(id);
@@ -122,11 +115,5 @@ namespace BloodDonorApp.BL.EF.Services.CommonUsers
             return queryResult.Items.SingleOrDefault() == null;
         }
 
-        public void Update (CommonUserEditProfileExtendedDto extendedProfileDto)
-        {
-            var user = Mapper.Map<CommonUser>(extendedProfileDto);
-            Repository.Update(user);
-
-        }
     }
 }
