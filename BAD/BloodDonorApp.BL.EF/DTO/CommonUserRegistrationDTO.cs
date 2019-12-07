@@ -38,6 +38,6 @@ namespace BloodDonorApp.BL.EF.DTO
 
         public BloodType BloodType { get; set; }
 
-        public CommonUserType Type { get; set; }
+        public UserType Type { get; set; }
     }
 }

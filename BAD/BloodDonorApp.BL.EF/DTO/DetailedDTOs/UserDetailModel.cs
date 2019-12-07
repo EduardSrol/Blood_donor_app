@@ -43,7 +43,7 @@ namespace BloodDonorApp.BL.EF.DTO
         public bool EmailNotifications { get; set; }
 
         //[Display(Name = "UserType", ResourceType = typeof(Resources.Models))]
-        public CommonUserType UserType { get; set; }
+        public UserType UserType { get; set; }
 
         //[Display(Name = "Updated", ResourceType = typeof(Resources.Models))]
         public DateTime Updated { get; set; }

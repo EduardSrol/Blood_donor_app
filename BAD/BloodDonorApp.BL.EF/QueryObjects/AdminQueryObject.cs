@@ -19,7 +19,7 @@ namespace BloodDonorApp.BL.EF.QueryObjects
         protected override IQuery<Admin> ApplyWhereClause(IQuery<Admin> query, AdminFilterDto filter)
         {
             var definedPredicates = new List<IPredicate>();
-            QueryObjectUtils.AddIfDefined(FilterAdminTypes(filter), definedPredicates);
+            QueryObjectUtils.AddIfDefined(FilterUserTypes(filter), definedPredicates);
             QueryObjectUtils.AddIfDefined(FilterUserName(filter), definedPredicates);
 
             switch (definedPredicates.Count)
@@ -36,18 +36,18 @@ namespace BloodDonorApp.BL.EF.QueryObjects
             }
         }
 
-        private static CompositePredicate FilterAdminTypes(AdminFilterDto filter)
+        private static CompositePredicate FilterUserTypes(AdminFilterDto filter)
         {
-            if (filter.AdminTypes == null || !filter.AdminTypes.Any())
+            if (filter.UserTypes == null || !filter.UserTypes.Any())
             {
                 return null;
             }
-            var adminTypePredicates = new List<IPredicate>(filter.AdminTypes
-                .Select(adminType => new SimplePredicate(
+            var userTypePredicates = new List<IPredicate>(filter.UserTypes
+                .Select(userType => new SimplePredicate(
                     nameof(Admin.Type),
                     ValueComparingOperator.Equal,
-                    adminType)));
-            return new CompositePredicate(adminTypePredicates, LogicalOperator.OR);
+                    userType)));
+            return new CompositePredicate(userTypePredicates, LogicalOperator.OR);
         }
 
         private static SimplePredicate FilterUserName(AdminFilterDto filter)

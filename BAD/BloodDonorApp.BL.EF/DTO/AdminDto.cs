@@ -10,7 +10,7 @@ namespace BloodDonorApp.BL.EF.DTO
 {
     public class AdminDto : UserDto
     {
-        public AdminType Type { get; set; }
+        public UserType Type { get; set; }
 
         public Guid HospitalId { get; set; }
 

@@ -28,7 +28,7 @@ namespace BloodDonorApp.BL.EF.QueryObjects
             QueryObjectUtils.AddIfDefined(FilterEmail(filter), definedPredicates);
             QueryObjectUtils.AddIfDefined(FilterPhone(filter), definedPredicates);
             QueryObjectUtils.AddIfDefined(FilterBloodTypes(filter), definedPredicates);
-            QueryObjectUtils.AddIfDefined(FilterCommonUserTypes(filter), definedPredicates);
+            QueryObjectUtils.AddIfDefined(FilterUserTypes(filter), definedPredicates);
 
             switch (definedPredicates.Count)
             {
@@ -111,18 +111,18 @@ namespace BloodDonorApp.BL.EF.QueryObjects
             return new CompositePredicate(bloodTypePredicates, LogicalOperator.OR);
         }
 
-        private static CompositePredicate FilterCommonUserTypes(CommonUserFilterDto filter)
+        private static CompositePredicate FilterUserTypes(CommonUserFilterDto filter)
         {
-            if (filter.CommonUserTypes == null || !filter.CommonUserTypes.Any())
+            if (filter.UserTypes == null || !filter.UserTypes.Any())
             {
                 return null;
             }
-            var commonUserTypePredicates = new List<IPredicate>(filter.CommonUserTypes
-                .Select(commonUserType => new SimplePredicate(
+            var UserTypePredicates = new List<IPredicate>(filter.UserTypes
+                .Select(UserType => new SimplePredicate(
                     nameof(CommonUser.Type),
                     ValueComparingOperator.Equal,
-                    commonUserType)));
-            return new CompositePredicate(commonUserTypePredicates, LogicalOperator.OR);
+                    UserType)));
+            return new CompositePredicate(UserTypePredicates, LogicalOperator.OR);
         }
     }
 }

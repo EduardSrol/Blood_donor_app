@@ -12,7 +12,7 @@ namespace BloodDonorApp.BL.EF.DTO.Filters
     {
         public int? UUN { get; set; }
 
-        public CommonUserType[] CommonUserTypes { get; set; }
+        public UserType[] UserTypes { get; set; }
 
         public BloodType[] BloodTypes { get; set; }
 

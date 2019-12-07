@@ -68,6 +68,7 @@
     <Compile Include="Enums\AdminType.cs" />
     <Compile Include="Enums\BloodType.cs" />
     <Compile Include="Enums\CommonUserType.cs" />
+    <Compile Include="Enums\UserType.cs" />
     <Compile Include="Migrations\201911021635301_Initial.cs" />
     <Compile Include="Migrations\201911021635301_Initial.Designer.cs">
       <DependentUpon>201911021635301_Initial.cs</DependentUpon>
@@ -87,6 +88,10 @@
     <Compile Include="Migrations\201912072008495_update.cs" />
     <Compile Include="Migrations\201912072008495_update.Designer.cs">
       <DependentUpon>201912072008495_update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912072147378_UserTypesChanged.cs" />
+    <Compile Include="Migrations\201912072147378_UserTypesChanged.Designer.cs">
+      <DependentUpon>201912072147378_UserTypesChanged.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -129,6 +134,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912072008495_update.resx">
       <DependentUpon>201912072008495_update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912072147378_UserTypesChanged.resx">
+      <DependentUpon>201912072147378_UserTypesChanged.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

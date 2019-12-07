@@ -32,7 +32,7 @@ namespace BloodDonorApp.BL.EF.Services.CommonUsers
 
         Task<CommonUserDto[]> GetCommonUsersByBloodTypes(BloodType[] bloodTypes);
 
-        Task<CommonUserDto[]> GetCommonUsersByUserTypes(CommonUserType[] userTypes);
+        Task<CommonUserDto[]> GetCommonUsersByUserTypes(UserType[] userTypes);
 
         Task<CommonUser> GetCommonUserByIdAsync(Guid id);
 
@@ -82,5 +82,7 @@ namespace BloodDonorApp.BL.EF.Services.CommonUsers
         /// </summary>
         /// <returns>all available dtos (for given type)</returns>
         Task<QueryResultDto<CommonUserDto, CommonUserFilterDto>> ListAllAsync();
+
+        Task<ApplicantShortInfoDto> GetApplicantByIdAsync(Guid id);
     }
 }
