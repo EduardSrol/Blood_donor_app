@@ -15,6 +15,7 @@ namespace BloodDonorApp.PL.Controllers
     {
 
         public CommonUserFacade CommonUserFacade { get; set; }
+        public AdminFacade AdminFacade { get; set; }
 
         // GET: Account
         public ActionResult Index()
@@ -60,6 +61,7 @@ namespace BloodDonorApp.PL.Controllers
         [HttpPost]
         public async Task<ActionResult> Login(LoginModel model, string returnUrl)
         {
+            var isValidAdmin = await AdminFacade.Login(model.Username, model.Password);
             var isValid = await CommonUserFacade.Login(model.Username, model.Password);
             if (isValid)
             {
