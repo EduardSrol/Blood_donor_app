@@ -1,4 +1,4 @@
-using BloodDonorApp.DAL.EF.Enums;
+﻿using BloodDonorApp.DAL.EF.Enums;
 using BloodDonorApp.DAL.EF.Models;
 
 namespace BloodDonorApp.DAL.EF.Migrations
@@ -22,7 +22,7 @@ namespace BloodDonorApp.DAL.EF.Migrations
             {
                 Id = Guid.NewGuid(),
                 Name = "Poprad",
-                Street = "Ban�cka 803/28",
+                Street = "Banícka 803/28",
                 City = "Poprad",
                 OpeningHours = new Day[] {
                     new Day(new Time(6, 0), new Time(14, 0)),
@@ -41,8 +41,8 @@ namespace BloodDonorApp.DAL.EF.Migrations
             var ba_kramare = new SampleStation
             {
                 Id = Guid.NewGuid(),
-                Name = "Bratislava - Kram�re",
-                Street = "Limbov� 3",
+                Name = "Bratislava - Kramáre",
+                Street = "Limbová 3",
                 City = "Bratislava",
                 OpeningHours = new Day[] {
                     new Day(new Time(7, 0), new Time(14, 0)),
@@ -61,9 +61,9 @@ namespace BloodDonorApp.DAL.EF.Migrations
             var za = new SampleStation
             {
                 Id = Guid.NewGuid(),
-                Name = "�ilina",
+                Name = "Žilina",
                 Street = "Vojtecha Spanyola 43",
-                City = "�ilina",
+                City = "Žilina",
                 OpeningHours = new Day[] {
                     new Day(new Time(7, 0), new Time(14, 0)),
                     new Day(new Time(7, 0), new Time(17, 0)),
@@ -81,9 +81,9 @@ namespace BloodDonorApp.DAL.EF.Migrations
             var ke = new SampleStation
             {
                 Id = Guid.NewGuid(),
-                Name = "Ko�ice",
+                Name = "Košice",
                 Street = "Trieda SNP 1",
-                City = "Ko�ice",
+                City = "Košice",
                 OpeningHours = new Day[] {
                     new Day(new Time(7, 0), new Time(17, 0)),
                     new Day(new Time(7, 0), new Time(17, 0)),
@@ -102,7 +102,7 @@ namespace BloodDonorApp.DAL.EF.Migrations
             {
                 Id = Guid.NewGuid(),
                 Name = "Nitra",
-                Street = "�pit�lska 6",
+                Street = "Špitálska 6",
                 City = "Nitra",
                 OpeningHours = new Day[] {
                     new Day(new Time(7, 0), new Time(14, 0)),
@@ -118,12 +118,36 @@ namespace BloodDonorApp.DAL.EF.Migrations
                 WebLink = "http://www.ntssr.sk/kde-darovat-krv/nitra"
             };
 
-            var ba = new Hospital
+            var kk = new Hospital
             {
                 Id = Guid.NewGuid(),
-                Name = "Kram�re",
-                Street = "Limbov� 2645/5",
-                City = "Bratislava"
+                Name = "Nemocnica Dr. Vojtecha Alexandra v Kežmarku n. o.",
+                Street = "Huncovská 42",
+                City = "Kežmarok"
+            };
+
+            var dk = new Hospital
+            {
+                Id = Guid.NewGuid(),
+                Name = "Dolnooravská nemocnica s poliklinikou MUDr. Ladislava Nádaši Jégého Dolný Kubín",
+                Street = "Nemocničná 1944",
+                City = "Dolný Kubín"
+            };
+
+            var mi = new Hospital
+            {
+                Id = Guid.NewGuid(),
+                Name = "Svet zdravia, a.s. - Nemocnica Michalovce",
+                Street = "Špitálska 2",
+                City = "Michalovce"
+            };
+
+            var tn = new Hospital
+            {
+                Id = Guid.NewGuid(),
+                Name = "Fakultná nemocnica Trenčín",
+                Street = "Špitálska 2",
+                City = "Trenčín"
             };
 
             var karlik = new CommonUser
@@ -133,7 +157,58 @@ namespace BloodDonorApp.DAL.EF.Migrations
                 LastName = "Valko",
                 BloodType = BloodType.Ominus,
                 Type = CommonUserType.Donor,
+                PrefixBN = "771125",
+                SufixBN = "2480",
                 UUN = 1
+            };
+
+            var jozo = new CommonUser
+            {
+                Id = Guid.NewGuid(),
+                FirstName = "Jozef",
+                LastName = "Čarnogurský",
+                BloodType = BloodType.Oplus,
+                Type = CommonUserType.Donor,
+                PrefixBN = "870512",
+                SufixBN = "4510",
+                UUN = 154
+            };
+
+            var anna = new CommonUser
+            {
+                Id = Guid.NewGuid(),
+                FirstName = "Anna",
+                LastName = "Novotná",
+                BloodType = BloodType.ABminus,
+                Type = CommonUserType.Donor,
+                PrefixBN = "875701",
+                SufixBN = "8752",
+                UUN = 12979
+            };
+
+            var laura = new CommonUser
+            {
+                Id = Guid.NewGuid(),
+                FirstName = "Laura",
+                LastName = "Novysedláková",
+                BloodType = BloodType.Bminus,
+                Type = CommonUserType.Donor,
+                PrefixBN = "995701",
+                SufixBN = "8852",
+                UUN = 54989
+            };
+
+            var marta = new CommonUser
+            {
+                Id = Guid.NewGuid(),
+                FirstName = "Marta",
+                LastName = "Poliaková",
+                BloodType = BloodType.Bminus,
+                Type = CommonUserType.Applicant,
+                Hospital = kk,
+                PrefixBN = "905522",
+                SufixBN = "4578",
+                UUN = 54989
             };
 
             var laco = new CommonUser
@@ -144,7 +219,9 @@ namespace BloodDonorApp.DAL.EF.Migrations
                 BloodType = BloodType.ABplus,
                 Type = CommonUserType.Applicant,
                 UUN = 2,
-                Hospital = ba
+                PrefixBN = "781010",
+                SufixBN = "0211",
+                Hospital = dk
             };
 
             var henrich = new CommonUser
@@ -155,8 +232,10 @@ namespace BloodDonorApp.DAL.EF.Migrations
                 BloodType = BloodType.Bplus,
                 Type = CommonUserType.Applicant,
                 UUN = 3,
-                Hospital = ba,
-                Email = "heno.lako@gmail.com"
+                Hospital = mi,
+                Email = "heno.lako@gmail.com",
+                PrefixBN = "850514",
+                SufixBN = "1352"
             };
 
             var jano = new Admin
