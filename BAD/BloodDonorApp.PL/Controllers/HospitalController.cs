@@ -64,7 +64,7 @@ namespace BloodDonorApp.PL.Controllers
             {
                 await HospitalFacade.CreateHospital(hospitaCreatelDto);
 
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index");
             }
             catch (ArgumentException)
             {

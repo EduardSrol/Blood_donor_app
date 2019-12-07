@@ -5,7 +5,8 @@
     var rowNumber = 1;
 }
 <div class="container body-content">
-    <h2>All hospitals</h2>
+    <h1>All hospitals</h1>
+    <br />
     <table class="table" style="font-size:150%">
         <thead>
             <tr>
@@ -30,12 +31,10 @@
             </tr>
 
         }
-        <tr>
-            <td>
-                @Html.ActionLink("Add new Hospital", "Create", "Hospital")
-            </td>
-        </tr>
+
 
     </table>
+    <hr />
+    <button type="button" class="boxed-btn" title="Add new Hospital" onclick="location.href='@Url.Action("Create", "Hospital")'">Add new Hospital</button>
 </div>
 
