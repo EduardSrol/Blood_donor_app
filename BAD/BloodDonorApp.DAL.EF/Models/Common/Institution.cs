@@ -26,11 +26,8 @@ namespace BloodDonorApp.DAL.EF.Models.Common
 
     public abstract class Institution : Record
     {
-        [Required]
         public string City { get; set; }
-        [Required]
         public string Street { get; set; }
-        [Required]
         public string Name { get; set; }
 
         public Day[] OpeningHours { get; set; } = new Day[7];
