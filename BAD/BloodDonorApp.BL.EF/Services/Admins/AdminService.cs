@@ -21,9 +21,9 @@ namespace BloodDonorApp.BL.EF.Services.Admins
         public AdminService(IMapper mapper, IRepository<Admin> adminRepository, QueryObjectBase<AdminDto, Admin, AdminFilterDto, IQuery<Admin>> adminListQuery)
             : base(mapper, adminRepository, adminListQuery) { }
 
-        public async Task<AdminDto[]> GetAdminByAdminTypes(AdminType[] adminTypes)
+        public async Task<AdminDto[]> GetAdminByUserTypes(UserType[] userTypes)
         {
-            var queryResult = await Query.ExecuteQuery(new AdminFilterDto() { AdminTypes = adminTypes});
+            var queryResult = await Query.ExecuteQuery(new AdminFilterDto() { UserTypes = userTypes });
             return queryResult.Items.ToArray();
         }
 

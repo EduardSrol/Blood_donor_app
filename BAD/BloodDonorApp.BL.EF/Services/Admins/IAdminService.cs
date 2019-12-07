@@ -11,7 +11,7 @@ namespace BloodDonorApp.BL.EF.Services.Admins
 {
     public interface IAdminService
     {
-        Task<AdminDto[]> GetAdminByAdminTypes(AdminType[] adminTypes);
+        Task<AdminDto[]> GetAdminByUserTypes(UserType[] userTypes);
 
         Task<AdminDto> GetAdminByUserName(string userName);
 

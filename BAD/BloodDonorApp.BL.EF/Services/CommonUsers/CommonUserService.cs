@@ -56,9 +56,9 @@ namespace BloodDonorApp.BL.EF.Services.CommonUsers
             return queryResult.Items.ToArray();
         }
 
-        public async Task<CommonUserDto[]> GetCommonUsersByUserTypes(CommonUserType[] userTypes)
+        public async Task<CommonUserDto[]> GetCommonUsersByUserTypes(UserType[] userTypes)
         {
-            var queryResult = await Query.ExecuteQuery(new CommonUserFilterDto() { CommonUserTypes = userTypes });
+            var queryResult = await Query.ExecuteQuery(new CommonUserFilterDto() { UserTypes = userTypes });
             return queryResult.Items.ToArray();
         }
 
@@ -126,5 +126,11 @@ namespace BloodDonorApp.BL.EF.Services.CommonUsers
             return queryResult.Items.SingleOrDefault() == null;
         }
 
+        public async Task<ApplicantShortInfoDto> GetApplicantByIdAsync(Guid id)
+        {
+            var user = await Repository.GetByIdAsync(id);
+            var model = Mapper.Map<ApplicantShortInfoDto>(user);
+            return model;
+        }
     }
 }

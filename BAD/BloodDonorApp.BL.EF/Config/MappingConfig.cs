@@ -39,6 +39,8 @@ namespace BloodDonorApp.BL.EF.Config
             config.CreateMap<BloodDonation, BloodDonationDto>().ReverseMap();
             config.CreateMap<Hospital, HospitalDto>().ReverseMap();
             config.CreateMap<SampleStation, SampleStationDto>().ReverseMap();
+            config.CreateMap<CommonUser, ApplicantShortInfoDto>().ReverseMap();
+
 
             config.CreateMap<QueryResult<Admin>, QueryResultDto<AdminDto, AdminFilterDto>>();
             config.CreateMap<QueryResult<CommonUser>, QueryResultDto<CommonUserDto, CommonUserFilterDto>>();

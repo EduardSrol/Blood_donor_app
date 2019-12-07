@@ -11,7 +11,7 @@ namespace BloodDonorApp.BL.EF.DTO
 {
     public class AdminRegisterDto : DtoBase
     {
-        public AdminType AdminType { get; set; }
+        public UserType UserType { get; set; }
         [Required]
         public string UserName { get; set; }
         [Required]

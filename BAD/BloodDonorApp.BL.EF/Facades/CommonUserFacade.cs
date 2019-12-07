@@ -67,7 +67,7 @@ namespace BloodDonorApp.BL.EF.Facades
             }
         }
 
-        public async Task<CommonUserDto[]> GetCommonUsersByUserTypes(CommonUserType[] userTypes)
+        public async Task<CommonUserDto[]> GetCommonUsersByUserTypes(UserType[] userTypes)
         {
             using (UnitOfWorkFactory.Create())
             {
@@ -149,6 +149,15 @@ namespace BloodDonorApp.BL.EF.Facades
             using (UnitOfWorkFactory.Create())
             {
                 return commonUserService.AuthorizeUser(username, password, out user);
+            }
+        }
+
+        public async Task<ApplicantShortInfoDto> GetApplicantByIdAsync(Guid id)
+        {
+            using (var uow = UnitOfWorkFactory.Create())
+            {
+                var applicant = await commonUserService.GetApplicantByIdAsync(id);
+                return applicant;
             }
         }
 

@@ -156,7 +156,7 @@ namespace BloodDonorApp.DAL.EF.Migrations
                 FirstName = "Karol",
                 LastName = "Valko",
                 BloodType = BloodType.Ominus,
-                Type = CommonUserType.Donor,
+                Type = UserType.Donor,
                 PrefixBN = "771125",
                 SufixBN = "2480",
                 UUN = 1
@@ -168,7 +168,7 @@ namespace BloodDonorApp.DAL.EF.Migrations
                 FirstName = "Jozef",
                 LastName = "Čarnogurský",
                 BloodType = BloodType.Oplus,
-                Type = CommonUserType.Donor,
+                Type = UserType.Donor,
                 PrefixBN = "870512",
                 SufixBN = "4510",
                 UUN = 154
@@ -180,7 +180,7 @@ namespace BloodDonorApp.DAL.EF.Migrations
                 FirstName = "Anna",
                 LastName = "Novotná",
                 BloodType = BloodType.ABminus,
-                Type = CommonUserType.Donor,
+                Type = UserType.Donor,
                 PrefixBN = "875701",
                 SufixBN = "8752",
                 UUN = 12979
@@ -192,7 +192,7 @@ namespace BloodDonorApp.DAL.EF.Migrations
                 FirstName = "Laura",
                 LastName = "Novysedláková",
                 BloodType = BloodType.Bminus,
-                Type = CommonUserType.Donor,
+                Type = UserType.Donor,
                 PrefixBN = "995701",
                 SufixBN = "8852",
                 UUN = 54989
@@ -204,7 +204,7 @@ namespace BloodDonorApp.DAL.EF.Migrations
                 FirstName = "Marta",
                 LastName = "Poliaková",
                 BloodType = BloodType.Bminus,
-                Type = CommonUserType.Applicant,
+                Type = UserType.Applicant,
                 Hospital = kk,
                 PrefixBN = "905522",
                 SufixBN = "4578",
@@ -217,7 +217,7 @@ namespace BloodDonorApp.DAL.EF.Migrations
                 FirstName = "Laco",
                 LastName = "Praporcik",
                 BloodType = BloodType.ABplus,
-                Type = CommonUserType.Applicant,
+                Type = UserType.Applicant,
                 UUN = 2,
                 PrefixBN = "781010",
                 SufixBN = "0211",
@@ -230,7 +230,7 @@ namespace BloodDonorApp.DAL.EF.Migrations
                 FirstName = "Henrich",
                 LastName = "Lako",
                 BloodType = BloodType.Bplus,
-                Type = CommonUserType.Applicant,
+                Type = UserType.Applicant,
                 UUN = 3,
                 Hospital = mi,
                 Email = "heno.lako@gmail.com",
@@ -257,10 +257,11 @@ namespace BloodDonorApp.DAL.EF.Migrations
                 BloodType = karlik.BloodType
             };
 
-            context.CommonUsers.AddOrUpdate(user => user.Id, laco, karlik, henrich);
+
+            context.CommonUsers.AddOrUpdate(user => user.Id, jozo, anna, laura, marta, laco, karlik, henrich);
             context.Admins.AddOrUpdate(admin => admin.Id, jano);
             context.SampleStations.AddOrUpdate(ss => ss.Id, ke, pp, nr, ba_kramare, za);
-            context.Hospitals.AddOrUpdate(hospital => hospital.Id, mi);
+            context.Hospitals.AddOrUpdate(hospital => hospital.Id, kk, dk, mi, tn);
             context.BloodDonations.AddOrUpdate(donation => donation.Id, numOne);
 
             context.SaveChanges();

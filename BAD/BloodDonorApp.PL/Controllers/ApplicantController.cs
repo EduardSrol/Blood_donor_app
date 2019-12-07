@@ -32,7 +32,7 @@ namespace BloodDonorApp.PL.Controllers
             var filter = Session[FilterSessionKey] as CommonUserFilterDto ?? new CommonUserFilterDto { PageSize = PageSize };
             filter.RequestedPageNumber = page;
 
-            var allApplicants = await CommonUserFacade.GetCommonUsers(new CommonUserFilterDto { CommonUserTypes = new[] { CommonUserType.Applicant } });
+            var allApplicants = await CommonUserFacade.GetCommonUsers(new CommonUserFilterDto { UserTypes = new[] { UserType.Applicant } });
             var result = await CommonUserFacade.GetCommonUsers(filter);
 
             var model = await InitializeApplicantListViewModel(result, (int)allApplicants.TotalItemsCount);
@@ -46,6 +46,12 @@ namespace BloodDonorApp.PL.Controllers
                 Applicants = new StaticPagedList<CommonUserDto>(result.Items, result.RequestedPageNumber ?? 1, PageSize, totalItemsCount),
                 Filter = result.Filter
             };
+        }
+
+        public async Task<ActionResult> Detail(Guid id)
+        {
+            var commonUser = await CommonUserFacade.GetApplicantByIdAsync(id);
+            return View("Detail", commonUser);
         }
     }
 }
