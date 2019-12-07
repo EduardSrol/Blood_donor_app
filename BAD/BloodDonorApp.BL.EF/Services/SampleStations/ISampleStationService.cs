@@ -53,5 +53,10 @@ namespace BloodDonorApp.BL.EF.Services.SampleStations
         /// </summary>
         /// <returns>all available dtos (for given type)</returns>
         Task<QueryResultDto<SampleStationDto, SampleStationFilterDto>> ListAllAsync();
+
+        Task<QueryResultDto<SampleStationDto, SampleStationFilterDto>> ListSampleStationsAsync(SampleStationFilterDto filter);
+
+        Guid CreateSampleStation(SampleStationDto model);
+
     }
 }

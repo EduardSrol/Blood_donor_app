@@ -1,0 +1,39 @@
+﻿@model BloodDonorApp.PL.Models.BloodDonationListViewModel
+
+@{
+    ViewBag.Title = "BloodDonationListView";
+    int rowNumber = 1;
+}
+
+<h2>All sample stations</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">BloodType</th>
+            <th scope="col">Date</th>
+            <th scope="col">Id</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+
+    @foreach (var item in Model.BloodDonations)
+    {
+        <tr>
+            <td scope="row">@(rowNumber++)</td>
+            <td>@item.BloodType</td>
+            <td>@item.Date</td>
+            <td>@item.Id</td>
+            <td class="">
+                <button type="button" class="btn btn-info btn-xs" title="Show details for @item.Id" onclick="location.href='@Url.Action("Detail", "BloodDonation", new { id = item.Id })'">Details</button>
+            </td>
+        </tr>
+
+
+    }
+    <tr>
+        <td>
+            @Html.ActionLink("Add new Blood donation", "Create", "BloodDonation")
+        </td>
+    </tr>
+</table>

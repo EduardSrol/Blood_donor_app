@@ -33,9 +33,18 @@ namespace BloodDonorApp.BL.EF.Facades
         {
             using (var uow = UnitOfWorkFactory.Create())
             {
-                var hospital = await hospitalService.GetHospitalDtoByIdAsync(id);
-                return hospital
-                    ;
+                var hospital = await hospitalService.GetByIdAsync(id);
+                return hospital;
+            }
+        }
+
+        public async Task<Guid> CreateHospital(HospitalDto model)
+        {
+            using (var uow = UnitOfWorkFactory.Create())
+            {
+                var id = hospitalService.CreateHospital(model);
+                await uow.CommitAsync();
+                return id;
             }
         }
     }

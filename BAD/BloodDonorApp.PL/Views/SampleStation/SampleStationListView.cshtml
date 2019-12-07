@@ -1,0 +1,40 @@
+﻿@model BloodDonorApp.PL.Models.SampleStationListViewModel
+
+@{
+    ViewBag.Title = "View";
+    var rowNumber = 1;
+}
+
+<h2>All sample stations</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Street</th>
+            <th scope="col">City</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+
+    @foreach (var item in Model.SampleStations)
+    {
+        <tr>
+            <td scope="row">@(rowNumber++)</td>
+            <td>@item.Name</td>
+            <td>@item.Street</td>
+            <td>@item.City</td>
+            <td class="">
+                <button type="button" class="btn btn-info btn-xs" title="Show details for @item.Name" onclick="location.href='@Url.Action("Details", "SampleStation", new { id = item.Id })'">Details</button>
+            </td>
+        </tr>
+
+
+    }
+    <tr>
+        <td>
+            @Html.ActionLink("Add new Sample Station", "Create", "SampleStation")
+        </td>
+    </tr>
+
+</table>

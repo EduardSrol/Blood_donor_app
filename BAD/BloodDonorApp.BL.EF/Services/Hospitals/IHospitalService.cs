@@ -55,6 +55,6 @@ namespace BloodDonorApp.BL.EF.Services.Hospitals
 
         Task<QueryResultDto<HospitalDto, HospitalFilterDto>> ListHospitalsAsync(HospitalFilterDto filter);
 
-        Task<HospitalDto> GetHospitalDtoByIdAsync(Guid id);
+        Guid CreateHospital(HospitalDto model);
     }
 }

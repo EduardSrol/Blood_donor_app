@@ -151,6 +151,7 @@
     <Compile Include="App_Start\Windsor\WindsorControllerFactory.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ApplicantController.cs" />
+    <Compile Include="Controllers\BloodDonationController.cs" />
     <Compile Include="Controllers\CommonUserController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HospitalController.cs" />
@@ -159,9 +160,11 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ApplicantListViewModel.cs" />
+    <Compile Include="Models\BloodDonationListViewModel.cs" />
     <Compile Include="Models\CommonUserListViewModel.cs" />
     <Compile Include="Models\HospitalListViewModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\SampleStationListViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -207,10 +210,15 @@
     <Content Include="Views\CommonUser\EditExtended.cshtml" />
     <Content Include="Views\Hospital\HospitalListView.cshtml" />
     <Content Include="Views\Hospital\Details.cshtml" />
+    <Content Include="Views\SampleStation\Details.cshtml" />
+    <Content Include="Views\SampleStation\SampleStationListView.cshtml" />
+    <Content Include="Views\SampleStation\Create.cshtml" />
+    <Content Include="Views\Hospital\Create.cshtml" />
+    <Content Include="Views\BloodDonation\BloodDonationListView.cshtml" />
+    <Content Include="Views\BloodDonation\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\SampleStation\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
