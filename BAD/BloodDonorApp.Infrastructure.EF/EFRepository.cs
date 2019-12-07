@@ -94,6 +94,11 @@ namespace BloodDonorApp.Infrastructure.EF
 
         }
 
+        public IQueryable<TEntity> Where(Expression<Func<TEntity, bool>> predicate)
+        {
+            return DbContext.Set<TEntity>().Where(predicate);
+        }
+
         #endregion
 
         #region Async methods

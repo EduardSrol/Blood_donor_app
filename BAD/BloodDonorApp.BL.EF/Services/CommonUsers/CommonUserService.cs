@@ -26,7 +26,7 @@ namespace BloodDonorApp.BL.EF.Services.CommonUsers
             return queryResult.Items.SingleOrDefault();
         }
 
-        public async Task<CommonUserDto> GetCommonUserByUserName(string userName)
+        public async Task<CommonUserDto> GetCommonUserByUserNameAsync(string userName)
         {
             var queryResult = await Query.ExecuteQuery(new CommonUserFilterDto() { Username = userName });
             return queryResult.Items.SingleOrDefault();
@@ -96,12 +96,23 @@ namespace BloodDonorApp.BL.EF.Services.CommonUsers
             return user.Id;
         }
 
-        public async Task<bool> AuthorizeUserAsync(string username, string password)
+        public bool AuthorizeUser(string username, string password, out SessionUser user)
         {
-            var user = await GetCommonUserByUserName(username);
-            var isValid = user != null && Utils.VerifyHashedPassword(user.PasswordHash, user.PasswordSalt, password);
-            return isValid;
+            var resultUser = GetCommonUserByUserName(username);
+            if (resultUser == null || !Utils.VerifyHashedPassword(resultUser.PasswordHash, resultUser.PasswordSalt, password))
+            {
+                user = null;
+                return false;
+            }
+            user = Mapper.Map<CommonUser, SessionUser>(resultUser);
+            return true;
         }
+
+        public CommonUser GetCommonUserByUserName(string userName)
+        {
+            return Repository.Where(u => u.UserName.Equals(userName) && !u.IsDeleted).FirstOrDefault();
+        }
+        
 
         public async Task<bool> IsUsernameAvailable(string userName)
         {

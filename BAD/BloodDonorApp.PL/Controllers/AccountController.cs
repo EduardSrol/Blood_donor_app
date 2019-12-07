@@ -4,6 +4,7 @@ using BloodDonorApp.PL.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -11,7 +12,7 @@ using System.Web.Security;
 
 namespace BloodDonorApp.PL.Controllers
 {
-    public class AccountController : Controller
+    public class AccountController : BaseController
     {
 
         public CommonUserFacade CommonUserFacade { get; set; }
@@ -23,16 +24,19 @@ namespace BloodDonorApp.PL.Controllers
             return View();
         }
 
+        [AllowAnonymous]
         public ActionResult Register()
         {
             return View();
         }
 
+        [AllowAnonymous]
         public ActionResult Login()
         {
             return View();
         }
 
+        [AllowAnonymous]
         [ValidateAntiForgeryToken]
         [HttpPost]
         public async Task<ActionResult> Register(CommonUserRegistrationDTO userCreateDto)
@@ -57,12 +61,13 @@ namespace BloodDonorApp.PL.Controllers
             }
         }
 
+        [AllowAnonymous]
         [ValidateAntiForgeryToken]
         [HttpPost]
-        public async Task<ActionResult> Login(LoginModel model, string returnUrl)
+        public ActionResult Login(LoginModel model, string returnUrl)
         {
-            var isValidAdmin = await AdminFacade.Login(model.Username, model.Password);
-            var isValid = await CommonUserFacade.Login(model.Username, model.Password);
+            SessionUser user;
+            var isValid = CommonUserFacade.Login(model.Username, model.Password, out user);
             if (isValid)
             {
                 var authTicket = new FormsAuthenticationTicket(1, model.Username, DateTime.Now,
@@ -70,7 +75,7 @@ namespace BloodDonorApp.PL.Controllers
                 string encryptedTicket = FormsAuthentication.Encrypt(authTicket);
                 var authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket);
                 HttpContext.Response.Cookies.Add(authCookie);
-
+                currentUser = user;
                 var decodedUrl = "";
                 if (!string.IsNullOrEmpty(returnUrl))
                 {

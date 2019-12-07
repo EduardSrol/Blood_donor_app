@@ -31,7 +31,7 @@ namespace BloodDonorApp.BL.EF.Facades
         {
             using (UnitOfWorkFactory.Create())
             {
-                return await commonUserService.GetCommonUserByUserName(userName);
+                return await commonUserService.GetCommonUserByUserNameAsync(userName);
             }
         }
 
@@ -144,11 +144,11 @@ namespace BloodDonorApp.BL.EF.Facades
             }
         }
 
-        public async Task<bool> Login(string username, string password)
+        public bool Login(string username, string password, out SessionUser user)
         {
             using (UnitOfWorkFactory.Create())
             {
-                return await commonUserService.AuthorizeUserAsync(username, password);
+                return commonUserService.AuthorizeUser(username, password, out user);
             }
         }
 

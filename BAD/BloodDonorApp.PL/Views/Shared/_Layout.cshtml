@@ -1,7 +1,4 @@
 ﻿<!DOCTYPE html>
-@{ 
-    var isAdmin = ViewBag.IsAdmin == null ? false : ViewBag.IsAdmin;
-}
 
 <html>
 <head>
@@ -71,10 +68,7 @@
                                     <ul id="navigation" style="text-align:right">
                                         <li>@Html.ActionLink("Home", "Index", "Home")</li>
                                         <li>@Html.ActionLink("Applicants", "Index", "Applicant")</li>
-                                        @if (isAdmin)
-                                        {
-                                            <li>@Html.ActionLink("Users", "Index", "CommonUser")</li>
-                                        }
+                                        <li>@Html.ActionLink("Users", "Index", "CommonUser")</li>
                                         <li>@Html.ActionLink("Hospitals", "Index", "Hospital")</li>
                                         <li>@Html.ActionLink("Sample Stations", "Index", "SampleStation")</li>
                                         <li>@Html.ActionLink("Blood Donations", "BloodDonationListView", "BloodDonation")</li>

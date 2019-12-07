@@ -22,7 +22,9 @@ namespace BloodDonorApp.BL.EF.Services.CommonUsers
         /// <returns></returns>
         Task<CommonUserDto> GetCommonUserByUun(int uun);
 
-        Task<CommonUserDto> GetCommonUserByUserName(string userName);
+        Task<CommonUserDto> GetCommonUserByUserNameAsync(string userName);
+
+        CommonUser GetCommonUserByUserName(string userName);
 
         Task<CommonUserDto[]> GetCommonUserByFullName(string fullName);
 
@@ -42,7 +44,7 @@ namespace BloodDonorApp.BL.EF.Services.CommonUsers
 
         Guid RegisterUserAsync(CommonUserRegistrationDTO model);
 
-        Task<bool> AuthorizeUserAsync(string username, string password);
+        bool AuthorizeUser(string username, string password, out SessionUser user);
 
         /// <summary>
         /// Checks if username already exists

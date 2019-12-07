@@ -13,7 +13,7 @@ using X.PagedList;
 
 namespace BloodDonorApp.PL.Controllers
 {
-    public class CommonUserController : Controller
+    public class CommonUserController : BaseController
     {
         #region Session
 

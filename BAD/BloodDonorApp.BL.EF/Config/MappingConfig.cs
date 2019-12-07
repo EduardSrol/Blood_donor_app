@@ -32,6 +32,10 @@ namespace BloodDonorApp.BL.EF.Config
                 .ForMember(cuDto => cuDto.FullBN, opts => opts.MapFrom(
                 commonUser => commonUser.PrefixBN + "/" + commonUser.SufixBN))
                 .ReverseMap();
+            config.CreateMap<CommonUser, SessionUser>()
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.FirstName + " " + src.LastName)).ReverseMap();
+            
+            
             config.CreateMap<BloodDonation, BloodDonationDto>().ReverseMap();
             config.CreateMap<Hospital, HospitalDto>().ReverseMap();
             config.CreateMap<SampleStation, SampleStationDto>().ReverseMap();

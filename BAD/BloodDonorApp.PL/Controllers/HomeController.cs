@@ -8,13 +8,14 @@ using System.Web.Mvc;
 
 namespace BloodDonorApp.PL.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         public CommonUserFacade CommonUserFacade { get; set; }
 
 
         public async Task<ActionResult> Index()
         {
+            var x = currentUser?.UserName;
             return View();
         }
 

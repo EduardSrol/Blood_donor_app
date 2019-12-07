@@ -11,11 +11,11 @@ namespace BloodDonorApp.BL.EF.DTO.Common
     {
         [Required(ErrorMessage = "City is required!")]
         public string City { get; set; }
+
         [Required(ErrorMessage = "Street is required!")]
-
         public string Street { get; set; }
-        [Required(ErrorMessage = "Name is required!")]
 
+        [Required(ErrorMessage = "Name is required!")]
         public string Name { get; set; }
     }
 }
