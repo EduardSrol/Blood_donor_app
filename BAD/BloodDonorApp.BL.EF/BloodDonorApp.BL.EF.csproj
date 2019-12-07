@@ -81,6 +81,7 @@
     <Compile Include="DTO\Enums\AdminType.cs" />
     <Compile Include="DTO\Enums\BloodType.cs" />
     <Compile Include="DTO\Enums\CommonUserType.cs" />
+    <Compile Include="DTO\Enums\UserType.cs" />
     <Compile Include="DTO\Filters\AdminFilterDto.cs" />
     <Compile Include="DTO\Filters\BloodDonationFilterDto.cs" />
     <Compile Include="DTO\Filters\CommonUserFilterDto.cs" />
@@ -89,6 +90,7 @@
     <Compile Include="DTO\DetailedDTOs\HospitalDetailModel.cs" />
     <Compile Include="DTO\ApplicantShortInfoDto.cs" />
     <Compile Include="DTO\HospitalDto.cs" />
+    <Compile Include="DTO\SessionUser.cs" />
     <Compile Include="DTO\UserLogInDto.cs" />
     <Compile Include="DTO\AdminRegisterDto.cs" />
     <Compile Include="DTO\DetailedDTOs\RemoteAttribute.cs" />

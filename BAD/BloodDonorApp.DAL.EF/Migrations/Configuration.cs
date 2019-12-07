@@ -260,7 +260,7 @@ namespace BloodDonorApp.DAL.EF.Migrations
             context.CommonUsers.AddOrUpdate(user => user.Id, laco, karlik, henrich);
             context.Admins.AddOrUpdate(admin => admin.Id, jano);
             context.SampleStations.AddOrUpdate(ss => ss.Id, ke, pp, nr, ba_kramare, za);
-            context.Hospitals.AddOrUpdate(hospital => hospital.Id, ba);
+            context.Hospitals.AddOrUpdate(hospital => hospital.Id, mi);
             context.BloodDonations.AddOrUpdate(donation => donation.Id, numOne);
 
             context.SaveChanges();

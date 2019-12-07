@@ -84,6 +84,10 @@
     <Compile Include="Migrations\201912071923146_OpeningHoursAdded.Designer.cs">
       <DependentUpon>201912071923146_OpeningHoursAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201912072008495_update.cs" />
+    <Compile Include="Migrations\201912072008495_update.Designer.cs">
+      <DependentUpon>201912072008495_update.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\BloodDonation.cs" />
@@ -122,6 +126,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912071923146_OpeningHoursAdded.resx">
       <DependentUpon>201912071923146_OpeningHoursAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912072008495_update.resx">
+      <DependentUpon>201912072008495_update.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
