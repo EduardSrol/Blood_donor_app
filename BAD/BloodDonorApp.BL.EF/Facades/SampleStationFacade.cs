@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BloodDonorApp.BL.EF.Facades
 {
-    public class SampleStationFacade : FacadeBase
-    {
-    }
+    //public class SampleStationFacade : FacadeBase
+    //{
+    //}
 }

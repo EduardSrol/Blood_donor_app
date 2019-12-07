@@ -5,26 +5,32 @@
     var rowNumber = 1;
 }
 
-<h2>Applicants</h2>
+<div class="container body-content">
+<h1>Applicants</h1>
+    <br/>
+    <table class="table" style="font-size:150%">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">First name</th>
+                <th scope="col">Blood type</th>
+                <th scope="col">UUN</th>
+                <th scope="col" style="text-align:center">Actions</th>
+            </tr>
+        </thead>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">First name</th>
-            <th scope="col">Blood type</th>
-            <th scope="col">UUN</th>
-        </tr>
-    </thead>
+        @foreach (var item in Model.Applicants)
+        {
+            <tr>
+                <td scope="row">@(rowNumber++)</td>
+                <td>@item.FirstName</td>
+                <td>@item.BloodType</td>
+                <td>@item.UUN</td>
+                <td class="" style="text-align:center">
+                    <button type="button" class="boxed-btn-details" title="Show details for @item.FirstName" onclick="location.href='@Url.Action("Details", "Hospital", new { id = item.Id })'">Details</button>
+                </td>
+            </tr>
+        }
+    </table>
+</div>
 
-    @foreach (var item in Model.Applicants)
-    {
-<tr>
-    <td scope="row">@(rowNumber++)</td>
-    <td>@item.FirstName</td>
-    <td>@item.BloodType</td>
-    <td>@item.UUN</td>
-</tr>
-    }
-
-</table>

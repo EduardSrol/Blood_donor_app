@@ -17,7 +17,7 @@ namespace BloodDonorApp.PL.Controllers
 
         #endregion
 
-        public SampleStationFacade SampleStationFacade { get; set; }
+        //public SampleStationFacade SampleStationFacade { get; set; }
         // GET: SampleStation
         public ActionResult Index()
         {

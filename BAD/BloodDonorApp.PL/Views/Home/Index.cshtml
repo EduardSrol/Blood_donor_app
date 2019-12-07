@@ -1,33 +1,171 @@
 ﻿@model string
 
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Home";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+<!-- slider_area_start -->
+<div class="slider_area">
+    <div class="slider_active owl-carousel">
+        <div class="single_slider  d-flex align-items-center slider_bg_1">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="slider_text ">
+                            <h3>
+                                <span>Blood <br>Donor App</span> <br>
+                                care about people.
+                            </h3>
+                            <p>
+                                Blood donations can help save people's lives.<br>
+                                Learn how blood donations help, what to expect,<br>
+                                and how to get ready for your first blood donation.
+                            </p>
+                            <a href="/Applicant/Index" class="boxed-btn3">I want to help</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="single_slider  d-flex align-items-center slider_bg_2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="slider_text ">
+                            <h3>
+                                <span>Health care</span> <br>
+                                For Hole Family
+                            </h3>
+                            <p>
+                                In healthcare sector, service excellence is the facility of <br> the hospital as
+                                healthcare service provider to consistently.
+                            </p>
+                            <a href="#" class="boxed-btn3">Check Our Services</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+<!-- slider_area_end -->
+<hr />
+<!-- service_area_start -->
+<div class="service_area">
+    <div class="container p-0">
+        <div class="row no-gutters">
+            <div class="col-xl-4 col-md-4">
+                <div class="single_service">
+                    <div class="icon">
+                        <i class="flaticon-electrocardiogram"></i>
+                    </div>
+                    <h3>How to help?</h3>
+                    <p>Your blood donation is an amazing gift to people who need it in an emergency or for on-going medical treatment. </p>
+                    <a href="/Account/Register" class="boxed-btn3-white">Register</a>
+                </div>
+            </div>
+            <div class="col-xl-4 col-md-4">
+                <div class="single_service">
+                    <div class="icon">
+                        <i class="flaticon-emergency-call"></i>
+                    </div>
+                    <h3>Call Center</h3>
+                    <p>Whether you have a question or are not sure about whether you can give blood, we’re happy to hear from you.</p>
+                    <div class="boxed-btn3-white" style="pointer-events:none">+421 943 320 453</div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-md-4">
+                <div class="single_service">
+                    <div class="icon">
+                        <i class="flaticon-first-aid-kit"></i>
+                    </div>
+                    <h3>Ready to donate?</h3>
+                    <p>15 permanent blood donation venues situated in towns and cities across Slovakia, all ready for you.</p>
+                    <a href="/Hospital/Index" class="boxed-btn3-white">See Sample Stations</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- service_area_end -->
+<hr />
+<!-- welcome_docmed_area_start -->
+<div class="welcome_docmed_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-6 col-lg-6">
+                <div class="welcome_thumb">
+                    <div class="thumb_1">
+                        <img src="~/img/about/welcome_blood_donation.jpeg" alt="">
+                    </div>
+                    <div class="thumb_2">
+                        <img src="~/img/about/welcome_blood_donatio2.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 col-lg-6">
+                <div class="welcome_docmed_info">
+                    <h2>Welcome to Blood Donor App</h2>
+                    <h3>
+                        Ready to help <br>
+                        people in need
+                    </h3>
+                    <p>
+                        Esteem spirit temper too say adieus who direct esteem.
+                        It esteems luckily or picture placing drawing. Apartments frequently or motionless on reasonable projecting expression.
+                    </p>
+                    <ul>
+                        <li> <i class="flaticon-right"></i> We deliver blood donation to people you choose. </li>
+                        <li> <i class="flaticon-right"></i> You can see information of your blood donations. </li>
+                    </ul>
+                    <a href="#contact-info" class="boxed-btn3">Contact us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- welcome_docmed_area_end -->
+<hr />
+<!-- testmonial_area_start -->
+<div class="testmonial_area" id="SECTION">
+    <div class="testmonial_active owl-carousel">
+        <div class="single-testmonial testmonial_bg_1 overlay2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-10 offset-xl-1">
+                        <div class="testmonial_info text-center">
+                            <div class="quote">
+                                <i class="flaticon-straight-quotes"></i>
+                            </div>
+                            <p>"When the third of my three consecutive bone marrow transplants worked, I didn't know who was happier, me or the nearly 80 people who came into the UCLA BloodPlatelet Center and donated blood and platelets for me. Almost daily, for the entire three months that I was a patient at UCLA my friends, my family came into the donor center to donate."</p>
+                            <div class="testmonial_author">
+                                <h4>Cheryl</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="single-testmonial testmonial_bg_2 overlay2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-10 offset-xl-1">
+                        <div class="testmonial_info text-center">
+                            <div class="quote">
+                                <i class="flaticon-straight-quotes"></i>
+                            </div>
+                            <p>"I often talk to people about giving blood, the system is brilliant, the staff are wonderful and it costs you hardly anything in time and energy. After I gave blood once and thought about how essential it is that people like me carry on donating, I realised that there was no good reason to stop. As long as I am healthy, I will carry on giving blood." </p>
+                            <div class="testmonial_author">
+                                <h4>Barry</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- testmonial_area_end -->
+<script>
+</script>
