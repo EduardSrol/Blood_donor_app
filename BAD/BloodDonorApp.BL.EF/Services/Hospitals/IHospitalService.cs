@@ -52,5 +52,9 @@ namespace BloodDonorApp.BL.EF.Services.Hospitals
         /// </summary>
         /// <returns>all available dtos (for given type)</returns>
         Task<QueryResultDto<HospitalDto, HospitalFilterDto>> ListAllAsync();
+
+        Task<QueryResultDto<HospitalDto, HospitalFilterDto>> ListHospitalsAsync(HospitalFilterDto filter);
+
+        Task<HospitalDto> GetHospitalDtoByIdAsync(Guid id);
     }
 }

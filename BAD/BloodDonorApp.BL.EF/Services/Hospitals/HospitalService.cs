@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using BloodDonorApp.BL.EF.DTO;
+using BloodDonorApp.BL.EF.DTO.Common;
 using BloodDonorApp.BL.EF.DTO.Filters;
 using BloodDonorApp.BL.EF.QueryObjects.Common;
 using BloodDonorApp.BL.EF.Services.Common;
@@ -32,5 +33,16 @@ namespace BloodDonorApp.BL.EF.Services.Hospitals
             return queryResult.Items.ToArray();
         }
 
+        public async Task<QueryResultDto<HospitalDto, HospitalFilterDto>> ListHospitalsAsync(HospitalFilterDto filter)
+        {
+            return await Query.ExecuteQuery(filter);
+        }
+
+        public async Task<HospitalDto> GetHospitalDtoByIdAsync(Guid id)
+        {
+            var user = await Repository.GetByIdAsync(id);
+            var model = Mapper.Map<HospitalDto>(user);
+            return model;
+        }
     }
 }
