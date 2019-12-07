@@ -3,6 +3,7 @@ using BloodDonorApp.DAL.EF.Models;
 
 namespace BloodDonorApp.DAL.EF.Migrations
 {
+    using BloodDonorApp.DAL.EF.Models.Common;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -20,17 +21,101 @@ namespace BloodDonorApp.DAL.EF.Migrations
             var pp = new SampleStation
             {
                 Id = Guid.NewGuid(),
-                Name = "NTS Poprad",
-                Street = "Bratislavská 8",
-                City = "Poprad"
+                Name = "Poprad",
+                Street = "Banícka 803/28",
+                City = "Poprad",
+                OpeningHours = new Day[] {
+                    new Day(new Time(6, 0), new Time(14, 0)),
+                    new Day(new Time(6, 0), new Time(17, 0)),
+                    new Day(new Time(6, 0), new Time(14, 0)),
+                    new Day(new Time(6, 0), new Time(14, 0)),
+                    new Day(new Time(6, 0), new Time(14, 0)),
+                    null,
+                    null
+                },
+                Email = "popradnts@ntssr.sk",
+                PhoneNumber = "+421 527 125 700",
+                WebLink = "http://www.ntssr.sk/kde-darovat-krv/poprad"
+            };
+
+            var ba_kramare = new SampleStation
+            {
+                Id = Guid.NewGuid(),
+                Name = "Bratislava - Kramáre",
+                Street = "Limbová 3",
+                City = "Bratislava",
+                OpeningHours = new Day[] {
+                    new Day(new Time(7, 0), new Time(14, 0)),
+                    new Day(new Time(7, 0), new Time(17, 0)),
+                    new Day(new Time(7, 0), new Time(14, 0)),
+                    new Day(new Time(7, 0), new Time(14, 0)),
+                    new Day(new Time(7, 0), new Time(14, 0)),
+                    null,
+                    null
+                },
+                Email = "kramarents@ntssr.sk",
+                PhoneNumber = "+421 259 103 025",
+                WebLink = "http://www.ntssr.sk/kde-darovat-krv/bratislava-kramare"
+            };
+
+            var za = new SampleStation
+            {
+                Id = Guid.NewGuid(),
+                Name = "Žilina",
+                Street = "Vojtecha Spanyola 43",
+                City = "Žilina",
+                OpeningHours = new Day[] {
+                    new Day(new Time(7, 0), new Time(14, 0)),
+                    new Day(new Time(7, 0), new Time(17, 0)),
+                    new Day(new Time(7, 0), new Time(14, 0)),
+                    new Day(new Time(7, 0), new Time(14, 0)),
+                    new Day(new Time(7, 0), new Time(14, 0)),
+                    null,
+                    null
+                },
+                Email = "zilinants@ntssr.sk",
+                PhoneNumber = "+421 417 074 711",
+                WebLink = "http://www.ntssr.sk/kde-darovat-krv/zilina"
             };
 
             var ke = new SampleStation
             {
                 Id = Guid.NewGuid(),
-                Name = "NTS Košice",
-                Street = "Hlavná 25",
-                City = "Košice"
+                Name = "Košice",
+                Street = "Trieda SNP 1",
+                City = "Košice",
+                OpeningHours = new Day[] {
+                    new Day(new Time(7, 0), new Time(17, 0)),
+                    new Day(new Time(7, 0), new Time(17, 0)),
+                    new Day(new Time(7, 0), new Time(17, 0)),
+                    new Day(new Time(7, 0), new Time(17, 0)),
+                    new Day(new Time(7, 0), new Time(17, 0)),
+                    null,
+                    null
+                },
+                Email = "kosicents@ntssr.sk",
+                PhoneNumber = "+421 556 404 146",
+                WebLink = "http://www.ntssr.sk/kde-darovat-krv/kosice"
+            };
+
+            var nr = new SampleStation
+            {
+                Id = Guid.NewGuid(),
+                Name = "Nitra",
+                Street = "Špitálska 6",
+                City = "Nitra",
+                OpeningHours = new Day[] {
+                    new Day(new Time(7, 0), new Time(14, 0)),
+                    new Day(new Time(7, 0), new Time(17, 0)),
+                    new Day(new Time(7, 0), new Time(14, 0)),
+                    new Day(new Time(7, 0), new Time(14, 0)),
+                    new Day(new Time(7, 0), new Time(14, 0)),
+                    null,
+                    null
+                },
+                Email = "nitrants@ntssr.sk",
+                PhoneNumber = "+421 556 404 146",
+                WebLink = "http://www.ntssr.sk/kde-darovat-krv/nitra"
             };
 
             var ba = new Hospital
@@ -95,7 +180,7 @@ namespace BloodDonorApp.DAL.EF.Migrations
 
             context.CommonUsers.AddOrUpdate(user => user.Id, laco, karlik, henrich);
             context.Admins.AddOrUpdate(admin => admin.Id, jano);
-            context.SampleStations.AddOrUpdate(ss => ss.Id, ke, pp);
+            context.SampleStations.AddOrUpdate(ss => ss.Id, ke, pp, nr, ba_kramare, za);
             context.Hospitals.AddOrUpdate(hospital => hospital.Id, ba);
             context.BloodDonations.AddOrUpdate(donation => donation.Id, numOne);
 
