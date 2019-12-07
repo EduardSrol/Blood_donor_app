@@ -13,11 +13,14 @@ namespace BloodDonorApp.BL.EF.DTO.Common
 
         public string Password
         {
+            get => Password;
             set
             {
                 if (string.IsNullOrEmpty(value)) return;
                 //TODO: find way to hash password
             }
+
+
         }
 
         [StringLength(100)]

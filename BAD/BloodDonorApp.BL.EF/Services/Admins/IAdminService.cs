@@ -45,5 +45,8 @@ namespace BloodDonorApp.BL.EF.Services.Admins
         /// </summary>
         /// <returns>all available dtos (for given type)</returns>
         Task<QueryResultDto<AdminDto, AdminFilterDto>> ListAllAsync();
+
+        Guid RegisterAdminAsync(AdminDto model);
+        Task<bool> AuthorizeAdminAsync(string username, string password);
     }
 }

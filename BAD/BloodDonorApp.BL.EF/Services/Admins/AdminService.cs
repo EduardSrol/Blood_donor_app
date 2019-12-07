@@ -38,6 +38,25 @@ namespace BloodDonorApp.BL.EF.Services.Admins
             var queryResult = await Query.ExecuteQuery(new AdminFilterDto() { UserName = userName });
             return queryResult.Items.SingleOrDefault() == null;
         }
+
+        public Guid RegisterAdminAsync(AdminDto model)
+        {
+            var admin = Mapper.Map<Admin>(model);
+
+            var password = Utils.GenerateHash(model.Password);
+            admin.PasswordHash = password.Item1;
+            admin.PasswordSalt = password.Item2;
+
+            Repository.Insert(admin);
+            return admin.Id;
+        }
+
+        public async Task<bool> AuthorizeAdminAsync(string username, string password)
+        {
+            var admin = await GetAdminByUserName(username);
+            var isValid = admin != null && Utils.VerifyHashedPassword(admin.PasswordHash, admin.PasswordSalt, password);
+            return isValid;
+        }
     }
     
 }
