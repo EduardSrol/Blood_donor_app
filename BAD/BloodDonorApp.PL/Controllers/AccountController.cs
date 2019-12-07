@@ -32,6 +32,7 @@ namespace BloodDonorApp.PL.Controllers
             return View();
         }
 
+        [ValidateAntiForgeryToken]
         [HttpPost]
         public async Task<ActionResult> Register(CommonUserRegistrationDTO userCreateDto)
         {
@@ -55,6 +56,7 @@ namespace BloodDonorApp.PL.Controllers
             }
         }
 
+        [ValidateAntiForgeryToken]
         [HttpPost]
         public async Task<ActionResult> Login(LoginModel model, string returnUrl)
         {

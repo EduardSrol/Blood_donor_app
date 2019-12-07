@@ -57,6 +57,8 @@ namespace BloodDonorApp.PL.Controllers
         {
             return View();
         }
+
+        [ValidateAntiForgeryToken]
         [HttpPost]
         public async Task<ActionResult> Create(HospitalDto hospitaCreatelDto)
         {
