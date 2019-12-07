@@ -38,11 +38,11 @@ namespace BloodDonorApp.BL.EF.Services.Hospitals
             return await Query.ExecuteQuery(filter);
         }
 
-        public async Task<HospitalDto> GetHospitalDtoByIdAsync(Guid id)
+        public Guid CreateHospital(HospitalDto model)
         {
-            var user = await Repository.GetByIdAsync(id);
-            var model = Mapper.Map<HospitalDto>(user);
-            return model;
+            var hospital = Mapper.Map<Hospital>(model);
+            Repository.Insert(hospital);
+            return hospital.Id;
         }
     }
 }

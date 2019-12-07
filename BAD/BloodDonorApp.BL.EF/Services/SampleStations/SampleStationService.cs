@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using BloodDonorApp.BL.EF.DTO;
+using BloodDonorApp.BL.EF.DTO.Common;
 using BloodDonorApp.BL.EF.DTO.Filters;
 using BloodDonorApp.BL.EF.QueryObjects.Common;
 using BloodDonorApp.BL.EF.Services.Common;
@@ -31,6 +32,17 @@ namespace BloodDonorApp.BL.EF.Services.SampleStations
             return queryResult.Items.ToArray();
         }
 
+        public async Task<QueryResultDto<SampleStationDto, SampleStationFilterDto>> ListSampleStationsAsync(SampleStationFilterDto filter) {
+            return await Query.ExecuteQuery(filter);
+        }
+
+
+        public Guid CreateSampleStation(SampleStationDto model)
+        {
+            var sampleStation = Mapper.Map<SampleStation>(model);
+            Repository.Insert(sampleStation);
+            return sampleStation.Id;
+        }
     }
 
 }

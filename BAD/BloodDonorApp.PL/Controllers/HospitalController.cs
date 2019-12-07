@@ -52,5 +52,25 @@ namespace BloodDonorApp.PL.Controllers
             var user = await HospitalFacade.GetHospitalByIdAsync(id);
             return View("Details", user);
         }
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<ActionResult> Create(HospitalDto hospitaCreatelDto)
+        {
+            try
+            {
+                await HospitalFacade.CreateHospital(hospitaCreatelDto);
+
+                return RedirectToAction("Index", "Home");
+            }
+            catch (ArgumentException)
+            {
+                ModelState.AddModelError("SampleStation", "Sample Station cannot be created");
+                return View();
+            }
+        }
     }
 }
