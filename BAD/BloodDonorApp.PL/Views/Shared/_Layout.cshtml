@@ -78,7 +78,8 @@
                                     <ul id="navigation" style="text-align:right">
                                         <li>@Html.ActionLink("Home", "Index", "Home")</li>
                                         <li>@Html.ActionLink("Applicants", "Index", "Applicant")</li>
-                                        @if (User.IsInRole("Admin")) { 
+                                        @if (User.IsInRole("RootAdmin")) 
+                                        { 
                                             <li>@Html.ActionLink("Users", "Index", "CommonUser")</li>
                                         }
                                         <li>@Html.ActionLink("Hospitals", "Index", "Hospital")</li>

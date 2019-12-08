@@ -13,7 +13,7 @@ using X.PagedList;
 
 namespace BloodDonorApp.PL.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "RootAdmin")]
     public class CommonUserController : BaseController
     {
         #region Session
