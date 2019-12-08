@@ -11,7 +11,6 @@ namespace BloodDonorApp.BL.EF.DTO
         [Required]
         public BloodType BloodType { get; set; }
         [Required]
-        public UserType Type { get; set; }
 
         public string Description { get; set; }
 

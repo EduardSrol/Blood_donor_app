@@ -244,7 +244,19 @@ namespace BloodDonorApp.DAL.EF.Migrations
                 FirstName = "Jano",
                 LastName = "Dovjo",
                 Email = "j.bigD@gmail.com",
-                UserName = "JanBoss"
+                UserName = "JanBoss",
+                Type = UserType.StationAdmin
+            };
+
+            var admin = new CommonUser
+            {
+                Id = Guid.NewGuid(),
+                FirstName = "Robert",
+                LastName = "Fiko",
+                UserName = "Ficulko",
+                PasswordHash = "5tcb/axD0SkQ4ZgJQIZzn34jCQc=",
+                PasswordSalt = "KV1H+4jMnvVlnd8iYgjiHw==",
+                Roles = "Admin"
             };
 
             var numOne = new BloodDonation
@@ -258,8 +270,8 @@ namespace BloodDonorApp.DAL.EF.Migrations
             };
 
 
-            context.CommonUsers.AddOrUpdate(user => user.Id, jozo, anna, laura, marta, laco, karlik, henrich);
-            context.Admins.AddOrUpdate(admin => admin.Id, jano);
+            context.CommonUsers.AddOrUpdate(user => user.Id, jozo, anna, laura, marta, laco, karlik, henrich, admin);
+            context.Admins.AddOrUpdate(ad => ad.Id, jano);
             context.SampleStations.AddOrUpdate(ss => ss.Id, ke, pp, nr, ba_kramare, za);
             context.Hospitals.AddOrUpdate(hospital => hospital.Id, kk, dk, mi, tn);
             context.BloodDonations.AddOrUpdate(donation => donation.Id, numOne);
