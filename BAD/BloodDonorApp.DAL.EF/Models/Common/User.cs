@@ -9,6 +9,9 @@ namespace BloodDonorApp.DAL.EF.Models.Common
     {
         public string UserName { get; set; }
 
+        public UserType Type { get; set; }
+
+        public string Roles { get; set; }
 
         [NotMapped]
         public string Password

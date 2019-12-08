@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BloodDonorApp.BL.EF.DTO.Enums;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -16,5 +17,9 @@ namespace BloodDonorApp.BL.EF.DTO.Common
 
         [StringLength(100)]
         public string PasswordHash { get; set; }
+
+        public UserType Type { get; set; }
+
+        public string Roles { get; set; }
     }
 }

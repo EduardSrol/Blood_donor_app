@@ -44,7 +44,7 @@ namespace BloodDonorApp.BL.EF.Services.CommonUsers
 
         Guid RegisterUserAsync(CommonUserRegistrationDTO model);
 
-        bool AuthorizeUser(string username, string password, out SessionUser user);
+        (bool, string) AuthorizeUser(string username, string password, out SessionUser user);
 
         /// <summary>
         /// Checks if username already exists

@@ -13,6 +13,7 @@ using X.PagedList;
 
 namespace BloodDonorApp.PL.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class CommonUserController : BaseController
     {
         #region Session
@@ -36,7 +37,7 @@ namespace BloodDonorApp.PL.Controllers
             var allUsers = await CommonUserFacade.GetCommonUsers(new CommonUserFilterDto ());
             var result = await CommonUserFacade.GetCommonUsers(filter);
 
-            var model = await InitializeCommonUserListViewModel(result, (int)allUsers.TotalItemsCount);
+            var model = InitializeCommonUserListViewModel(result, (int)allUsers.TotalItemsCount);
             return View("UserListView", model);
         }
         
@@ -67,7 +68,7 @@ namespace BloodDonorApp.PL.Controllers
             return View("EditExtended", user);
         }
         
-        private async Task<CommonUserListViewModel> InitializeCommonUserListViewModel(QueryResultDto<CommonUserDto, CommonUserFilterDto> result, int totalItemsCount)
+        private CommonUserListViewModel InitializeCommonUserListViewModel(QueryResultDto<CommonUserDto, CommonUserFilterDto> result, int totalItemsCount)
         {
             return new CommonUserListViewModel
             {

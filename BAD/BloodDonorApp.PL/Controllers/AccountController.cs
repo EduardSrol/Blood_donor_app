@@ -66,11 +66,11 @@ namespace BloodDonorApp.PL.Controllers
         public ActionResult Login(UserLogInDto model, string returnUrl)
         {
             SessionUser user;
-            var isValid = CommonUserFacade.Login(model.Username, model.Password, out user);
-            if (isValid)
+            (bool succ, string roles) = CommonUserFacade.Login(model.Username, model.Password, out user);
+            if (succ)
             {
                 var authTicket = new FormsAuthenticationTicket(1, model.Username, DateTime.Now,
-                    DateTime.Now.AddMinutes(30), false, "");
+                    DateTime.Now.AddMinutes(30), false, roles);
                 string encryptedTicket = FormsAuthentication.Encrypt(authTicket);
                 var authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket);
                 HttpContext.Response.Cookies.Add(authCookie);
@@ -89,6 +89,14 @@ namespace BloodDonorApp.PL.Controllers
             }
             ModelState.AddModelError("", "Wrong username or password!");
             return View();
+        }
+
+        public ActionResult Logout()
+        {
+            var customer = CommonUserFacade.GetCommonUserByUserName(User.Identity.Name);
+
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index", "Home");
         }
     }
 }

@@ -24,8 +24,6 @@ namespace BloodDonorApp.DAL.EF.Models
 
         public BloodType BloodType { get; set; }
 
-        public UserType Type { get; set; }
-
         public string Description { get; set; }
 
         [ForeignKey(nameof(Hospital))]

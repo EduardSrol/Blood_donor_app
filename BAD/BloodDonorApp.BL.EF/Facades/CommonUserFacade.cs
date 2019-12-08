@@ -144,7 +144,7 @@ namespace BloodDonorApp.BL.EF.Facades
             }
         }
 
-        public bool Login(string username, string password, out SessionUser user)
+        public (bool, string) Login(string username, string password, out SessionUser user)
         {
             using (UnitOfWorkFactory.Create())
             {
