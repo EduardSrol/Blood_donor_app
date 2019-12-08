@@ -12,7 +12,7 @@ namespace BloodDonorApp.DAL.EF.Models.Common
         [Required]
         public UserType Type { get; set; }
 
-        public string Roles { get; set; }
+        public string Roles => Type.ToString();
 
         [NotMapped]
         public string Password

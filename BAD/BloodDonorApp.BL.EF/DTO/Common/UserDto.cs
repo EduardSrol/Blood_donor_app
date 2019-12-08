@@ -20,6 +20,6 @@ namespace BloodDonorApp.BL.EF.DTO.Common
 
         public UserType Type { get; set; }
 
-        public string Roles { get; set; }
+        public string Roles => this.Type.ToString();
     }
 }

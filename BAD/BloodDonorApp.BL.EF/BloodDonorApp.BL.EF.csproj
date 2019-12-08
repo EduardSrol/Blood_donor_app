@@ -78,9 +78,7 @@
     <Compile Include="DTO\Common\FilterDtoBase.cs" />
     <Compile Include="DTO\Common\QueryResultDto.cs" />
     <Compile Include="DTO\CommonUserEditProfileDto.cs" />
-    <Compile Include="DTO\Enums\AdminType.cs" />
     <Compile Include="DTO\Enums\BloodType.cs" />
-    <Compile Include="DTO\Enums\CommonUserType.cs" />
     <Compile Include="DTO\Enums\UserType.cs" />
     <Compile Include="DTO\Filters\AdminFilterDto.cs" />
     <Compile Include="DTO\Filters\BloodDonationFilterDto.cs" />

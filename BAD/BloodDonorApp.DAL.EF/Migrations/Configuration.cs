@@ -9,14 +9,14 @@ namespace BloodDonorApp.DAL.EF.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<BloodDonorApp.DAL.EF.BDADbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<BDADbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(BloodDonorApp.DAL.EF.BDADbContext context)
+        protected override void Seed(BDADbContext context)
         {
             var pp = new SampleStation
             {
@@ -251,12 +251,12 @@ namespace BloodDonorApp.DAL.EF.Migrations
             var admin = new CommonUser
             {
                 Id = Guid.NewGuid(),
+                Type = UserType.RootAdmin,
                 FirstName = "Robert",
                 LastName = "Fiko",
                 UserName = "Ficulko",
                 PasswordHash = "5tcb/axD0SkQ4ZgJQIZzn34jCQc=",
-                PasswordSalt = "KV1H+4jMnvVlnd8iYgjiHw==",
-                Roles = "Admin"
+                PasswordSalt = "KV1H+4jMnvVlnd8iYgjiHw=="
             };
 
             var numOne = new BloodDonation
