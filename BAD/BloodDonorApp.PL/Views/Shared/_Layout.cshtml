@@ -79,12 +79,13 @@
                                     <ul id="navigation" style="text-align:right">
                                         <li>@Html.ActionLink("Home", "Index", "Home")</li>
                                         <li>@Html.ActionLink("Applicants", "Index", "Applicant")</li>
-                                        @if (isRootAdmin) { 
-                                            <li>@Html.ActionLink("Users", "Index", "CommonUser")</li>
-                                        }
                                         <li>@Html.ActionLink("Hospitals", "Index", "Hospital")</li>
                                         <li>@Html.ActionLink("Sample Stations", "Index", "SampleStation")</li>
-                                        <li>@Html.ActionLink("Blood Donations", "BloodDonationListView", "BloodDonation")</li>
+                                        @if (isRootAdmin)
+                                        {
+                                            <li>@Html.ActionLink("Users", "Index", "CommonUser")</li>
+                                            <li>@Html.ActionLink("Blood Donations", "BloodDonationListView", "BloodDonation")</li>
+                                        }
                                         @if (!Request.IsAuthenticated)
                                         {
                                             <li class="pull-right">
@@ -95,7 +96,7 @@
                                                     <a href="/Account/Login" style="margin-left:10px">Log in</a>
                                                 </div>
                                             </li>
-                                         }
+                                        }
                                     </ul>
                                 </nav>
                             </div>

@@ -103,6 +103,15 @@ namespace BloodDonorApp.BL.EF.Facades
             }
         }
 
+        public async Task<CommonUserEditProfileExtendedDto> GetExtendedUserProfileDtoByIdAsync(Guid id)
+        {
+            using (var uow = UnitOfWorkFactory.Create())
+            {
+                var user = await commonUserService.GetExtendedUserProfileDtoByIdAsync(id);
+                return user;
+            }
+        }
+
         public async Task DeleteUserAsync(Guid id)
         {
             using (var uow = UnitOfWorkFactory.Create())
@@ -117,6 +126,14 @@ namespace BloodDonorApp.BL.EF.Facades
         }
 
         public async Task Update(CommonUserDto user)
+        {
+            using (var uow = UnitOfWorkFactory.Create())
+            {
+                await commonUserService.Update(user);
+            }
+        }
+
+        public async Task Update(CommonUserEditProfileExtendedDto user)
         {
             using (var uow = UnitOfWorkFactory.Create())
             {

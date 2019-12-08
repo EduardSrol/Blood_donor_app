@@ -134,5 +134,19 @@ namespace BloodDonorApp.BL.EF.Services.CommonUsers
             var model = Mapper.Map<ApplicantShortInfoDto>(user);
             return model;
         }
+
+        public async Task Update(CommonUserEditProfileExtendedDto entityDto)
+        {
+            var entity = await Repository.GetByIdAsync(entityDto.Id);
+            Mapper.Map(entityDto, entity);
+            Repository.Update(entity);
+        }
+
+        public async Task<CommonUserEditProfileExtendedDto> GetExtendedUserProfileDtoByIdAsync(Guid id)
+        {
+            var user = await Repository.GetByIdAsync(id);
+            var model = Mapper.Map<CommonUserEditProfileExtendedDto>(user);
+            return model;
+        }
     }
 }

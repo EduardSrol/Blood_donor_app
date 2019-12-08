@@ -14,5 +14,7 @@ namespace BloodDonorApp.BL.EF.DTO
         public bool Approved { get; set; }
 
         public BloodType BloodType { get; set; }
+
+        public bool IsDeleted { get; set; }
     }
 }
