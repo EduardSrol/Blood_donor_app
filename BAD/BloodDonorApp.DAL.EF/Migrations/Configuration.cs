@@ -244,7 +244,8 @@ namespace BloodDonorApp.DAL.EF.Migrations
                 FirstName = "Jano",
                 LastName = "Dovjo",
                 Email = "j.bigD@gmail.com",
-                UserName = "JanBoss"
+                UserName = "JanBoss",
+                Type = UserType.StationAdmin
             };
 
             var admin = new CommonUser
