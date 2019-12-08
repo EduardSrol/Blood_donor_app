@@ -16,7 +16,6 @@ namespace BloodDonorApp.PL.Controllers
     {
 
         public CommonUserFacade CommonUserFacade { get; set; }
-        public AdminFacade AdminFacade { get; set; }
 
         // GET: Account
         public ActionResult Index()

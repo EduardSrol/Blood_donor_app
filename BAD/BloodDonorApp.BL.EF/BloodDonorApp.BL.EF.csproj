@@ -97,7 +97,6 @@
     <Compile Include="DTO\DetailedDTOs\SampleStationDetailModel.cs" />
     <Compile Include="DTO\DetailedDTOs\UserDetailModel.cs" />
     <Compile Include="DTO\SampleStationDto.cs" />
-    <Compile Include="Facades\AdminFacade.cs" />
     <Compile Include="Facades\BloodDonationFacade.cs" />
     <Compile Include="Facades\CommonUserFacade.cs" />
     <Compile Include="Facades\Common\FacadeBase.cs" />
@@ -111,8 +110,6 @@
     <Compile Include="QueryObjects\Common\QueryObjectUtils.cs" />
     <Compile Include="QueryObjects\HospitalQueryObject.cs" />
     <Compile Include="QueryObjects\SampleStationQueryObject.cs" />
-    <Compile Include="Services\Admins\AdminService.cs" />
-    <Compile Include="Services\Admins\IAdminService.cs" />
     <Compile Include="Services\BloodDonations\BloodDonationService.cs" />
     <Compile Include="Services\BloodDonations\IBloodDonationService.cs" />
     <Compile Include="Services\CommonUsers\CommonUserService.cs" />

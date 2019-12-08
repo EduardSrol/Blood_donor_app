@@ -42,7 +42,7 @@ namespace BloodDonorApp.BL.EF.Facades
         {
             using (var uow = UnitOfWorkFactory.Create())
             {
-                if (await hospitalService.IsSampleStationUnique(model, true, true))
+                if (await hospitalService.IsHospitalUnique(model, true, true))
                 {
                     var id = hospitalService.CreateHospital(model);
                     await uow.CommitAsync();

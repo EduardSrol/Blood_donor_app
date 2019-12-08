@@ -57,7 +57,7 @@ namespace BloodDonorApp.BL.EF.Services.Hospitals
 
         Guid CreateHospital(HospitalDto model);
 
-        Task<bool> IsSampleStationUnique(HospitalDto model, bool checkAddress, bool checkName);
+        Task<bool> IsHospitalUnique(HospitalDto model, bool checkAddress, bool checkName);
 
     }
 }

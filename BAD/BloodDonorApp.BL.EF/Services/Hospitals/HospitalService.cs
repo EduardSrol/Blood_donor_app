@@ -45,7 +45,7 @@ namespace BloodDonorApp.BL.EF.Services.Hospitals
             return hospital.Id;
         }
 
-        public async Task<bool> IsSampleStationUnique(HospitalDto model, bool checkAddress, bool checkName)
+        public async Task<bool> IsHospitalUnique(HospitalDto model, bool checkAddress, bool checkName)
         {
             if (checkAddress)
             {

@@ -58,8 +58,9 @@ namespace BloodDonorApp.PL.Controllers
         public async Task<ActionResult> EditExtended(CommonUserDto user)
         {
             await CommonUserFacade.Update(user);
-            return View("EditExtended", user);
+            return RedirectToAction("Index");
         }
+
         public async Task<ActionResult> EditExtended(Guid id)
         {
             var user = await CommonUserFacade.GetCommonUserByIdAsync(id);
