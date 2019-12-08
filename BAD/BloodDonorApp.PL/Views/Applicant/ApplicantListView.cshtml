@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "Applicants";
     var rowNumber = 1;
-    var isAdmin = User.IsInRole("Admin");
+    var isAdmin = User.IsInRole("Admin") || User.IsInRole("RootAdmin");
     var visibleFor_cent = isAdmin ? "text-align:center;" : "text-align:center; display:none";
     var visibleFor_left = isAdmin ? "text-align:left;" : "text-align:center; display:none";
 }

@@ -1,5 +1,5 @@
 ﻿@{ 
-    var isAdmin = User.IsInRole("Admin");
+    var isRootAdmin = User.IsInRole("RootAdmin");
 }
 <!DOCTYPE html>
 <html>
@@ -79,7 +79,7 @@
                                     <ul id="navigation" style="text-align:right">
                                         <li>@Html.ActionLink("Home", "Index", "Home")</li>
                                         <li>@Html.ActionLink("Applicants", "Index", "Applicant")</li>
-                                        @if (isAdmin) { 
+                                        @if (isRootAdmin) { 
                                             <li>@Html.ActionLink("Users", "Index", "CommonUser")</li>
                                         }
                                         <li>@Html.ActionLink("Hospitals", "Index", "Hospital")</li>

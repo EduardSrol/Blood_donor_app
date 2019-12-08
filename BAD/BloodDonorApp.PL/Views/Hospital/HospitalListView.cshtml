@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "HospitalListView";
     var rowNumber = 1;
-    var isAdmin = User.IsInRole("Admin");
+    var isAdmin = User.IsInRole("Admin") || User.IsInRole("RootAdmin");
     var visibleFor = isAdmin ? "text-align:center;" : "text-align:center; display:none";
 }
 
