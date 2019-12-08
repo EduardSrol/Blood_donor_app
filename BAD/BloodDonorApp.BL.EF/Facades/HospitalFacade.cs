@@ -42,9 +42,13 @@ namespace BloodDonorApp.BL.EF.Facades
         {
             using (var uow = UnitOfWorkFactory.Create())
             {
-                var id = hospitalService.CreateHospital(model);
-                await uow.CommitAsync();
-                return id;
+                if (await hospitalService.IsSampleStationUnique(model, true, true))
+                {
+                    var id = hospitalService.CreateHospital(model);
+                    await uow.CommitAsync();
+                    return id;
+                }
+                throw new ArgumentException("There is already registered hospital with this name and address.");
             }
         }
     }

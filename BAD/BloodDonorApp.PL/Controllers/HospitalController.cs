@@ -66,12 +66,12 @@ namespace BloodDonorApp.PL.Controllers
             {
                 await HospitalFacade.CreateHospital(hospitaCreatelDto);
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Hospital");
             }
             catch (ArgumentException)
             {
-                ModelState.AddModelError("SampleStation", "Sample Station cannot be created");
-                return View();
+                ModelState.AddModelError("Hospital", "Hospital cannot be created");
+                return View("Error", null, "Hospital cannot be created (maybe it is already registered).");
             }
         }
     }

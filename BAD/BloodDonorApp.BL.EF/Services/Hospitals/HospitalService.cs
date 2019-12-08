@@ -44,5 +44,19 @@ namespace BloodDonorApp.BL.EF.Services.Hospitals
             Repository.Insert(hospital);
             return hospital.Id;
         }
+
+        public async Task<bool> IsSampleStationUnique(HospitalDto model, bool checkAddress, bool checkName)
+        {
+            if (checkAddress)
+            {
+                var stationByAddress = await Repository.FirstOrDefaultAsync(ss => ss.Street.Equals(model.Street) && ss.City.Equals(model.City));
+                if (checkName)
+                    return (stationByAddress == null) && (await Repository.FirstOrDefaultAsync(ss => ss.Name.Equals(model.Name)) == null);
+                return (stationByAddress == null);
+            }
+            if (checkName)
+                return await Repository.FirstOrDefaultAsync(ss => ss.Name.Equals(model.Name)) == null;
+            return false;
+        }
     }
 }

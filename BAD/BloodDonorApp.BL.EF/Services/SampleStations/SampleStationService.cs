@@ -43,6 +43,20 @@ namespace BloodDonorApp.BL.EF.Services.SampleStations
             Repository.Insert(sampleStation);
             return sampleStation.Id;
         }
+
+        public async Task<bool> IsSampleStationUnique(SampleStationDto model, bool checkAddress, bool checkName)
+        {
+            if (checkAddress)
+            {
+                var stationByAddress = await Repository.FirstOrDefaultAsync(ss => ss.Street.Equals(model.Street) && ss.City.Equals(model.City));
+                if (checkName)
+                    return (stationByAddress == null) && (await Repository.FirstOrDefaultAsync(ss => ss.Name.Equals(model.Name)) == null);
+                return (stationByAddress == null);
+            }
+            if (checkName)
+                return await Repository.FirstOrDefaultAsync(ss => ss.Name.Equals(model.Name)) == null;
+            return false;
+        }
     }
 
 }

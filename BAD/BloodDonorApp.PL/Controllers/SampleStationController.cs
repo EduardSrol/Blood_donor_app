@@ -64,13 +64,12 @@ namespace BloodDonorApp.PL.Controllers
             try
             {
                 await SampleStationFacade.CreateSampleStation(sampleStationCreateDto);
-
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "SampleStation");
             }
             catch (ArgumentException)
             {
                 ModelState.AddModelError("SampleStation", "Sample Station cannot be created");
-                return View();
+                return View("Error", null, "Sample Station cannot be created (maybe it is already registered).");
             }
         }
     }

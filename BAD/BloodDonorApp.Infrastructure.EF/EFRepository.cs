@@ -113,6 +113,11 @@ namespace BloodDonorApp.Infrastructure.EF
         {
             return await DbContext.Set<TEntity>().FindAsync(id);
         }
+
+        public async Task<TEntity> FirstOrDefaultAsync(Expression<Func<TEntity, bool>> predicate)
+        {
+            return await DbContext.Set<TEntity>().FirstOrDefaultAsync(predicate);
+        }
         #endregion
 
         protected virtual bool IsDetachedState(TEntity entity)

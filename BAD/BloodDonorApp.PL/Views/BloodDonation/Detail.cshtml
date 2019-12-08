@@ -4,52 +4,52 @@
     ViewBag.Title = "Detail";
 }
 
-    <div class="container body-content">
-        <h2>Details</h2>
-        <div>
-            <hr />
-            <dl class="dl-horizontal" style="font-size:150%">
-                <dt>
-                    @Html.DisplayNameFor(model => model.DonorId):
-                </dt>
+<div class="container body-content">
+    <h2>Details</h2>
+    <div>
+        <hr />
+        <dl class="dl-horizontal" style="font-size:150%">
+            <dt>
+                @Html.DisplayNameFor(model => model.DonorId):
+            </dt>
 
-                <dd>
-                    @Html.DisplayFor(model => model.DonorId)
-                </dd>
+            <dd>
+                @Html.DisplayFor(model => model.DonorId)
+            </dd>
 
-                <dt>
-                    @Html.DisplayNameFor(model => model.ApplicantId):
-                </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.ApplicantId):
+            </dt>
 
-                <dd>
-                    @Html.DisplayFor(model => model.ApplicantId)
-                </dd>
+            <dd>
+                @Html.DisplayFor(model => model.ApplicantId)
+            </dd>
 
-                <dt>
-                    @Html.DisplayNameFor(model => model.SampleStationId):
-                </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.SampleStationId):
+            </dt>
 
-                <dd>
-                    @Html.DisplayFor(model => model.SampleStationId)
-                </dd>
+            <dd>
+                @Html.DisplayFor(model => model.SampleStationId)
+            </dd>
 
-                <dt>
-                    @Html.DisplayNameFor(model => model.SampleVolume):
-                </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.SampleVolume):
+            </dt>
 
-                <dd>
-                    @Html.DisplayFor(model => model.SampleVolume)
-                </dd>
+            <dd>
+                @Html.DisplayFor(model => model.SampleVolume)
+            </dd>
 
-                <dt>
-                    @Html.DisplayNameFor(model => model.Date):
-                </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Date):
+            </dt>
 
-                <dd>
-                    @Html.DisplayFor(model => model.Date)
-                </dd>
-            </dl>
-            <hr />
-        </div>
-        <button type="button" class="boxed-btn" title="Browse blood donations" onclick="location.href='@Url.Action("BloodDonationListView", "BloodDonation")'">Back to List</button>
+            <dd>
+                @Html.DisplayFor(model => model.Date)
+            </dd>
+        </dl>
+        <hr />
     </div>
+    <button type="button" class="boxed-btn" title="Browse blood donations" onclick="location.href='@Url.Action("BloodDonationListView", "BloodDonation")'">Back to List</button>
+</div>

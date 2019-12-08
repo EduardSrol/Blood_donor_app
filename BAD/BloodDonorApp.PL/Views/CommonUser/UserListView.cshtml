@@ -46,23 +46,22 @@
 
 
 <!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
+<div id="myModal" class="modal" role="dialog" tabindex="-1" data-backdrop="false">
     <div class="modal-dialog">
         <input type="hidden" id="userId-hdn" value="" />
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
+                <h4 class="modal-title" style="text-align:left">Are you sure? - This action is irreversible!</h4>
                 <button type="button" class="close" data-dismiss="modal" onclick="() => (document.getElementById('modalP').innerHTML = '')">&times;</button>
-                <h4 class="modal-title">Are you sure? - This action is irreversible!</h4>
             </div>
             <div id="modalContent" class="modal-body">
                 <p id="modalP"></p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="Delete()">Yes</button>
+                <button type="button" class="boxed-btn" data-dismiss="modal" onclick="Delete()">Yes</button>
             </div>
         </div>
-
     </div>
 </div>
 

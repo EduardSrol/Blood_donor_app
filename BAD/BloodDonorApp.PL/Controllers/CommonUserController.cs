@@ -62,7 +62,7 @@ namespace BloodDonorApp.PL.Controllers
         }
         public async Task<ActionResult> EditExtended(Guid id)
         {
-            var user = await CommonUserFacade.GetApplicantByIdAsync(id);
+            var user = await CommonUserFacade.GetCommonUserByIdAsync(id);
             return View("EditExtended", user);
         }
         

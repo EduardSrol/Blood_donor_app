@@ -56,5 +56,8 @@ namespace BloodDonorApp.BL.EF.Services.Hospitals
         Task<QueryResultDto<HospitalDto, HospitalFilterDto>> ListHospitalsAsync(HospitalFilterDto filter);
 
         Guid CreateHospital(HospitalDto model);
+
+        Task<bool> IsSampleStationUnique(HospitalDto model, bool checkAddress, bool checkName);
+
     }
 }

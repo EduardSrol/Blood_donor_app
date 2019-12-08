@@ -3,56 +3,52 @@
 @{
     ViewBag.Title = "Detail";
 }
+<div class="container body-content">
+    <h2>Details</h2>
+    <div>
+        <hr />
+        <dl class="dl-horizontal" style="font-size:150%">
+            <dt>
+                @Html.DisplayNameFor(model => model.FirstName):
+            </dt>
 
-<h2>Detail</h2>
+            <dd>
+                @Html.DisplayFor(model => model.FirstName)
+            </dd>
 
-<div>
-    <h4>ApplicantShortInfoDto</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.UUN):
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.FirstName)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.UUN)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.UUN)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Age):
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.UUN)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Age)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Age)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.HospitalId):
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Age)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.HospitalId)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Desription)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Desription):
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Desription)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.HospitalId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.HospitalId)
-        </dd>
-
-    </dl>
+            <dd>
+                @Html.DisplayFor(model => model.Desription)
+            </dd>
+        </dl>
+        <hr />
+    </div>
+    <button type="button" class="boxed-btn" title="Browse blood donations" onclick="location.href='@Url.Action("Index", "Applicant")'">Back to List</button>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

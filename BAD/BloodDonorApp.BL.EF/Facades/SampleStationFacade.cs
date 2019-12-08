@@ -42,9 +42,13 @@ namespace BloodDonorApp.BL.EF.Facades
         {
             using (var uow = UnitOfWorkFactory.Create())
             {
-                var id = sampleStationService.CreateSampleStation(model);
-                await uow.CommitAsync();
-                return id;
+                if (await sampleStationService.IsSampleStationUnique(model, true, false))
+                {
+                    var id = sampleStationService.CreateSampleStation(model);
+                    await uow.CommitAsync();
+                    return id;
+                }
+                throw new ArgumentException("There is already registered sample station to this address.");
             }
         }
     }
