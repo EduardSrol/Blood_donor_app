@@ -3,6 +3,9 @@
 @{
     ViewBag.Title = "BDA Users";
     var rowNumber = 1;
+    var isAdmin = User.IsInRole("Admin");
+    var visibleFor_cent = isAdmin ? "text-align:center;" : "text-align:center; display:none";
+    var visibleFor_left = isAdmin ? "text-align:left;" : "text-align:center; display:none";
 }
 
 <div class="container body-content">
@@ -16,9 +19,9 @@
                 <th scope="col">First name</th>
                 <th scope="col">Last name</th>
                 <th scope="col">Blood type</th>
-                <th scope="col">Email</th>
-                <th scope="col">IsDeleted</th>
-                <th scope="col" class="" style="text-align:center">Actions</th>
+                <th scope="col" style="@visibleFor_left">Email</th>
+                <th scope="col" style="@visibleFor_left">IsDeleted</th>
+                <th scope="col" class="" style="@visibleFor_cent">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -29,12 +32,12 @@
                     <td>@item.FirstName</td>
                     <td>@item.LastName</td>
                     <td>@item.BloodType</td>
-                    <td>@item.Email</td>
-                    <td>@item.IsDeleted</td>
-                    <td class="" style="text-align:center">
+                    <td style="@visibleFor_left">@item.Email</td>
+                    <td style="@visibleFor_left">@item.IsDeleted</td>
+                    <td class="" style="@visibleFor_cent">
                         <button type="button" class="boxed-btn-edit" title="Edit user" onclick="location.href='@Url.Action("EditExtended", "CommonUser", new { id = item.Id })'">Edit</button>
                         <button type="button" class="boxed-btn-details" title="Show details for @item.FirstName">Details</button>
-                        <button id="deleteSoftBtn_@rowNumber" type="button" class="boxed-btn-softdelete" data-toggle="modal" data-target="#myModal" title="Delete user (soft)" onclick="FillNameToModalForSoftDelete('@item.FirstName', '@item.LastName', '@item.Id');">Soft delete</button>
+                        <button id="deleteSoftBtn_@rowNumber" type="button" class="boxed-btn-softdelete" title="Delete user (soft)" onclick="DeleteUserSoft('@item.Id');">Soft delete</button>
                         <button id="deleteBtn_@rowNumber" type="button" class="boxed-btn-delete" data-toggle="modal" data-target="#myModal" title="Delete user" onclick="FillNameToModalForDelete('@item.FirstName', '@item.LastName', '@item.Id');">Delete</button>
                     </td>
                 </tr>
@@ -59,7 +62,7 @@
                 <p id="modalP"></p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="boxed-btn" data-dismiss="modal" onclick="Delete()">Yes</button>
+                <button type="button" class="boxed-btn" data-dismiss="modal" onclick="DeleteUser()">Yes</button>
             </div>
         </div>
     </div>
@@ -71,20 +74,6 @@
         document.getElementById("modalP").innerHTML = 'Do you really want to delete user <b>' + name + ' ' + lastname + '? </b><br/><i>This operation delete user and all related data (Blood donations etc.).</i>';
         $("#userId-hdn").val(id);
         deletingSoft = false;
-    }
-
-    function FillNameToModalForSoftDelete(name, lastname, id) {
-        document.getElementById("modalP").innerHTML = 'Do you really want to (soft) delete user <b>' + name + ' ' + lastname + '? </b><br/><i>This operation marks user as deleted and he is no longer available.</i>';
-        $("#userId-hdn").val(id);
-        deletingSoft = true;
-    }
-
-    function Delete() {
-        if (deletingSoft) {
-            DeleteUserSoft();
-        } else {
-            DeleteUser();
-        }
     }
 
     function DeleteUser() {
@@ -102,14 +91,12 @@
         });
     }
 
-    function DeleteUserSoft() {
-        var id = $("#userId-hdn").val();
+    function DeleteUserSoft(id) {
         $.ajax({
             type: "POST",
             url: "@Url.Action("DeleteUserSoft", "CommonUser")",
             data: { id: id },
             success: function () {
-                alert("User has been succesfully (soft) deleted.");
                 $("#userId-hdn").val("");
                 $("#modalContent").innerHTML = '';
                 location.reload();

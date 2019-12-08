@@ -1,8 +1,11 @@
 ﻿@model BloodDonorApp.PL.Models.ApplicantListViewModel
 
 @{
-    ViewBag.Title = "ApplicantListView";
+    ViewBag.Title = "Applicants";
     var rowNumber = 1;
+    var isAdmin = User.IsInRole("Admin");
+    var visibleFor_cent = isAdmin ? "text-align:center;" : "text-align:center; display:none";
+    var visibleFor_left = isAdmin ? "text-align:left;" : "text-align:center; display:none";
 }
 
 <div class="container body-content">
@@ -13,9 +16,12 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">First name</th>
+                <th scope="col" style="@visibleFor_left">Last name</th>
+                <th scope="col" style="@visibleFor_left">Username</th>
                 <th scope="col">Blood type</th>
-                <th scope="col">UUN</th>
-                <th scope="col" style="text-align:center">Actions</th>
+                <th scope="col">Email</th>
+                <th scope="col" style="@visibleFor_left">UUN</th>
+                <th scope="col" style="@visibleFor_cent">Actions</th>
             </tr>
         </thead>
 
@@ -24,9 +30,12 @@
             <tr>
                 <td scope="row">@(rowNumber++)</td>
                 <td>@item.FirstName</td>
+                <td style="@visibleFor_left">@item.LastName</td>
+                <td style="@visibleFor_left">@item.UserName</td>
                 <td>@item.BloodType</td>
-                <td>@item.UUN</td>
-                <td class="" style="text-align:center">
+                <td>@item.Email</td>
+                <td style="@visibleFor_left">@item.UUN</td>
+                <td class="" style="@visibleFor_cent">
                     <button type="button" class="boxed-btn-details" title="Show details for @item.FirstName" onclick="location.href='@Url.Action("Detail", "Applicant", new { id = item.Id })'">Details</button>
                 </td>
             </tr>

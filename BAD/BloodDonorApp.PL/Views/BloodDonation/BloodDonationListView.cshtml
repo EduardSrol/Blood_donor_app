@@ -3,6 +3,9 @@
 @{
     ViewBag.Title = "BloodDonationListView";
     int rowNumber = 1;
+    var isAdmin = User.IsInRole("Admin");
+    var visibleFor_cent = isAdmin ? "text-align:center;" : "text-align:center; display:none";
+    var visibleFor_left = isAdmin ? "text-align:left;" : "text-align:center; display:none";
 }
 
 <div class="container body-content">
@@ -14,7 +17,7 @@
                 <th scope="col">BloodType</th>
                 <th scope="col">Date</th>
                 <th scope="col">Id</th>
-                <th scope="col" style="text-align:center">Actions</th>
+                <th scope="col" style="@visibleFor_cent">Actions</th>
             </tr>
         </thead>
 
@@ -25,7 +28,7 @@
                 <td>@item.BloodType</td>
                 <td>@item.Date</td>
                 <td>@item.Id</td>
-                <td class="" style="text-align:center">
+                <td class="" style="@visibleFor_cent">
                     <button type="button" class="boxed-btn-details" title="Show details for @item.Id" onclick="location.href='@Url.Action("Detail", "BloodDonation", new { id = item.Id })'">Details</button>
                 </td>
             </tr>
@@ -34,5 +37,5 @@
         }
     </table>
     <hr />
-    <button type="button" class="boxed-btn" title="Add new Hospital" onclick="location.href='@Url.Action("Create", "BloodDonation")'">Add new Blood donation</button>
+    <button type="button" class="boxed-btn" style="@visibleFor_cent" title="Add new Hospital" onclick="location.href='@Url.Action("Create", "BloodDonation")'">Add new Blood donation</button>
 </div>

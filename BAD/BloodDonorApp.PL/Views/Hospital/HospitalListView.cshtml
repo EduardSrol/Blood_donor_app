@@ -3,7 +3,10 @@
 @{
     ViewBag.Title = "HospitalListView";
     var rowNumber = 1;
+    var isAdmin = User.IsInRole("Admin");
+    var visibleFor = isAdmin ? "text-align:center;" : "text-align:center; display:none";
 }
+
 <div class="container body-content">
     <h1>All hospitals</h1>
     <br />
@@ -14,7 +17,7 @@
                 <th scope="col">Name</th>
                 <th scope="col">Street</th>
                 <th scope="col">City</th>
-                <th scope="col" style="text-align:center">Actions</th>
+                <th scope="col" style="@visibleFor">Actions</th>
             </tr>
         </thead>
 
@@ -25,7 +28,7 @@
                 <td>@item.Name</td>
                 <td>@item.Street</td>
                 <td>@item.City</td>
-                <td class="" style="text-align:center">
+                <td class="" style="@visibleFor">
                     <button type="button" class="boxed-btn-details" title="Show details for @item.Name" onclick="location.href='@Url.Action("Details", "Hospital", new { id = item.Id })'">Details</button>
                 </td>
             </tr>
@@ -33,6 +36,6 @@
         }
     </table>
     <hr />
-    <button type="button" class="boxed-btn" title="Add new Hospital" onclick="location.href='@Url.Action("Create", "Hospital")'">Add new Hospital</button>
+    <button type="button" class="boxed-btn" style="@visibleFor" title="Add new Hospital" onclick="location.href='@Url.Action("Create", "Hospital")'">Add new Hospital</button>
 </div>
 

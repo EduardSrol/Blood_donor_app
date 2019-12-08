@@ -1362,6 +1362,10 @@ h3 {
   background-image: url(../img/banner/banner2.png);
 }
 
+.slider_bg_3 {
+  background-image: url(../img/banner/banner.png);
+}
+
 /* line 8, C:/Users/SPN Graphics/Desktop/CL September/210 Medical/HTML/scss/_slider.scss */
 .slider_area .single_slider {
   height: 700px;
@@ -2957,6 +2961,10 @@ h3 {
 /* line 61, C:/Users/SPN Graphics/Desktop/CL September/210 Medical/HTML/scss/_tesmonial.scss */
 .testmonial_bg_2 {
   background-image: url(../img/testmonial/blood_saves_life2.png);
+}
+
+.testmonial_bg_3 {
+  background-image: url(../img/testmonial/testim.png);
 }
 
 /* line 1, C:/Users/SPN Graphics/Desktop/CL September/210 Medical/HTML/scss/_service.scss */

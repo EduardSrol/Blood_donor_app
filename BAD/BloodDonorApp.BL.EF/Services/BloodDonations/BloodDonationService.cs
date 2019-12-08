@@ -50,7 +50,6 @@ namespace BloodDonorApp.BL.EF.Services.BloodDonations
             return await Query.ExecuteQuery(filter);
         }
 
-
         public Guid CreateBloodDonation(BloodDonationDto model)
         {
             var bloodDonation = Mapper.Map<BloodDonation>(model);

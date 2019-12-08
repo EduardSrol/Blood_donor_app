@@ -13,10 +13,16 @@ namespace BloodDonorApp.BL.EF.DTO
     {
         public Guid DonorId { get; set; }
 
+        public string DonorName { get; set; }
+
         public Guid ApplicantId { get; set; }
+
+        public string ApplicantName { get; set; }
 
         [Required(ErrorMessage = "Sample Station is required!")]
         public Guid SampleStationId { get; set; }
+
+        public string SampleStationName { get; set; }
 
         [Required(ErrorMessage = "Blood type is required!")]
         public BloodType BloodType { get; set; }
