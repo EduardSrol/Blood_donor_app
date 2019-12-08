@@ -63,7 +63,7 @@ namespace BloodDonorApp.PL.Controllers
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
         [HttpPost]
-        public ActionResult Login(LoginModel model, string returnUrl)
+        public ActionResult Login(UserLogInDto model, string returnUrl)
         {
             SessionUser user;
             var isValid = CommonUserFacade.Login(model.Username, model.Password, out user);

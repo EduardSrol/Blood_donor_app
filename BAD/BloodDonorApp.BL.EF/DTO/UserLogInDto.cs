@@ -11,9 +11,9 @@ namespace BloodDonorApp.BL.EF.DTO
     public class UserLogInDto : DtoBase
     {
         [Required(ErrorMessage = "Username is required!")]
-        public string UserName { get; set; }
-        [Required(ErrorMessage = "Password is required!")]
+        public string Username { get; set; }
 
+        [Required(ErrorMessage = "Password is required!")]
         public string Password { get; set; }
 
         public string Email { get; set; }

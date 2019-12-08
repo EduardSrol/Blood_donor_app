@@ -1,4 +1,4 @@
-﻿@model BloodDonorApp.PL.Models.LoginModel
+﻿@model BloodDonorApp.BL.EF.DTO.UserLogInDto
 
 @{
     ViewBag.Title = "Login";
@@ -6,7 +6,7 @@
 
 <div class="container body-content" style="font-size:150%">
     <h2>Login</h2>
-    @using (Html.BeginForm("Login", "Account"))
+    @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
 
@@ -24,11 +24,11 @@
             <div class="form-group row">
                 @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "col-form-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.PasswordFor(model => model.Password, new { @class = "form-control", placeholder = "Password" })
+                    @Html.PasswordFor(model => model.Password, new { @class = "form-control", @placeholder = "Password" })
                     @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
                 </div>
             </div>
-            <hr/>
+            <hr />
             <div class="form-group row">
                 <div class="col-md-offset-2 col-md-10">
                     <input type="submit" value="Login" class="boxed-btn" />
@@ -37,4 +37,3 @@
         </div>
     }
 </div>
-

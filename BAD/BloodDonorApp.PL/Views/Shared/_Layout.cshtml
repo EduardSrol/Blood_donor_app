@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-
     <link rel="shortcut icon" type="image/x-icon" href="~/img/favicon.png">
     <link rel="stylesheet" href="~/Content/bootstrap.min.css">
     <link rel="stylesheet" href="~/Content/owl.carousel.min.css">
@@ -22,7 +20,7 @@
     <link rel="stylesheet" href="~/Content/style.css">
 </head>
 <body>
-    <header >
+    <header>
         <div class="header-area" style="margin-top:-40px">
             <div class="header-top_area">
                 <div class="container">
@@ -178,6 +176,8 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Styles.Render("~/css/font-awesome.min.css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jqueryval")
     @RenderSection("scripts", required: false)
     <script src="~/js/vendor/modernizr-3.5.0.min.js"></script>
     <script src="~/js/vendor/jquery-1.12.4.min.js"></script>
