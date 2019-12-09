@@ -17,7 +17,7 @@ namespace BloodDonorApp.PL.Controllers
     {
         #region Session
 
-        public const int PageSize = 200;
+        public const int PageSize = 50;
 
         private const string FilterSessionKey = "filter";
 
