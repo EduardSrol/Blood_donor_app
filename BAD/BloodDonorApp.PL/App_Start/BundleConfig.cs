@@ -58,7 +58,7 @@ namespace BloodDonorApp.PL
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/style.css",
-                      "~/Content/Site.css",
+                      "~/Content/site.css",
                       "~/Content/animate.css",
                       "~/Content/magnific-popup.css",
                       "~/Content/font-awesome.min.css",

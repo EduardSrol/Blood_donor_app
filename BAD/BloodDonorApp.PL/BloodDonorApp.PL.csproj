@@ -404,6 +404,7 @@
     <Content Include="Views\BloodDonation\Detail.cshtml" />
     <Content Include="Views\BloodDonation\Create.cshtml" />
     <Content Include="Views\Applicant\Detail.cshtml" />
+    <Content Include="Views\CommonUser\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

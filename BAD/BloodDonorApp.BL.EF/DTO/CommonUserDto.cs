@@ -7,10 +7,11 @@ namespace BloodDonorApp.BL.EF.DTO
 {
     public class CommonUserDto : UserDto
     {
+        [Required]
         public int UUN { get; set; }
+
         [Required]
         public BloodType BloodType { get; set; }
-        [Required]
 
         public string Description { get; set; }
 
