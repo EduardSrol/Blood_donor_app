@@ -7,9 +7,6 @@ using BloodDonorApp.BL.EF.Services.CommonUsers;
 using BloodDonorApp.BL.EF.Services.SampleStations;
 using BloodDonorApp.Infrastructure.UnitOfWork;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace BloodDonorApp.BL.EF.Facades

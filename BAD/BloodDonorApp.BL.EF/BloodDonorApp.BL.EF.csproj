@@ -69,7 +69,7 @@
     <Compile Include="DTO\CommonUserAccountAvailabilityDto.cs" />
     <Compile Include="DTO\CommonUserDto.cs" />
     <Compile Include="DTO\CommonUserEditProfileExtendedDto.cs" />
-    <Compile Include="DTO\CommonUserRegistrationDTO.cs" />
+    <Compile Include="DTO\CommonUserRegistrationDto.cs" />
     <Compile Include="DTO\Common\InstitutionDto.cs" />
     <Compile Include="DTO\Common\PersonDto.cs" />
     <Compile Include="DTO\Common\UserDto.cs" />
@@ -79,6 +79,7 @@
     <Compile Include="DTO\Common\QueryResultDto.cs" />
     <Compile Include="DTO\CommonUserEditProfileDto.cs" />
     <Compile Include="DTO\Enums\BloodType.cs" />
+    <Compile Include="DTO\Enums\CommonUserType.cs" />
     <Compile Include="DTO\Enums\UserType.cs" />
     <Compile Include="DTO\Filters\AdminFilterDto.cs" />
     <Compile Include="DTO\Filters\BloodDonationFilterDto.cs" />

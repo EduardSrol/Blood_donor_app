@@ -2,10 +2,7 @@
 using BloodDonorApp.BL.EF.DTO.Common;
 using BloodDonorApp.BL.EF.DTO.Filters;
 using BloodDonorApp.BL.EF.Facades;
-using BloodDonorApp.PL.App_Start.Windsor;
-using BloodDonorApp.BL.EF.DTO.Enums;
 using BloodDonorApp.PL.Models;
-using Castle.Windsor;
 using System;
 using System.Threading.Tasks;
 using System.Web.Mvc;

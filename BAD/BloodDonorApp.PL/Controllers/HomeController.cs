@@ -13,7 +13,7 @@ namespace BloodDonorApp.PL.Controllers
         public CommonUserFacade CommonUserFacade { get; set; }
 
 
-        public async Task<ActionResult> Index()
+        public ActionResult Index()
         {
             var x = currentUser?.UserName;
             return View();

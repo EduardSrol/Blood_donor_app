@@ -164,7 +164,6 @@
     <Compile Include="Models\BloodDonationListViewModel.cs" />
     <Compile Include="Models\CommonUserListViewModel.cs" />
     <Compile Include="Models\HospitalListViewModel.cs" />
-    <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\SampleStationListViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
