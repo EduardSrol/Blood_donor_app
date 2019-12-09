@@ -40,6 +40,8 @@ namespace BloodDonorApp.BL.EF.Services.CommonUsers
 
         Task<CommonUserDto> GetCommonUserDtoByIdAsync(Guid id);
 
+        Task<CommonUserEditProfileExtendedDto> GetExtendedUserProfileDtoByIdAsync(Guid id);
+
         Task UpdateCommonUserAsync(CommonUser user);
 
         Guid RegisterUserAsync(CommonUserRegistrationDTO model);
@@ -72,6 +74,8 @@ namespace BloodDonorApp.BL.EF.Services.CommonUsers
         /// </summary>
         /// <param name="entityDto">entity details</param>
         Task Update(CommonUserDto entityDto);
+
+        Task Update(CommonUserEditProfileExtendedDto entityDto);
 
         /// <summary>
         /// Deletes entity with given Id
