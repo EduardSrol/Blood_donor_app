@@ -20,7 +20,6 @@
                 <th scope="col">Last name</th>
                 <th scope="col">Blood type</th>
                 <th scope="col" style="@visibleFor_left">Email</th>
-                <th scope="col" style="@visibleFor_left">IsDeleted</th>
                 <th scope="col" class="" style="@visibleFor_cent">Actions</th>
             </tr>
         </thead>
@@ -33,12 +32,14 @@
                     <td>@item.LastName</td>
                     <td>@item.BloodType</td>
                     <td style="@visibleFor_left">@item.Email</td>
-                    <td style="@visibleFor_left">@item.IsDeleted</td>
-                    <td class="row" style="@visibleFor_cent">
-                        <button type="button" class="boxed-btn-edit" title="Edit user" onclick="location.href='@Url.Action("EditExtended", "CommonUser", new { id = item.Id })'">Edit</button>
-                        <button type="button" class="boxed-btn-details" title="Show details for @item.FirstName">Details</button>
-                        <button id="deleteSoftBtn_@rowNumber" type="button" class="boxed-btn-softdelete" title="Delete user (soft)" onclick="DeleteUserSoft('@item.Id');">Soft delete</button>
-                        <button id="deleteBtn_@rowNumber" type="button" class="boxed-btn-delete" data-toggle="modal" data-target="#myModal" title="Delete user" onclick="FillNameToModalForDelete('@item.FirstName', '@item.LastName', '@item.Id');">Delete</button>
+                    <td class="" style="@visibleFor_cent">
+                        <div class="row">
+                            <button type="button" class="boxed-btn-edit" title="Edit user" onclick="location.href='@Url.Action("EditExtended", "CommonUser", new { id = item.Id })'">Edit</button>
+                            <button type="button" class="boxed-btn-details" title="Show details for @item.FirstName" onclick="location.href='@Url.Action("Detail", "CommonUser", new { id = item.Id })'">Details</button>
+                            <button id="deleteSoftBtn_@rowNumber" type="button" class="boxed-btn-softdelete" title="Delete user (soft)" onclick="DeleteUserSoft('@item.Id');">Soft delete</button>
+                            <button id="deleteBtn_@rowNumber" type="button" class="boxed-btn-delete" data-toggle="modal" data-target="#myModal" title="Delete user" onclick="FillNameToModalForDelete('@item.FirstName', '@item.LastName', '@item.Id');">Delete</button>
+
+                        </div>
                     </td>
                 </tr>
             }

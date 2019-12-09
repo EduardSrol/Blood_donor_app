@@ -306,7 +306,7 @@ namespace BloodDonorApp.DAL.EF.Migrations
             int nameIdx, surnameIdx, prefixBN, sufixBN, fDomainIdx, sDomainIdx, bloodType, uun;
             for (int i = 0; i < countOfUsersToAdd; i++)
             {
-                bloodType = generator.Next(1, 9);
+                bloodType = generator.Next(0, 8);
                 nameIdx = generator.Next(0, nameCount);
                 surnameIdx = generator.Next(0, surnameCount);
                 fDomainIdx = generator.Next(0, firstDomainCount);

@@ -64,7 +64,13 @@ namespace BloodDonorApp.PL.Controllers
             var user = await CommonUserFacade.GetExtendedUserProfileDtoByIdAsync(id);
             return View("EditExtended", user);
         }
-        
+
+        public async Task<ActionResult> Detail(Guid id)
+        {
+            var user = await CommonUserFacade.GetExtendedUserProfileDtoByIdAsync(id);
+            return View("Detail", user);
+        }
+
         private CommonUserListViewModel InitializeCommonUserListViewModel(QueryResultDto<CommonUserDto, CommonUserFilterDto> result, int totalItemsCount)
         {
             return new CommonUserListViewModel
