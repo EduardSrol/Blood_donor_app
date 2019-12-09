@@ -34,7 +34,7 @@
                     <td>@item.BloodType</td>
                     <td style="@visibleFor_left">@item.Email</td>
                     <td style="@visibleFor_left">@item.IsDeleted</td>
-                    <td class="" style="@visibleFor_cent">
+                    <td class="row" style="@visibleFor_cent">
                         <button type="button" class="boxed-btn-edit" title="Edit user" onclick="location.href='@Url.Action("EditExtended", "CommonUser", new { id = item.Id })'">Edit</button>
                         <button type="button" class="boxed-btn-details" title="Show details for @item.FirstName">Details</button>
                         <button id="deleteSoftBtn_@rowNumber" type="button" class="boxed-btn-softdelete" title="Delete user (soft)" onclick="DeleteUserSoft('@item.Id');">Soft delete</button>

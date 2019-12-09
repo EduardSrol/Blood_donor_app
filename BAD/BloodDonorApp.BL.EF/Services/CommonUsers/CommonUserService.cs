@@ -99,11 +99,6 @@ namespace BloodDonorApp.BL.EF.Services.CommonUsers
         public (bool, string) AuthorizeUser(string username, string password, out SessionUser user)
         {
             var resultUser = GetCommonUserByUserName(username);
-            //            if (resultUser == null || !Utils.VerifyHashedPassword(resultUser.PasswordHash, resultUser.PasswordSalt, password))
-            //            {
-            //                user = null;
-            //                return false;
-            //            }
             var succ = resultUser != null && Utils.VerifyHashedPassword(resultUser.PasswordHash, resultUser.PasswordSalt, password);
             var roles = resultUser?.Roles ?? "";
             user = Mapper.Map<CommonUser, SessionUser>(resultUser);

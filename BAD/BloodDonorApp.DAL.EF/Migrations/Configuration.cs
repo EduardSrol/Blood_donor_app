@@ -5,6 +5,7 @@ namespace BloodDonorApp.DAL.EF.Migrations
 {
     using BloodDonorApp.DAL.EF.Models.Common;
     using System;
+    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
@@ -18,6 +19,34 @@ namespace BloodDonorApp.DAL.EF.Migrations
 
         protected override void Seed(BDADbContext context)
         {
+            var countOfUsersToAdd = 200;
+            string[] names = new string[] { "Jana", "Patra", "Petra", "Julia", "Janita",
+            "Tatiana", "Hugo", "Diana", "Berta", "Erik", "Daniela", "Zita", "Izidor",
+            "Lenka", "Patrik", "Oliver", "Roland", "Lujza", "Darina", "Igor", "Alan",
+            "Angela", "Vasil", "Mojmir", "Dana", "Ida", "Dobroslav" ,"Ernest", "Alex",
+            "Anton", "Zlatko", "Fedor", "Medard", "Galina", "Peter", "Oxana", "Saskia",
+            "Ela", "Urban", "Dusan", "Marta", "Petrana", "Nora", "Noro", "Lea", "Emil",
+            "Ema", "Iveta", "Vilma", "Alojz", "Eduard", "Rodan", "Beata", "Lea", "Sona"};
+
+            string[] surnames = new string[] { "Shehu", "Dervishi", "Gjoni", "Murati",
+            "Hasani", "Halili", "Hysi", "Leka", "Wagner", "Bauer", "Huber", "Gruber", "Hofer",
+            "Fuchs", "Berger", "Eder", "Wolf", "Aigner", "Lehner", "Haas", "Heilig", "Koller",
+            "Abbasov", "Abdullayev", "Иванов", "Новик", "Козловский", "Cleas", "Wouters", "Kasa",
+            "Dupont", "Simon", "Lambert", "Gooseness", "Delić", "Ibrahimović", "Delemović", "Terzić",
+            "Hasanović", "Krličević", "Petersen", "Thomsen", "Olsen", "Johansen", "Christiansen",
+            "Pulsen", "Mortensen", "Tamm", "Magi", "Rebane", "Koppel", "Ilves"};
+
+            string[] firstDomains = new string[] { "cz", "sk", "de", "hu", "ru", "com", "net", "edu",
+            "eu", "info", "cloud", "online", "store", "fun", "site", "space", "tech", "website", 
+            "gen", "gov", "mil", "arpa", "ac", "ad", "ae", "ao", "aq", "al", "ai", "aw", "au", "bz",
+            "ca", "cf", "ch", "cl", "cm", "cd"};
+
+            string[] secondDomains = new string[] { "ahaa", "algeria", "aichi", "centrum", "gmail", "email",
+            "azet", "atlas", "seznam", "alibaba", "aim", "another", "aol", "anymoment", "amuro", "azimi",
+            "ayna", "basket", "barcelona", "bigfoot", "bikerider", "cableone", "cais", "caere", "cia",
+            "dognob", "dropzone", "doglover", "discovery", "europe", "eqqu", "every", "eriga", "fromru"};
+            var generator = new Random();
+
             var pp = new SampleStation
             {
                 Id = Guid.NewGuid(),
@@ -269,7 +298,40 @@ namespace BloodDonorApp.DAL.EF.Migrations
                 BloodType = karlik.BloodType
             };
 
+            List<CommonUser> users = new List<CommonUser>();
+            var nameCount = names.Length;
+            var surnameCount = surnames.Length;
+            var firstDomainCount = firstDomains.Length;
+            var secondDomainCount = secondDomains.Length;
+            int nameIdx, surnameIdx, prefixBN, sufixBN, fDomainIdx, sDomainIdx, bloodType, uun;
+            for (int i = 0; i < countOfUsersToAdd; i++)
+            {
+                bloodType = generator.Next(1, 9);
+                nameIdx = generator.Next(0, nameCount);
+                surnameIdx = generator.Next(0, surnameCount);
+                fDomainIdx = generator.Next(0, firstDomainCount);
+                sDomainIdx = generator.Next(0, secondDomainCount);
+                prefixBN = generator.Next(600000, 999999);
+                sufixBN = generator.Next(1000, 9999);
+                uun = generator.Next(1000, 99999);
+                var user = new CommonUser()
+                {
+                    Id = Guid.NewGuid(),
+                    FirstName = names[nameIdx],
+                    LastName = surnames[surnameIdx],
+                    PrefixBN = prefixBN.ToString(),
+                    SufixBN = sufixBN.ToString(),
+                    Email = names[nameIdx].ToLower() + "." + surnames[surnameIdx].ToLower() + "@" + secondDomains[sDomainIdx] + "." + firstDomains[fDomainIdx],
+                    UserName = names[nameIdx] + surnames[surnameIdx] + generator.Next(0, 1000).ToString(),
+                    BloodType = (BloodType)bloodType,
+                    Type = UserType.Applicant,
+                    UUN = uun,
+                    Hospital = kk
+                };
+                users.Add(user);
+            }
 
+            context.CommonUsers.AddRange(users);
             context.CommonUsers.AddOrUpdate(user => user.Id, jozo, anna, laura, marta, laco, karlik, henrich, admin);
             context.Admins.AddOrUpdate(ad => ad.Id, jano);
             context.SampleStations.AddOrUpdate(ss => ss.Id, ke, pp, nr, ba_kramare, za);
