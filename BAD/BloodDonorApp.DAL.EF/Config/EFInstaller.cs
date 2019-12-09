@@ -1,16 +1,11 @@
 ﻿using Castle.Windsor;
 using System;
-using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using BloodDonorApp.Infrastructure;
 using BloodDonorApp.Infrastructure.EF;
 using BloodDonorApp.Infrastructure.Query;
 using BloodDonorApp.Infrastructure.UnitOfWork;
 using Castle.MicroKernel.Registration;
-using Castle.MicroKernel.Resolvers.SpecializedResolvers;
 using Castle.MicroKernel.SubSystems.Configuration;
 using BloodDonorApp.Infrastructure.EF.UnitOfWork;
 

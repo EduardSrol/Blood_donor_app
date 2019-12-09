@@ -8,7 +8,7 @@ namespace BloodDonorApp.BL.EF.DTO.Enums
 {
     public enum CommonUserType
     {
-        Donor = 4,
-        Applicant = 5
+        Donor = 0,
+        Applicant = 1
     }
 }

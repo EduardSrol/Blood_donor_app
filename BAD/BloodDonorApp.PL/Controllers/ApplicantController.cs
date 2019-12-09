@@ -35,11 +35,11 @@ namespace BloodDonorApp.PL.Controllers
             var allApplicants = await CommonUserFacade.GetCommonUsers(new CommonUserFilterDto { UserTypes = new[] { UserType.Applicant } });
             var result = await CommonUserFacade.GetCommonUsers(filter);
 
-            var model = await InitializeApplicantListViewModel(result, (int)allApplicants.TotalItemsCount);
+            var model = InitializeApplicantListViewModel(result, (int)allApplicants.TotalItemsCount);
             return View("ApplicantListView", model);
         }
 
-        private async Task<ApplicantListViewModel> InitializeApplicantListViewModel(QueryResultDto<CommonUserDto, CommonUserFilterDto> result, int totalItemsCount)
+        private ApplicantListViewModel InitializeApplicantListViewModel(QueryResultDto<CommonUserDto, CommonUserFilterDto> result, int totalItemsCount)
         {
             return new ApplicantListViewModel
             {
