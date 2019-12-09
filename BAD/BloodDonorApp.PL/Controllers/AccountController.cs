@@ -38,7 +38,7 @@ namespace BloodDonorApp.PL.Controllers
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
         [HttpPost]
-        public async Task<ActionResult> Register(CommonUserRegistrationDTO userCreateDto)
+        public async Task<ActionResult> Register(CommonUserRegistrationDto userCreateDto)
         {
             try
             {

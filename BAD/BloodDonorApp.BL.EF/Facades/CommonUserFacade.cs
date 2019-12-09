@@ -141,7 +141,7 @@ namespace BloodDonorApp.BL.EF.Facades
             }
         }
 
-        public async Task<bool> IsCommonUserDataForRegistrationUnique(CommonUserRegistrationDTO model)
+        public async Task<bool> IsCommonUserDataForRegistrationUnique(CommonUserRegistrationDto model)
         {
             using (var uow = UnitOfWorkFactory.Create())
             {
@@ -151,7 +151,7 @@ namespace BloodDonorApp.BL.EF.Facades
             }
         }
 
-        public async Task<Guid> RegisterCustomer(CommonUserRegistrationDTO model)
+        public async Task<Guid> RegisterCustomer(CommonUserRegistrationDto model)
         {
             using (var uow = UnitOfWorkFactory.Create())
             {

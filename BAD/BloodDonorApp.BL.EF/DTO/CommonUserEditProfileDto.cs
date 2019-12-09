@@ -23,7 +23,7 @@ namespace BloodDonorApp.BL.EF.DTO
 
         public string Phone { get; set; }
 
-        public UserType Type { get; set; }
+        public CommonUserType Type { get; set; }
 
         public bool Active { get; set; }
     }

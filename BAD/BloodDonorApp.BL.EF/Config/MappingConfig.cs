@@ -17,7 +17,7 @@ namespace BloodDonorApp.BL.EF.Config
         public static void ConfigureMapping(IMapperConfigurationExpression config)
         {
             config.CreateMap<Admin, AdminDto>().ReverseMap();
-            config.CreateMap<CommonUser, CommonUserRegistrationDTO>().ReverseMap();
+            config.CreateMap<CommonUser, CommonUserRegistrationDto>().ReverseMap();
             config.CreateMap<CommonUser, CommonUserDto>()
                 .ForMember(cuDto => cuDto.FullName, opts => opts.ResolveUsing(commonUser =>
                 {
@@ -37,6 +37,7 @@ namespace BloodDonorApp.BL.EF.Config
 
             config.CreateMap<CommonUserEditProfileExtendedDto, CommonUser>();
             config.CreateMap<CommonUser, CommonUserEditProfileExtendedDto>();
+
             config.CreateMap<BloodDonation, BloodDonationDto>().ReverseMap();
             config.CreateMap<Hospital, HospitalDto>().ReverseMap();
             config.CreateMap<SampleStation, SampleStationDto>().ReverseMap();

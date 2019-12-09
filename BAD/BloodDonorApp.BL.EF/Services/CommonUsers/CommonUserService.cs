@@ -84,7 +84,7 @@ namespace BloodDonorApp.BL.EF.Services.CommonUsers
             await Repository.UpdateAsync(user);
         }
 
-        public Guid RegisterUserAsync(CommonUserRegistrationDTO model)
+        public Guid RegisterUserAsync(CommonUserRegistrationDto model)
         {
             var user = Mapper.Map<CommonUser>(model);
 

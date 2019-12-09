@@ -44,7 +44,7 @@ namespace BloodDonorApp.BL.EF.Services.CommonUsers
 
         Task UpdateCommonUserAsync(CommonUser user);
 
-        Guid RegisterUserAsync(CommonUserRegistrationDTO model);
+        Guid RegisterUserAsync(CommonUserRegistrationDto model);
 
         (bool, string) AuthorizeUser(string username, string password, out SessionUser user);
 
