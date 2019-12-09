@@ -1,10 +1,11 @@
-﻿@model BloodDonorApp.BL.EF.DTO.CommonUserRegistrationDto
+﻿
+@model BloodDonorApp.BL.EF.DTO.CommonUserRegistrationDto
 
 @{
     ViewBag.Title = "Register";
 }
 
-<div class="container body-content" style="font-size:150%">
+<div class="container body-content" style="font-size:100%">
     <h2>Register</h2>
 
     @using (Html.BeginForm())
@@ -14,7 +15,7 @@
         <div class="form-horizontal">
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="form-group row">
+            <div class="form-group">
                 @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "col-form-label col-md-2" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
@@ -22,14 +23,14 @@
                 </div>
             </div>
 
-            <div class="form-group row">
+            <div class="form-group">
                 @Html.LabelFor(model => model.MiddleName, htmlAttributes: new { @class = "col-form-label col-md-2" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.MiddleName, new { htmlAttributes = new { @class = "form-control" } })
                 </div>
             </div>
 
-            <div class="form-group row">
+            <div class="form-group">
                 @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "col-form-label col-md-2" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
@@ -37,7 +38,7 @@
                 </div>
             </div>
 
-            <div class="form-group row">
+            <div class="form-group">
                 @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "col-form-label col-md-2" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
@@ -45,40 +46,31 @@
                 </div>
             </div>
 
-            <div class="form-group row">
+            <div class="form-group">
                 @Html.LabelFor(model => model.Type, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     <div class="single-element-widget">
                         <div class="default-select" id="default-select">
-                            @Html.EnumDropDownListFor(model => model.Type, "Roles")
+                            @Html.EnumDropDownListFor(model => model.Type,  new { @class = "postfix", @required = "required" })
+                            @Html.ValidationMessageFor(model => model.Type, "", new { @class = "text-danger" })
                         </div>
                     </div>
-                    @Html.ValidationMessageFor(model => model.Type, "", new { @class = "text-danger" })
                 </div>
             </div>
 
-            <div class="form-group row">
+            <div class="form-group">
                 @Html.LabelFor(model => model.BloodType, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     <div class="single-element-widget">
                         <div class="default-select" id="default-select">
-                            @Html.EnumDropDownListFor(model => model.BloodType, "Blood types")
+                            @Html.EnumDropDownListFor(model => model.BloodType, new { @class = "postfix", @required = "required" })
+                            @Html.ValidationMessageFor(model => model.BloodType, "", new { @class = "text-danger" })
                         </div>
                     </div>
-                    @Html.ValidationMessageFor(model => model.Type, "", new { @class = "text-danger" })
                 </div>
             </div>
 
-
-            <div class="form-group row">
-                @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "col-form-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group row">
+            <div class="form-group">
                 @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "col-form-label col-md-2" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control" } })
@@ -86,7 +78,15 @@
                 </div>
             </div>
 
-            <div class="form-group row">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <textarea class="form-control w-100" value="" name="Description" id="Description" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = ''" placeholder=""></textarea>
+                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
                 @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "col-form-label col-md-2" })
                 <div class="col-md-10">
                     @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
@@ -94,7 +94,7 @@
                 </div>
             </div>
             <hr />
-            <div class="form-group row">
+            <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
                     <input type="submit" value="Register" class="boxed-btn" />
                 </div>

@@ -31,6 +31,8 @@ namespace BloodDonorApp.BL.EF.DTO
         public int SampleVolume { get; set; }
 
         [Required(ErrorMessage = "Date is required!")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)] 
         public DateTime Date { get; set; }
     }
 }

@@ -62,31 +62,45 @@
                     @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
                 </div>
             </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.Type, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    <div class="single-element-widget">
-                        <div class="default-select" id="default-select">
-                            @Html.EnumDropDownListFor(model => model.Type)
+            <div class="form-group text-box">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.BloodType, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        <div class="single-element-widget">
+                            <div class="default-select" id="default-select">
+                                @Html.EnumDropDownListFor(model => model.BloodType)
+                            </div>
                         </div>
+                        @Html.ValidationMessageFor(model => model.BloodType, "", new { @class = "text-danger" })
                     </div>
-                    @Html.ValidationMessageFor(model => model.Type, "", new { @class = "text-danger" })
                 </div>
-            </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.IsDeleted, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.CheckBoxFor(model => model.IsDeleted, htmlAttributes: new { @class = "confirm-checkbox" })
-                    @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Type, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-4">
+                        <div class="single-element-widget">
+                            <div class="default-select" id="default-select">
+                                @Html.EnumDropDownListFor(model => model.Type)
+                            </div>
+                        </div>
+                        @Html.ValidationMessageFor(model => model.Type, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.IsDeleted, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.CheckBoxFor(model => model.IsDeleted, htmlAttributes: new { @class = "confirm-checkbox" })
+                        @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                    </div>
                 </div>
             </div>
+            
 
             <div class="form-group">
                 @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    <textarea class="form-control w-100" name="Description" id="Description" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = '@Model.Description'" placeholder="@Model.Description"></textarea>
+                    <textarea class="form-control w-100" value="" name="Description" id="Description" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = ''" placeholder="@Model.Description">@Model.Description</textarea>
                     @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
                 </div>
             </div>
