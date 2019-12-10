@@ -19,7 +19,7 @@ namespace BloodDonorApp.DAL.EF.Migrations
 
         protected override void Seed(BDADbContext context)
         {
-            var countOfUsersToAdd = 200;
+            var countOfUsersToAdd = 40;
             string[] names = new string[] { "Jana", "Patra", "Petra", "Julia", "Janita",
             "Tatiana", "Hugo", "Diana", "Berta", "Erik", "Daniela", "Zita", "Izidor",
             "Lenka", "Patrik", "Oliver", "Roland", "Lujza", "Darina", "Igor", "Alan",
@@ -191,68 +191,6 @@ namespace BloodDonorApp.DAL.EF.Migrations
                 UUN = 1
             };
 
-            var jozo = new CommonUser
-            {
-                Id = Guid.NewGuid(),
-                FirstName = "Jozef",
-                LastName = "Čarnogurský",
-                BloodType = BloodType.Oplus,
-                Type = UserType.Donor,
-                PrefixBN = "870512",
-                SufixBN = "4510",
-                UUN = 154
-            };
-
-            var anna = new CommonUser
-            {
-                Id = Guid.NewGuid(),
-                FirstName = "Anna",
-                LastName = "Novotná",
-                BloodType = BloodType.ABminus,
-                Type = UserType.Donor,
-                PrefixBN = "875701",
-                SufixBN = "8752",
-                UUN = 12979
-            };
-
-            var laura = new CommonUser
-            {
-                Id = Guid.NewGuid(),
-                FirstName = "Laura",
-                LastName = "Novysedláková",
-                BloodType = BloodType.Bminus,
-                Type = UserType.Donor,
-                PrefixBN = "995701",
-                SufixBN = "8852",
-                UUN = 54989
-            };
-
-            var marta = new CommonUser
-            {
-                Id = Guid.NewGuid(),
-                FirstName = "Marta",
-                LastName = "Poliaková",
-                BloodType = BloodType.Bminus,
-                Type = UserType.Applicant,
-                Hospital = kk,
-                PrefixBN = "905522",
-                SufixBN = "4578",
-                UUN = 54989
-            };
-
-            var laco = new CommonUser
-            {
-                Id = Guid.NewGuid(),
-                FirstName = "Laco",
-                LastName = "Praporcik",
-                BloodType = BloodType.ABplus,
-                Type = UserType.Applicant,
-                UUN = 2,
-                PrefixBN = "781010",
-                SufixBN = "0211",
-                Hospital = dk
-            };
-
             var henrich = new CommonUser
             {
                 Id = Guid.NewGuid(),
@@ -267,23 +205,13 @@ namespace BloodDonorApp.DAL.EF.Migrations
                 SufixBN = "1352"
             };
 
-            var jano = new Admin
-            {
-                Id = Guid.NewGuid(),
-                FirstName = "Jano",
-                LastName = "Dovjo",
-                Email = "j.bigD@gmail.com",
-                UserName = "JanBoss",
-                Type = UserType.StationAdmin
-            };
-
-            var admin = new CommonUser
+            var rootAdmin = new CommonUser
             {
                 Id = Guid.NewGuid(),
                 Type = UserType.RootAdmin,
                 FirstName = "Robert",
                 LastName = "Fiko",
-                UserName = "Ficulko",
+                UserName = "RootAdmin",
                 PasswordHash = "5tcb/axD0SkQ4ZgJQIZzn34jCQc=",
                 PasswordSalt = "KV1H+4jMnvVlnd8iYgjiHw=="
             };
@@ -332,8 +260,7 @@ namespace BloodDonorApp.DAL.EF.Migrations
             }
 
             context.CommonUsers.AddRange(users);
-            context.CommonUsers.AddOrUpdate(user => user.Id, jozo, anna, laura, marta, laco, karlik, henrich, admin);
-            context.Admins.AddOrUpdate(ad => ad.Id, jano);
+            context.CommonUsers.AddOrUpdate(user => user.Id, karlik, henrich, rootAdmin);
             context.SampleStations.AddOrUpdate(ss => ss.Id, ke, pp, nr, ba_kramare, za);
             context.Hospitals.AddOrUpdate(hospital => hospital.Id, kk, dk, mi, tn);
             context.BloodDonations.AddOrUpdate(donation => donation.Id, numOne);

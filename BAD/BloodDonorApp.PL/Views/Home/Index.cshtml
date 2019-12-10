@@ -78,7 +78,10 @@
                     </div>
                     <h3>How to help?</h3>
                     <p>Your blood donation is an amazing gift to people who need it in an emergency or for on-going medical treatment. </p>
-                    <a href="/Account/Register" class="boxed-btn3-white">Register</a>
+                    @if (!Request.IsAuthenticated)
+                    {
+                        <a href="/Account/Register" class="boxed-btn3-white">Register</a>
+                    }
                 </div>
             </div>
             <div class="col-xl-4 col-md-4">

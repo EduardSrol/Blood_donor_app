@@ -6,7 +6,7 @@ using BloodDonorApp.DAL.EF.Enums;
 
 namespace BloodDonorApp.DAL.EF
 {
-    public class DatabaseInitializer : CreateDatabaseIfNotExists<BDADbContext>
+    public class DatabaseInitializer : DropCreateDatabaseAlways<BDADbContext>
     {
         protected override void Seed(BDADbContext context)
         {

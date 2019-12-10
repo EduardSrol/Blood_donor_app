@@ -27,7 +27,7 @@
             <div class="header-top_area">
                 <div class="container">
                     <div class="row">
-                        <div class="col-xl-6 col-md-6 ">
+                        <div class="col-xl-6 col-md-6" style="margin-top:5px">
                             <div class="social_media_links">
                                 <a href="#">
                                     <i class="fa fa-linkedin"></i>
@@ -38,13 +38,13 @@
                                 <a href="#">
                                     <i class="fa fa-google-plus"></i>
                                 </a>
+                                <a href="#"> <i class="fa fa-envelope"></i> info@blooddonorapp.com</a>
+                                <a href="#"> <i class="fa fa-phone"></i> +421944561923</a>
                             </div>
                         </div>
                         <div class="col-xl-6 col-md-6">
                             <div class="short_contact_list">
                                 <ul>
-                                    <li><a href="#"> <i class="fa fa-envelope"></i> info@blooddonorapp.com</a></li>
-                                    <li><a href="#"> <i class="fa fa-phone"></i> +421944561923</a></li>
                                     @if (Request.IsAuthenticated)
                                     {
                                         <li class="nav-item dropdown">
@@ -56,6 +56,19 @@
                                             </div>
                                         </li>
                                     }
+                                    else
+                                    {
+                                        <li class="nav-item dropdown">
+                                            <a href="#" class="nav-link dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown"><i class="fa fa-user"></i> @User.Identity.Name</a>
+                                            <div class="dropdown-menu dropdown-menu-right">
+                                                <div class="dropdown-divider"></div>
+                                                <a href="/Account/Register" style="margin-left:10px">Register</a>
+                                                <br />
+                                                <a href="/Account/Login" style="margin-left:10px">Log in</a>
+                                            </div>
+                                        </li>
+                                    }
+
                                 </ul>
                             </div>
                         </div>
@@ -85,17 +98,6 @@
                                         {
                                             <li>@Html.ActionLink("Users", "Index", "CommonUser")</li>
                                             <li>@Html.ActionLink("Blood Donations", "BloodDonationListView", "BloodDonation")</li>
-                                        }
-                                        @if (!Request.IsAuthenticated)
-                                        {
-                                            <li class="pull-right">
-                                                <a href="#" class="dropdown-toggle" id="" data-toggle="dropdown"></a>
-                                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                                                    <a href="/Account/Register" style="margin-left:10px">Register</a>
-                                                    <div class="dropdown-divider"></div>
-                                                    <a href="/Account/Login" style="margin-left:10px">Log in</a>
-                                                </div>
-                                            </li>
                                         }
                                     </ul>
                                 </nav>
@@ -155,7 +157,7 @@
                                 Address
                             </h3>
                             <p>
-                                <i class="fa fa-map"></i>Czech Republic - Brno - Botanická 68a<br>
+                                <i class="fa fa-map"></i> Botanická 68a<br>
                                 <i class="fa fa-phone"></i> +421 777 666 555 <br>
                                 <i class="fa fa-envelope"></i> bda@blooddonarapp.com
                             </p>
@@ -183,7 +185,7 @@
                         <p class="copy_right text-center">
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                             Copyright &copy;
-                            <script>document.write(new Date().getFullYear());</script> All rights reserved | Base template is made by <a href="https://colorlib.com" target="_blank">Colorlib</a>, but redesigned with <i class="fa fa-heart-o" aria-hidden="true"></i> by Ján Dovjak.
+                            <script>document.write(new Date().getFullYear());</script>-BDA. All rights reserved.
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         </p>
                     </div>
