@@ -258,7 +258,7 @@ namespace BloodDonorApp.DAL.EF.Migrations
                 };
                 users.Add(user);
             }
-
+            users.Add(rootAdmin);
             context.CommonUsers.AddRange(users);
             context.CommonUsers.AddOrUpdate(user => user.Id, karlik, henrich, rootAdmin);
             context.SampleStations.AddOrUpdate(ss => ss.Id, ke, pp, nr, ba_kramare, za);

@@ -60,24 +60,24 @@
                 @Html.DisplayNameFor(model => model.Active):
             </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.Active)
+            <dd id="active">
+
             </dd>
 
             <dt>
                 @Html.DisplayNameFor(model => model.Approved):
             </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.Approved)
+            <dd id="aprroved">
+
             </dd>
 
             <dt>
                 @Html.DisplayNameFor(model => model.IsDeleted):
             </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.IsDeleted)
+            <dd id="deleted">
+
             </dd>
 
             <dt>
@@ -100,3 +100,32 @@
     </div>
     <button type="button" class="boxed-btn" title="Browse users" onclick="location.href='@Url.Action("Index", "CommonUser")'">Back to List</button>
 </div>
+
+
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script>
+    var isDeleted = @Model.IsDeleted.ToString().ToLower()
+    var isApproved = @Model.IsDeleted.ToString().ToLower()
+    var isActive = @Model.IsDeleted.ToString().ToLower()
+
+    $(document).ready(function () {
+        if (isDeleted) {
+            $("#deleted").append("YES");
+
+        } else {
+            $("#deleted").append("NO");
+        }
+        if (isApproved) {
+            $("#approved").append("YES");
+
+        } else {
+            $("#approved").append("NO");
+        }
+        if (isActive) {
+            $("#active").append("YES");
+
+        } else {
+            $("#active").append("NO");
+        }
+    });
+</script>
