@@ -1,6 +1,6 @@
 Blood Donor App
 
-**!!!BL sa nachádza v branchi test!!!**
+**!!!MASTER JE CESTA!!!**
 
 **Vedení:**
 
