@@ -1,3 +1,17 @@
+oprava:
+edit account vôbec nič
+nezobrazovať hospital id pre bežných užívateľov
+atribút display môže byť fajn
+pridať filtrovania applicantov aspoň podľa krvnej skupiny, UUN
+registrácia prejde aj s už existujúcim mailom
+nerušiť add new blood donation
+pridať nejaký check na donor Id, applicant id samplestation id a aby to nepadalo
+vymyslieť nejakú non CRUD funkcionalitu inu ako filtrovanie
+prihodte link na ten vas vec do gitu
+pri registracii nepridavate hodnotu do UUN
+
+https://dbloodweb.azurewebsites.net/Home/Index
+
 Blood Donor App
 
 **!!!MASTER JE CESTA!!!**
