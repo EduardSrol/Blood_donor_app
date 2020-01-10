@@ -36,6 +36,14 @@ namespace BloodDonorApp.PL.Controllers
         }
 
         [AllowAnonymous]
+        public async Task<ActionResult> EditExtended()
+        {
+            Guid id = Guid.Parse(Request.Cookies["ID"].Value);
+            var user = await CommonUserFacade.GetCommonUserByIdAsync(id);
+            return View("EditExtended", user);
+        }
+
+        [AllowAnonymous]
         [ValidateAntiForgeryToken]
         [HttpPost]
         public async Task<ActionResult> Register(CommonUserRegistrationDto userCreateDto)
@@ -73,6 +81,11 @@ namespace BloodDonorApp.PL.Controllers
                     DateTime.Now.AddMinutes(30), false, roles);
                 string encryptedTicket = FormsAuthentication.Encrypt(authTicket);
                 var authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket);
+                var idCookie = new HttpCookie("ID")
+                {
+                    Value = user.Id.ToString()
+                };
+                HttpContext.Response.Cookies.Add(idCookie);
                 HttpContext.Response.Cookies.Add(authCookie);
                 currentUser = user;
                 var decodedUrl = "";
