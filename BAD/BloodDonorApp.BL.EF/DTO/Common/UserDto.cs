@@ -10,6 +10,7 @@ namespace BloodDonorApp.BL.EF.DTO.Common
 {
     public abstract class UserDto : PersonDto
     {
+        [Display(Name = "Username")]
         public string UserName { get; set; }
 
         [StringLength(100)]

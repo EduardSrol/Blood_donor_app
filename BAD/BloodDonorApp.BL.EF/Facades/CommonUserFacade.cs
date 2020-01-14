@@ -2,6 +2,7 @@
 using BloodDonorApp.BL.EF.DTO.Common;
 using BloodDonorApp.BL.EF.DTO.Enums;
 using BloodDonorApp.BL.EF.DTO.Filters;
+using BloodDonorApp.BL.EF.Exceptions;
 using BloodDonorApp.BL.EF.Facades.Common;
 using BloodDonorApp.BL.EF.Services.CommonUsers;
 using BloodDonorApp.Infrastructure.UnitOfWork;
@@ -155,6 +156,15 @@ namespace BloodDonorApp.BL.EF.Facades
         {
             using (var uow = UnitOfWorkFactory.Create())
             {
+                bool emailAvailable = await commonUserService.IsEmailAvailable(model.Email);
+                if (!emailAvailable) {
+                    throw new UsedEmail("Email already used");
+                }
+                bool usernameAvailable = await commonUserService.IsUsernameAvailable(model.Username);
+                if (!usernameAvailable)
+                {
+                    throw new UsedUsername("Username already used");
+                }
                 var id = commonUserService.RegisterUserAsync(model);
                 await uow.CommitAsync();
                 return id;

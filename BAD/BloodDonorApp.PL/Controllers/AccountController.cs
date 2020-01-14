@@ -1,4 +1,5 @@
 ﻿using BloodDonorApp.BL.EF.DTO;
+using BloodDonorApp.BL.EF.Exceptions;
 using BloodDonorApp.BL.EF.Facades;
 using BloodDonorApp.PL.Models;
 using System;
@@ -34,12 +35,18 @@ namespace BloodDonorApp.PL.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public async Task<ActionResult> EditExtended(CommonUserEditProfileExtendedDto user)
+        {
+            await CommonUserFacade.Update(user);
+            return View();
+        }
 
         [AllowAnonymous]
         public async Task<ActionResult> EditExtended()
         {
             Guid id = Guid.Parse(Request.Cookies["ID"].Value);
-            var user = await CommonUserFacade.GetCommonUserByIdAsync(id);
+            var user = await CommonUserFacade.GetExtendedUserProfileDtoByIdAsync(id);
             return View("EditExtended", user);
         }
 
@@ -50,7 +57,12 @@ namespace BloodDonorApp.PL.Controllers
         {
             try
             {
-                await CommonUserFacade.RegisterCustomer(userCreateDto);
+                Guid id = await CommonUserFacade.RegisterCustomer(userCreateDto);
+                var idCookie = new HttpCookie("ID")
+                {
+                    Value = id.ToString()
+                };
+                HttpContext.Response.Cookies.Add(idCookie);
                 //FormsAuthentication.SetAuthCookie(userCreateDto.Username, false);
 
                 var authTicket = new FormsAuthenticationTicket(1, userCreateDto.Username, DateTime.Now,
@@ -61,9 +73,14 @@ namespace BloodDonorApp.PL.Controllers
 
                 return RedirectToAction("Index", "Home");
             }
-            catch (ArgumentException)
+            catch (UsedUsername ex)
             {
                 ModelState.AddModelError("Username", "Account with that username already exists!");
+                return View();
+            }
+            catch (UsedEmail)
+            {
+                ModelState.AddModelError("Email", "Account with that email already exists!");
                 return View();
             }
         }

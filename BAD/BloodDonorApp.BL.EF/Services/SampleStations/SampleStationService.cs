@@ -57,6 +57,11 @@ namespace BloodDonorApp.BL.EF.Services.SampleStations
                 return await Repository.FirstOrDefaultAsync(ss => ss.Name.Equals(model.Name)) == null;
             return false;
         }
+
+        public async Task<bool> SampleStationExists(Guid id) {
+            var ss = await Repository.FirstOrDefaultAsync(sa => sa.Id.Equals(id));
+            return ss != null;
+        }
     }
 
 }

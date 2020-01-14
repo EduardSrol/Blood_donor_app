@@ -13,12 +13,15 @@ namespace BloodDonorApp.BL.EF.DTO
 
         [Required(ErrorMessage = "First name is required!")]
         [MaxLength(64, ErrorMessage = "Your first name is too long!")]
+        [Display(Name = "First name")]
         public string FirstName { get; set; }
-
+        
+        [Display(Name = "Middle name")]
         public string MiddleName { get; set; }
 
         [Required(ErrorMessage = "Last name is required!")]
         [MaxLength(64, ErrorMessage = "Your last name is too long!")]
+        [Display(Name = "Last name")]
         public string LastName { get; set; }
 
         [Required(ErrorMessage = "Email is required!")]
@@ -38,6 +41,7 @@ namespace BloodDonorApp.BL.EF.DTO
 
         [Required(ErrorMessage = "Blood type is reqiured!")]
         [Range(1, 8, ErrorMessage = "Blood type is reqiured!")]
+        [Display(Name = "Blood type")]
         public BloodType BloodType { get; set; }
 
         [Required(ErrorMessage = "Role is required!")]

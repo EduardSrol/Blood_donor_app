@@ -2,6 +2,8 @@
 
 @{
     ViewBag.Title = "Detail";
+    var isAdmin = User.IsInRole("Admin") || User.IsInRole("RootAdmin");
+    var visibleFor = isAdmin ? "text-align:left;" : "text-align:center; display:none";
 }
 <div class="container body-content">
     <h2>Details</h2>
@@ -24,20 +26,20 @@
                 @Html.DisplayFor(model => model.UUN)
             </dd>
 
+            <dt  style="@visibleFor">
+                @Html.DisplayNameFor(model => model.HospitalId):
+            </dt>
+
+            <dd style="@visibleFor">
+                @Html.DisplayFor(model => model.HospitalId)
+            </dd>
+
             <dt>
                 @Html.DisplayNameFor(model => model.Age):
             </dt>
 
             <dd>
                 @Html.DisplayFor(model => model.Age)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.HospitalId):
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.HospitalId)
             </dd>
 
             <dt>

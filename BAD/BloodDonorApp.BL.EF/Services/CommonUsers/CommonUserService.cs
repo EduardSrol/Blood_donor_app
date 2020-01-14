@@ -84,10 +84,19 @@ namespace BloodDonorApp.BL.EF.Services.CommonUsers
             await Repository.UpdateAsync(user);
         }
 
+        public int GetUniqueUUN()
+        {
+            var id = new Random().Next(10000, 99999);
+            while (Repository.Where(u => u.UUN.Equals(id)).FirstOrDefault() != null) {
+                id = new Random().Next(10000, 99999);
+            }
+            return id;
+        }
+
         public Guid RegisterUserAsync(CommonUserRegistrationDto model)
         {
             var user = Mapper.Map<CommonUser>(model);
-
+            user.UUN = GetUniqueUUN();
             var password = Utils.GenerateHash(model.Password);
             user.PasswordHash = password.Item1;
             user.PasswordSalt = password.Item2;
@@ -113,14 +122,13 @@ namespace BloodDonorApp.BL.EF.Services.CommonUsers
 
         public async Task<bool> IsUsernameAvailable(string userName)
         {
-            var queryResult = await Query.ExecuteQuery(new CommonUserFilterDto() { Username = userName });
-            return queryResult.Items.SingleOrDefault() == null;
+            return GetCommonUserByUserName(userName) == null;
         }
 
         public async Task<bool> IsEmailAvailable(string email)
         {
-            var queryResult = await Query.ExecuteQuery(new CommonUserFilterDto() { Email = email });
-            return queryResult.Items.SingleOrDefault() == null;
+            var user = Repository.Where(u => u.Email.Equals(email) && !u.IsDeleted).FirstOrDefault();
+            return user == null;
         }
 
         public async Task<ApplicantShortInfoDto> GetApplicantByIdAsync(Guid id)
@@ -142,6 +150,11 @@ namespace BloodDonorApp.BL.EF.Services.CommonUsers
             var user = await Repository.GetByIdAsync(id);
             var model = Mapper.Map<CommonUserEditProfileExtendedDto>(user);
             return model;
+        }
+
+        public async Task<bool> UserExists(Guid id) {
+            var user = await Repository.GetByIdAsync(id);
+            return user != null;
         }
     }
 }

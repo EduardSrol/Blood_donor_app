@@ -53,6 +53,7 @@ namespace BloodDonorApp.BL.EF.Services.BloodDonations
         public Guid CreateBloodDonation(BloodDonationDto model)
         {
             var bloodDonation = Mapper.Map<BloodDonation>(model);
+            bloodDonation.SampleStation = null;
             Repository.Insert(bloodDonation);
             return bloodDonation.Id;
         }

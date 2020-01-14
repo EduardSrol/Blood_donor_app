@@ -1,12 +1,11 @@
-﻿@model BloodDonorApp.BL.EF.DTO.CommonUserDto
+﻿@model BloodDonorApp.BL.EF.DTO.CommonUserEditProfileExtendedDto
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "EditExtended";
 }
 
     <div class="container body-content">
-
-        <h2>Edit profile</h2>
+        <h2>EditExtended</h2>
 
 
         @using (Html.BeginForm())
@@ -43,6 +42,14 @@
                 </div>
 
                 <div class="form-group">
+                    @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
                     @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
                         @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
@@ -58,36 +65,13 @@
                     </div>
                 </div>
 
-
                 <div class="form-group">
-                    @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.LabelFor(model => model.Active, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.UUN, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.UUN, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.UUN, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.HospitalId, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.HospitalId, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.HospitalId, "", new { @class = "text-danger" })
+                        <div class="checkbox">
+                            @Html.EditorFor(model => model.Active)
+                            @Html.ValidationMessageFor(model => model.Active, "", new { @class = "text-danger" })
+                        </div>
                     </div>
                 </div>
 
@@ -102,31 +86,38 @@
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.Active, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.LabelFor(model => model.IsDeleted, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
                         <div class="checkbox">
-                            @Html.EditorFor(model => model.Active)
-                            @Html.ValidationMessageFor(model => model.Active, "", new { @class = "text-danger" })
+                            @Html.EditorFor(model => model.IsDeleted)
+                            @Html.ValidationMessageFor(model => model.IsDeleted, "", new { @class = "text-danger" })
                         </div>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.FullBN, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.LabelFor(model => model.HospitalId, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.FullBN, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.FullBN, "", new { @class = "text-danger" })
+                        @Html.EditorFor(model => model.HospitalId, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.HospitalId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Save" class="btn btn-default" />
+                        <input type="submit" value="Save changes" class="btn btn-default" />
                     </div>
                 </div>
             </div>
         }
-
         </div>
         @section Scripts {
             @Scripts.Render("~/bundles/jqueryval")

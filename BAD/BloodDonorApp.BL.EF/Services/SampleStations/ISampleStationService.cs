@@ -60,6 +60,7 @@ namespace BloodDonorApp.BL.EF.Services.SampleStations
 
         Task<bool> IsSampleStationUnique(SampleStationDto model, bool checkAddress, bool checkName);
 
+        Task<bool> SampleStationExists(Guid id);
 
     }
 }

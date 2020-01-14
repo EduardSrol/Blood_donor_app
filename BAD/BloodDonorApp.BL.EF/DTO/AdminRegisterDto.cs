@@ -17,10 +17,12 @@ namespace BloodDonorApp.BL.EF.DTO
         [Required]
         public string Password { get; set; }
         [Required]
+        [Display(Name = "First name")]
         public string FirstName { get; set; }
-
+        [Display(Name = "Middle name")]
         public string MiddleName { get; set; }
         [Required]
+        [Display(Name = "Last name")]
         public string LastName { get; set; }
         [Required]
         public string Email { get; set; }

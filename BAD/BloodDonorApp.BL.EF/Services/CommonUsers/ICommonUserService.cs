@@ -90,5 +90,9 @@ namespace BloodDonorApp.BL.EF.Services.CommonUsers
         Task<QueryResultDto<CommonUserDto, CommonUserFilterDto>> ListAllAsync();
 
         Task<ApplicantShortInfoDto> GetApplicantByIdAsync(Guid id);
+
+        int GetUniqueUUN();
+
+        Task<bool> UserExists(Guid id);
     }
 }

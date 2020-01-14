@@ -1,6 +1,7 @@
 ﻿using BloodDonorApp.BL.EF.DTO;
 using BloodDonorApp.BL.EF.DTO.Common;
 using BloodDonorApp.BL.EF.DTO.Filters;
+using BloodDonorApp.BL.EF.Exceptions;
 using BloodDonorApp.BL.EF.Facades;
 using BloodDonorApp.PL.Models;
 using System;
@@ -56,9 +57,19 @@ namespace BloodDonorApp.PL.Controllers
 
                 return RedirectToAction("Index", "Home");
             }
-            catch (ArgumentException)
+            catch (InvalidDonorId)
             {
-                ModelState.AddModelError("SampleStation", "Sample Station cannot be created");
+                ModelState.AddModelError("DonorId", "Donor does not exists");
+                return View();
+            }
+            catch (InvalidApplicantId)
+            {
+                ModelState.AddModelError("ApplicantId", "Applicant does not exists");
+                return View();
+            }
+            catch (InvalidSampleStationId)
+            {
+                ModelState.AddModelError("SampleStationId", "Sample Station does not exists");
                 return View();
             }
         }
