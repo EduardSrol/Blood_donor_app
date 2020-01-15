@@ -110,6 +110,7 @@
     <Compile Include="Models\SampleStation.cs" />
     <Compile Include="Models\Common\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UtilsDAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -72,6 +72,11 @@ namespace BloodDonorApp.PL.Controllers
                 ModelState.AddModelError("SampleStationId", "Sample Station does not exists");
                 return View();
             }
+            catch (ArgumentException)
+            {
+                ModelState.AddModelError("", "Incompatible blood types");
+                return View();
+            }
         }
 
         private async Task<BloodDonationListViewModel> InitializeBloodDonationListViewModel(QueryResultDto<BloodDonationDto, BloodDonationFilterDto> result, int totalItemsCount)

@@ -6,6 +6,7 @@ using BloodDonorApp.BL.EF.Facades.Common;
 using BloodDonorApp.BL.EF.Services.BloodDonations;
 using BloodDonorApp.BL.EF.Services.CommonUsers;
 using BloodDonorApp.BL.EF.Services.SampleStations;
+using BloodDonorApp.DAL.EF;
 using BloodDonorApp.Infrastructure.UnitOfWork;
 using SendGrid;
 using SendGrid.Helpers.Mail;
@@ -55,16 +56,13 @@ namespace BloodDonorApp.BL.EF.Facades
         {
             using (var uow = UnitOfWorkFactory.Create())
             {
-                bool donorIdExists = await commonUserService.UserExists(model.DonorId);
-                if (model.DonorId != null)
+                var applicant = await commonUserService.GetCommonUserByIdAsync(model.ApplicantId);
+                var donor = await commonUserService.GetCommonUserByIdAsync(model.DonorId);
+                if (donor == null || model.DonorId.Equals(Guid.Empty))
                 {
-                    if (!donorIdExists || model.DonorId.Equals(Guid.Empty))
-                    {
                         throw new InvalidDonorId();
-                    }
                 }
-                bool applicantIdExists = await commonUserService.UserExists(model.ApplicantId);
-                if (!applicantIdExists || model.ApplicantId.Equals(Guid.Empty))
+                if (applicant == null || model.ApplicantId.Equals(Guid.Empty))
                 {
                     throw new InvalidApplicantId();
                 }
@@ -73,9 +71,12 @@ namespace BloodDonorApp.BL.EF.Facades
                 {
                     throw new InvalidSampleStationId();
                 }
+                if (!UtilsDAL.CompatibleBloodTypes(donor.BloodType, applicant.BloodType)) {
+                    throw new ArgumentException();
+                }
                 var id = bloodDonationService.CreateBloodDonation(model);
                 await uow.CommitAsync();
-                SendEmail(model.DonorId);
+                //SendEmail(model.DonorId);
                 return id;
             }
         }

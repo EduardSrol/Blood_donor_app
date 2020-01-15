@@ -74,7 +74,5 @@ namespace BloodDonorApp.BL.EF.Services.BloodDonations
         Task<QueryResultDto<BloodDonationDto, BloodDonationFilterDto>> ListBloodDonationsAsync(BloodDonationFilterDto filter);
 
         Guid CreateBloodDonation(BloodDonationDto model);
-
-
     }
 }

@@ -55,6 +55,7 @@ namespace BloodDonorApp.BL.EF.Services.BloodDonations
             var bloodDonation = Mapper.Map<BloodDonation>(model);
             bloodDonation.SampleStation = null;
             Repository.Insert(bloodDonation);
+            bloodDonation.BloodType = bloodDonation.Donor.BloodType;
             return bloodDonation.Id;
         }
     }
