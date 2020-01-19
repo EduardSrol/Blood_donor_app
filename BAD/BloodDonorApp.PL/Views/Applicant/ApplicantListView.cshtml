@@ -14,21 +14,7 @@
 <div class="container body-content">
     <h1>All Applicants</h1>
     <br />
-    <table class="table" style="font-size:100%">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">First name</th>
-                <th scope="col">Last name</th>
-                <th scope="col" style="@visibleFor_left">Username</th>
-                <th scope="col">Blood type</th>
-                <th scope="col">Email</th>
-                <th scope="col" style="@visibleFor_left">UUN</th>
-                <th scope="col" style="@visibleFor_cent">Actions</th>
-            </tr>
-        </thead>
-
-        <form class="form-horizontal" action="@Url.Action("Filter", "Applicant")" method="post">
+     <form class="form-horizontal" action="@Url.Action("Filter", "Applicant")" method="post">
             <div class="row">
                 <div class="control-group col-xl-6 col-md-6">
                     @Html.DropDownList("Blood_type",
@@ -43,7 +29,23 @@
                     <input type="submit" class="form-control btn btn-primary" value="Filter" />
                 </div>
             </div>
-        </form>
+     </form>
+
+    <table class="table" style="font-size:100%">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">First name</th>
+                <th scope="col">Last name</th>
+                <th scope="col" style="@visibleFor_left">Username</th>
+                <th scope="col">Blood type</th>
+                <th scope="col">Email</th>
+                <th scope="col" style="@visibleFor_left">UUN</th>
+                <th scope="col" style="@visibleFor_cent">Actions</th>
+            </tr>
+        </thead>
+
+       
 
 
         @foreach (var item in Model.Applicants)
