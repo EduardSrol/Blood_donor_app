@@ -29,18 +29,19 @@
         </thead>
 
         <form class="form-horizontal" action="@Url.Action("Filter", "Applicant")" method="post">
-            <div class="control-group">
-                <label class="control-label">Template:</label>
-                @Html.DropDownList("Blood_type",
-                    new SelectList(Enum.GetValues(typeof(BloodType))),
-                    "All blood types",
-                    new { @class = "form-control" })
-            </div>
-            <div>
-                <input type="text" name="UUN" style="@visibleFor_left" placeholder="UUN">
-            </div>
-            <div>
-                <input type="submit" class="btn btn-primary" value="Filter" />
+            <div class="row">
+                <div class="control-group col-xl-6 col-md-6">
+                    @Html.DropDownList("Blood_type",
+                        new SelectList(Enum.GetValues(typeof(BloodType))),
+                        "All blood types",
+                        new { @class = "form-control" })
+                </div>
+                <div class="col-xl-3 col-md-3">
+                    <input type="text" class="form-control" name="UUN" style="@visibleFor_left " placeholder="UUN">
+                </div>
+                <div class="col-xl-3 col-md-3">
+                    <input type="submit" class="form-control btn btn-primary" value="Filter" />
+                </div>
             </div>
         </form>
 
