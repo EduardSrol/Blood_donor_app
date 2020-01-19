@@ -14,23 +14,23 @@
 <div class="container body-content">
     <h1>All Applicants</h1>
     <br />
-     <form class="form-horizontal" action="@Url.Action("Filter", "Applicant")" method="post">
-            <div class="row">
-                <div class="control-group col-xl-6 col-md-6">
-                    @Html.DropDownList("Blood_type",
-                        new SelectList(Enum.GetValues(typeof(BloodType))),
-                        "All blood types",
-                        new { @class = "form-control" })
-                </div>
-                <div class="col-xl-3 col-md-3">
-                    <input type="text" class="form-control" name="UUN" style="@visibleFor_left " placeholder="UUN">
-                </div>
-                <div class="col-xl-3 col-md-3">
-                    <input type="submit" class="form-control btn btn-primary" value="Filter" />
-                </div>
+    <form class="form-horizontal" action="@Url.Action("Filter", "Applicant")" method="post">
+        <div class="row">
+            <div class="control-group col-xl-6 col-md-6">
+                @Html.DropDownList("Blood_type",
+                    new SelectList(Enum.GetValues(typeof(BloodType))),
+                    "All blood types",
+                    new { @class = "form-control" })
             </div>
-     </form>
-
+            <div class="col-xl-3 col-md-3">
+                <input type="text" class="form-control" name="UUN" style="@visibleFor_left " placeholder="UUN">
+            </div>
+            <div class="col-xl-3 col-md-3">
+                <input type="submit" class="form-control btn btn-primary" value="Filter" />
+            </div>
+        </div>
+    </form>
+    <br />
     <table class="table" style="font-size:100%">
         <thead>
             <tr>
