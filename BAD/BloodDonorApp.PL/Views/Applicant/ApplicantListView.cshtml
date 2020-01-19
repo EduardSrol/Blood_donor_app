@@ -1,4 +1,6 @@
-﻿@model BloodDonorApp.PL.Models.ApplicantListViewModel
+﻿@using BloodDonorApp.BL.EF.DTO.Enums
+
+@model BloodDonorApp.PL.Models.ApplicantListViewModel
 
 @{
     ViewBag.Title = "Applicants";
@@ -11,7 +13,7 @@
 
 <div class="container body-content">
     <h1>All Applicants</h1>
-    <br/>
+    <br />
     <table class="table" style="font-size:100%">
         <thead>
             <tr>
@@ -25,6 +27,23 @@
                 <th scope="col" style="@visibleFor_cent">Actions</th>
             </tr>
         </thead>
+
+        <form class="form-horizontal" action="@Url.Action("Filter", "Applicant")" method="post">
+            <div class="control-group">
+                <label class="control-label">Template:</label>
+                @Html.DropDownList("Blood_type",
+                    new SelectList(Enum.GetValues(typeof(BloodType))),
+                    "All blood types",
+                    new { @class = "form-control" })
+            </div>
+            <div>
+                <input type="text" name="UUN" style="@visibleFor_left" placeholder="UUN">
+            </div>
+            <div>
+                <input type="submit" class="btn btn-primary" value="Filter" />
+            </div>
+        </form>
+
 
         @foreach (var item in Model.Applicants)
         {

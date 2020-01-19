@@ -76,7 +76,7 @@ namespace BloodDonorApp.BL.EF.Facades
                 }
                 var id = bloodDonationService.CreateBloodDonation(model);
                 await uow.CommitAsync();
-                //SendEmail(model.DonorId);
+                SendEmail(model.DonorId);
                 return id;
             }
         }
