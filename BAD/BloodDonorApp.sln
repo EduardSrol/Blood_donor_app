@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BloodDonorApp.BL.Tests", "B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BloodDonorApp.PL", "BloodDonorApp.PL\BloodDonorApp.PL.csproj", "{AB94A659-19EA-44FF-A48B-24EDC331FA8F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BloodDonorApp.WebApi", "BloodDonorApp.WebApi\BloodDonorApp.WebApi.csproj", "{D7A45C0C-8FBC-4810-8409-39EB9FE0FBD7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,10 @@ Global
 		{AB94A659-19EA-44FF-A48B-24EDC331FA8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB94A659-19EA-44FF-A48B-24EDC331FA8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB94A659-19EA-44FF-A48B-24EDC331FA8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7A45C0C-8FBC-4810-8409-39EB9FE0FBD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7A45C0C-8FBC-4810-8409-39EB9FE0FBD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7A45C0C-8FBC-4810-8409-39EB9FE0FBD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7A45C0C-8FBC-4810-8409-39EB9FE0FBD7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

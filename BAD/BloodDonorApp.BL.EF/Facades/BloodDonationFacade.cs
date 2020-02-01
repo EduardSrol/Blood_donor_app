@@ -42,6 +42,9 @@ namespace BloodDonorApp.BL.EF.Facades
             using (var uow = UnitOfWorkFactory.Create())
             {
                 var bloodDonation = await bloodDonationService.GetByIdAsync(id);
+                if (bloodDonation == null) {
+                    return null;
+                }
                 var donor = await commonUserService.GetCommonUserByIdAsync(bloodDonation.DonorId);
                 bloodDonation.DonorName = $"{donor.FirstName} {donor.LastName}";
                 var applicant = await commonUserService.GetCommonUserByIdAsync(bloodDonation.ApplicantId);
@@ -78,6 +81,30 @@ namespace BloodDonorApp.BL.EF.Facades
                 await uow.CommitAsync();
                 SendEmail(model.DonorId);
                 return id;
+            }
+        }
+        public async Task<bool> Update(BloodDonationDto bloodDonation)
+        {
+            using (var uow = UnitOfWorkFactory.Create())
+            {
+                if ((await bloodDonationService.GetByIdAsync(bloodDonation.Id)) == null) {
+                    return false;
+                }
+                await bloodDonationService.Update(bloodDonation);
+                return true;
+            }
+        }
+
+        public async Task<bool> DeleteAsync(Guid id)
+        {
+            using (var uow = UnitOfWorkFactory.Create())
+            {
+                if ((await bloodDonationService.GetByIdAsync(id)) == null)
+                {
+                    return false;
+                }
+                bloodDonationService.Delete(id);
+                return true;
             }
         }
 
